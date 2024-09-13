@@ -37,7 +37,7 @@ export const useLogicNavbar = () => {
 
   const items: MenuItem[] = [
     {
-      key: "/",
+      key: "1",
       icon: (
         <span>
           <IconHome />

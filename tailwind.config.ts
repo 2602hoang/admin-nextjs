@@ -9,13 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        menu: "#001529",
+        menu: "#171821",
         background: "var(--background)",
         foreground: "var(--foreground)",
         content1_card: "#171821",
         content1: "#2b2b36",
+        color_menu: "#87898E",
       },
-      
     },
   },
   plugins: [],

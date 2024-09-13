@@ -55,7 +55,7 @@ const SlideTrending = () => {
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative w-full h-auto justify-center items-center  overflow-hidden bg-content1 mr-2"
+      className="relative w-full h-auto justify-center items-center  overflow-hidden bg-content1 pl-3"
     >
       <div className="flex justify-between items-center ">
         <h1 className="text-2xl font-semibold leading-9">Trending Now</h1>
@@ -86,19 +86,23 @@ const SlideTrending = () => {
             className="flex-shrink-0  w-full md:w-[49%] h-auto justify-start items-start flex flex-col   border border-gray-200 rounded-md bg-content1"
           >
             <img
-              className="w-full max-h-[400px] "
+              className="w-full max-h-[350px] "
               src="https://via.placeholder.com/200"
               alt={testimonial.name}
             />
-
-            <Meta title={testimonial.name} />
-            <p>Popularity</p>
-            <Progress
-              className="text-white px-2"
-              percent={testimonial.number}
-              status="active"
-            />
-
+            <div className="w-full">
+              <p className="text-[1rem] my-3 font-medium leading-[1.5] text-white">
+                {testimonial.name}
+              </p>
+              <p className="text-[0.75rem] font-medium leading-[1.43] text-color_menu">
+                Popularity
+              </p>
+              <Progress
+                className="text-white px-2 my-2"
+                percent={testimonial.number}
+                status="active"
+              />
+            </div>
             <div className="flex w-full justify-end items-end">
               <Avatar.Group
                 size="default"

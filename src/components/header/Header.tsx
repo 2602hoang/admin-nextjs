@@ -91,7 +91,7 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="flex items-center flex-row  md:gap-4">
         <Badge dot={true}>
           <Button
-            onClick={toggleCollapsed}
+            // onClick={toggleCollapsed}
             type="text"
             icon={<BellOutlined style={{ color: "white", fontSize: "30px" }} />}
           ></Button>

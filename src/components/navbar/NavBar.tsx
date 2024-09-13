@@ -20,7 +20,7 @@ const Navbar: React.FC<NavbarProps> = ({ collapsed, setCollapsed }) => {
     <div
       className={`flex flex-col h-screen bg-menu w-full 
 
-       border-r-2 border-r-slate-400 border-solid  `}
+       border-r-[0.5px] border-r-slate-400 border-solid  `}
     >
       <div className="flex h-16  ">
         <div className="flex h-16 flex-row md:justify-center w-full justify-between items-center md:px-0 px-5">
