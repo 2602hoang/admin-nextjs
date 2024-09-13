@@ -14,8 +14,9 @@ const Navbar: React.FC<NavbarProps> = ({ collapsed, setCollapsed }) => {
   const { items, current, setCurrent } = useLogicNavbar();
   const onClick: MenuProps["onClick"] = (e) => {
     setCurrent(e.key);
-    setCollapsed(collapsed);
   };
+  console.log(current);
+
   return (
     <div
       className={`flex flex-col h-screen bg-menu w-full 
@@ -36,6 +37,7 @@ const Navbar: React.FC<NavbarProps> = ({ collapsed, setCollapsed }) => {
       >
         <Menu
           selectedKeys={[current]}
+          defaultSelectedKeys={["1"]}
           mode="inline"
           theme="dark"
           className=" h-[100%]"

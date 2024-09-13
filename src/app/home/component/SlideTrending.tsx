@@ -55,7 +55,7 @@ const SlideTrending = () => {
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative w-full h-auto justify-center items-center  overflow-hidden bg-content1 pl-3"
+      className="relative w-full h-auto justify-center items-center  overflow-hidden bg-content1 md:pr-0 pr-3 md:pl-3"
     >
       <div className="flex justify-between items-center ">
         <h1 className="text-2xl font-semibold leading-9">Trending Now</h1>

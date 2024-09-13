@@ -17,7 +17,7 @@ function TodaySale() {
           Sales Summary
         </p>
       </div>
-      <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1  w-full gap-4">
+      <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1  w-full gap-4 md:gap-10">
         {data.map((item) => (
           <Card key={item.key} className="w-full bg-content1_card  text-white">
             <div className="space-y-4">

@@ -38,7 +38,7 @@ const ChartsLine = () => {
           // width={300}
           // height={208}
           data={data}
-          margin={{ top: 45, right: 0, left: 0, bottom: 5 }}
+          margin={{ top: 45, right: 0, left: 10, bottom: 5 }}
         >
           <CartesianGrid strokeDasharray="3 3" />{" "}
           {/* Đường kẻ ô lưới trong biểu đồ */}
@@ -53,7 +53,7 @@ const ChartsLine = () => {
             fill="#A9DFD8"
           />
           <text
-            x={"15%"}
+            x={100}
             y={10}
             textAnchor="middle"
             dominantBaseline="hanging"
