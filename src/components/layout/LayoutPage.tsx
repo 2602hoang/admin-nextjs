@@ -1,55 +1,56 @@
 "use client";
 import "@/style/index.css";
-import { Roboto } from "next/font/google";
+import { Inter } from "next/font/google";
 import Navbar from "../navbar/NavBar";
 import { Header } from "../header/Header";
 import { useState } from "react";
 
-const roboto = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 interface LayoutPageProps {
   children: React.ReactNode;
-  selectedKey: string;
-  handleMenuClick: (key: string) => void;
 }
 
-const LayoutPage: React.FC<LayoutPageProps> = ({
-  children,
-  selectedKey,
-  handleMenuClick,
-}) => {
+const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
   };
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
 
   return (
     <html lang="en">
-      <body className={`${roboto.className}`}>
-        <div className="w-full grid grid-cols-5 grid-rows-5 h-screen overflow-hidden">
+      <body className={`${inter.className}`}>
+        <div className=" md:w-full grid grid-cols-5 font-sans grid-rows-5 h-screen overflow-hidden">
           {/* Navbar */}
           <div
             className={`${
-              collapsed
-                ? " w-0 md:w-[80px]  "
-                : " md:w-[250px] w-4/5   md:z-0 fixed z-[999] top-0 left-0 transition-transform  md:translate-x-0"
-            } h-screen md:row-span-5 transition-all duration-300 bg-gray-800 `}
+              collapsed ? "w-full md:w-[250px]" : "w-3/5 md:w-[80px] z-50"
+            } fixed top-0 left-0 h-screen  bg-gray-800  transform transition-transform duration-300 md:translate-x-0 md:relative md:row-span-5`}
           >
             <Navbar
-              selectedKey={selectedKey}
-              handleMenuClick={(e) => handleMenuClick(e.key)}
               toggleCollapsed={toggleCollapsed}
               collapsed={collapsed}
+              setCollapsed={setCollapsed}
             />
           </div>
+
+          {/* Overlay for Drawer */}
+          {!collapsed && (
+            <div
+              className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+              onClick={toggleCollapsed}
+            ></div>
+          )}
 
           {/* Header */}
           <div
             className={`${
               collapsed
-                ? " md:col-span-4 md:ml-[80px] border-l-2"
-                : "col-span-4 md:ml-[250px] ml-0 z-999"
+                ? "col-span-4 md:ml-[250px] ml-0"
+                : " md:col-span-4 md:ml-[80px] ml-0"
             } h-16 transition-all duration-300 bg-menu fixed top-0 left-0 right-0`}
           >
             <Header collapsed={collapsed} toggleCollapsed={toggleCollapsed} />
@@ -59,9 +60,9 @@ const LayoutPage: React.FC<LayoutPageProps> = ({
           <div
             className={`${
               collapsed
-                ? "col-span-4 md:ml-[80px] ml-0  mt-16 "
-                : "col-span-4 ml-[250px] mt-16"
-            } h-screen  transition-all duration-300 fixed bg-menu top-0 left-0 right-0`}
+                ? "col-span-4 md:ml-[250px] ml-0 mt-16 "
+                : "col-span-4 md:ml-[80px] ml-0 mt-16"
+            } h-screen transition-all duration-300 bg-menu fixed top-0 left-0 right-0 overflow-auto`}
           >
             {children}
           </div>

@@ -1,0 +1,12 @@
+.ant-menu-inline .ant-menu-item {
+  height: 60px;
+  line-height: 60px;
+  list-style-position: inside;
+  list-style-type: disc;
+  gap: 6px;
+  border-width: 4px;
+  border-color: rgb(254 215 170);
+}
+.ant-menu-dark .ant-menu-item-selected {
+  background-color: rgb(169, 223, 216);
+}

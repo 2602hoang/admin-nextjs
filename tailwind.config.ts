@@ -15,6 +15,7 @@ const config: Config = {
         content1_card: "#171821",
         content1: "#2b2b36",
       },
+      
     },
   },
   plugins: [],

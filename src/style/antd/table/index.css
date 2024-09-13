@@ -1,0 +1,30 @@
+.ant-table-wrapper .ant-table {
+  background-color: #2b2b36cc;
+}
+.ant-table-wrapper .ant-table-tbody .ant-table-row > .ant-table-cell-row-hover {
+  background-color: #ffffffcc;
+}
+.ant-table-wrapper .ant-table-thead > tr > th {
+  background-color: #2b2b36cc;
+  color: #fff;
+}
+tbody {
+  background-color: #2b2b36cc;
+  color: #fff;
+}
+.ant-table-wrapper .ant-table-footer {
+  background-color: #2b2b36cc;
+  border-radius: 0px;
+  color: #fff;
+}
+.ant-table-wrapper
+  .ant-table-tbody
+  .ant-table-row.ant-table-row-selected
+  > .ant-table-cell {
+  background-color: rgb(169, 223, 216, 0.08);
+  /* opacity: 0.6; */
+}
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: rgb(169, 223, 216);
+  /* border-color: rgba(169, 223, 216, 0.08); */
+}
