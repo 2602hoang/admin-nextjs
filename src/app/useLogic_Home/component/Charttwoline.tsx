@@ -56,18 +56,20 @@ export const Charttwoline = () => {
     },
   ];
   return (
-    <div className="w-full h-autoflex justify-center items-start space-y-5 flex-col flex">
-      <h1 className="text-2xl font-semibold leading-9">Customer Fulfillment</h1>
+    <div className="w-full h-auto justify-center gap-y-5 items-start space-y-5 p-5 flex-col flex">
+      <h4 className="text-2xl font-semibold text-start leading-9">
+        Customer Fulfillment
+      </h4>
       <ResponsiveContainer
-        className="w-full h-full min-h-52"
+        className="w-full h-full flex"
         width="100%"
-        height="100%"
+        height={300}
       >
         <AreaChart
           // width={730}
           // height={250}
           data={data}
-          margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+          margin={{ top: 10, right: 10, left: 10, bottom: 0 }}
         >
           <defs>
             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">

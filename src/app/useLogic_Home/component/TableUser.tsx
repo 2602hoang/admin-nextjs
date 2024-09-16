@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { DeleteFilled, EditOutlined, SearchOutlined } from "@ant-design/icons";
-import { Button, Input, Space, Table, TableColumnsType } from "antd";
+import { Avatar, Button, Input, Space, Table, TableColumnsType } from "antd";
 import {
   TablePaginationConfig,
   TableRowSelection,
@@ -15,11 +15,24 @@ interface DataType {
   address: string;
   total: number;
 }
-
+const getRandomColor = () => {
+  const letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
 const columns: TableColumnsType<DataType> = [
   {
     title: "Name",
     dataIndex: "name",
+    render: (text) => (
+      <span className="gap-1 flex flex-row items-center">
+        <Avatar style={{ backgroundColor: getRandomColor() }}>{text[0]}</Avatar>
+        {text}
+      </span>
+    ),
   },
   {
     title: "Email",
@@ -30,12 +43,13 @@ const columns: TableColumnsType<DataType> = [
     dataIndex: "phone",
   },
   {
-    title: "Address",
+    title: "Billing Address",
     dataIndex: "address",
   },
   {
-    title: "Total",
+    title: "Total Spent",
     dataIndex: "total",
+    render: (text) => <span>${text}</span>,
   },
   {
     title: "Action",
@@ -44,7 +58,7 @@ const columns: TableColumnsType<DataType> = [
       <Space size="middle">
         <Button
           type="link"
-          icon={<EditOutlined style={{ color: "green" }} />}
+          icon={<EditOutlined style={{ color: "white" }} />}
         ></Button>
         <Button
           type="link"
@@ -56,14 +70,14 @@ const columns: TableColumnsType<DataType> = [
 ];
 
 const data: DataType[] = [];
-for (let i = 0; i < 22; i++) {
+for (let i = 1; i < 23; i++) {
   data.push({
     key: i,
-    name: `Edward King ${i}`,
-    email: `${i}hoanghuy@gmail.com`,
+    name: `nam ${i}`,
+    email: `${i}huy@gmail.com`,
     phone: `${i}987654321`,
     address: `London, Park Lane no. ${i}`,
-    total: 10000 * i,
+    total: 10 * i,
   });
 }
 
@@ -82,13 +96,8 @@ export const TableUser = () => {
     onChange: onSelectChange,
   };
 
-  const handleChange = (
-    pagination: TablePaginationConfig
-    // filters: Record<string, any>,
-    // sorter: any,
-    // extra: any
-  ) => {
-    setCurrentPage(pagination.current ?? 1); // Safely access 'current'
+  const handleChange = (pagination: TablePaginationConfig) => {
+    setCurrentPage(pagination.current ?? 1);
   };
 
   const footer = () => {
@@ -102,21 +111,24 @@ export const TableUser = () => {
   };
 
   return (
-    <div className="w-full flex-col  bg-content1 justify-center items-center  h-auto">
-      <div className="w-full bg-content1 rounded-md justify-between items-center flex">
+    <div className="w-full rounded-xl flex-col space-y-8 bg-content1 justify-center  items-center h-[500px] overflow-auto ">
+      <div className="w-full bg-content1 rounded-md px-2 gap-2 justify-between md:px-12 items-center pt-7 flex">
         <div>
-          <h1 className="text-2xl font-semibold leading-9">Customers</h1>
+          <h4 className="text-[1.5rem] font-semibold font-inter leading-[1.235rem]">
+            Customers
+          </h4>
         </div>
         <div>
           <Input
-            className=" w-full flex bg-slate-500 text-white border-slate-500 focus-within:bg-slate-700 focus-within:border-white hover:bg-slate-700"
-            placeholder="Search here . . . "
+            className="w-full h-12 flex bg-menu border-none text-white  border-slate-500 focus-within:bg-[#88888ccc]  hover:bg-[#88888ccc]"
+            placeholder="Search . . . "
             prefix={<SearchOutlined />}
           />
         </div>
       </div>
-      <div className="w-full bg-content1 rounded-md  justify-center items-center  flex lg:overflow-x-hidden  overflow-x-scroll">
+      <div className="w-full bg-content1 font-inter rounded-md max-h-auto justify-center items-center  flex overflow-auto  hover:overflow-x-auto">
         <Table
+          className="w-[95%] font-inter"
           pagination={{
             current: currentPage,
             pageSize,
@@ -132,6 +144,7 @@ export const TableUser = () => {
             //   return originalElement;
             // },
           }}
+          size="middle"
           rowSelection={rowSelection}
           columns={columns}
           dataSource={data}

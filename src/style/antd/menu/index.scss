@@ -1,0 +1,69 @@
+:root {
+  --color_menu: #171821;
+  --color_logo: #a9dfd8;
+  --color_logo_hover: #23d7bf9d;
+  --color_hover_black: #21222d;
+  --color_boder_menu: #87888c;
+}
+
+.ant-menu-dark {
+  background-color: var(--color_menu);
+
+  .ant-menu-inline {
+    background-color: var(--color_menu);
+    padding: 10px 30px 10px 0px;
+
+    .ant-menu-item {
+      height: 70px;
+      line-height: 60px;
+      color: var(--color_boder_menu);
+      padding: 6px 0px;
+      border-width: 4px;
+      border-color: var(--color_logo);
+      border-width: 2px;
+      margin-left: 8px;
+    }
+  }
+}
+
+.ant-menu-dark:not(.ant-menu-horizontal)
+  .ant-menu-item:not(.ant-menu-item-selected):hover {
+  background-color: var(--color_hover_black);
+}
+
+.ant-menu-dark.ant-menu-inline .ant-menu-item-selected {
+  border-right-style: solid;
+  border-right-width: 4px;
+  border-color: var(--color_logo);
+}
+.ant-menu-dark.ant-menu-inline .ant-menu-item-selected:hover {
+  background-color: var(--color_logo_hover);
+  // border-color: var(--color_logo_hover);
+  border-right-width: 0px;
+}
+
+.open-menu {
+  .ant-menu-item-selected {
+    background-color: var(--color_logo);
+    color: var(--color_menu);
+    border-radius: 8px;
+    max-width: 100%;
+    border-right-width: 0px;
+  }
+}
+
+.close-menu {
+  .ant-menu-item-selected {
+    color: var(--color_logo);
+    background-color: var(--color_menu);
+    border-right-style: solid;
+    border-color: var(--color_logo);
+    border-radius: 0px;
+    border-right-width: 4px;
+  }
+  @media (min-width: 768px) {
+    .ant-menu-title-content {
+      display: none;
+    }
+  }
+}

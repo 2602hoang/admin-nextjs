@@ -1,154 +1,150 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { DataIcon } from "@/assets/DataIcon";
+
+import {
+  IconFavourite,
+  IconHistory,
+  IconHome,
+  IconLeaderboard,
+  IconLogin,
+  IconMessage,
+  IconOrder,
+  IconProduct,
+  IconProfile,
+  IconSalereport,
+  IconSetting,
+  IconSign,
+} from "@/assets/DataIcon";
 import { MenuProps } from "antd";
-import Link from "next/link";
-// import { useRouter } from "next/router";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 type MenuItem = Required<MenuProps>["items"][number] & {
   key: string;
-  label: JSX.Element;
+  label: string;
 };
 export const useLogicNavbar = () => {
   const [current, setCurrent] = useState<string>("");
-  // const router = useRouter();
-  const {
-    IconHome,
-    IconLeaderboard,
-    IconLogin,
-    IconSign,
-    IconProfile,
-    IconOrder,
-    IconProduct,
-    IconSalereport,
-    IconMessage,
-    IconSetting,
-    IconFavourite,
-    IconHistory,
-  } = DataIcon();
+  const router = useRouter();
+  const pathname = usePathname();
   useEffect(() => {
-    const { pathname } = window.location;
-    const key = items.find(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (item) => (item.label as any).props.href === pathname
-    )?.key;
+    const key = items.find((item) => item.key === pathname)?.key;
     if (key) setCurrent(key);
-  }, []);
+  }, [pathname]);
 
+  const handleMenuClick = (key: string) => {
+    setCurrent(key);
+    router.push(key);
+  };
   const items: MenuItem[] = [
     {
-      key: "1",
+      key: "/",
       icon: (
         <span>
           <IconHome />
         </span>
       ),
-      label: <Link href="/">Dashboard</Link>,
+      label: "Dashboard",
     },
     {
-      key: "2",
+      key: "/profile",
       icon: (
         <span>
           <IconProfile />
         </span>
       ),
-      label: <Link href="/Profile">Profile</Link>,
+      label: "Profile",
     },
     {
-      key: "3",
+      key: "/leaderboard",
       icon: (
         <span>
-          {" "}
           <IconLeaderboard />
         </span>
       ),
-      label: <Link href="/Leaderboard">Leaderboard</Link>,
+      label: "Leaderboard",
     },
     {
-      key: "4",
+      key: "/order",
       icon: (
         <span>
           <IconOrder />
         </span>
       ),
-      label: <Link href="/Order">Order</Link>,
+      label: "Order",
     },
     {
-      key: "5",
+      key: "/product",
       icon: (
         <span>
-          {" "}
           <IconProduct />
         </span>
       ),
-      label: <Link href="/Product">Product</Link>,
+      label: "Product",
     },
     {
-      key: "6",
+      key: "/salereport",
       icon: (
         <span>
           <IconSalereport />
         </span>
       ),
-      label: <Link href="/Salereport">Salereport</Link>,
+      label: "Salereport",
     },
     {
-      key: "7",
+      key: "/message",
       icon: (
         <span>
           <IconMessage />
         </span>
       ),
-      label: <Link href="/Message">Message</Link>,
+      label: "Message",
     },
     {
-      key: "8",
+      key: "/setting",
       icon: (
         <span>
           <IconSetting />
         </span>
       ),
-      label: <Link href="/Setting">Setting</Link>,
+      label: "Setting",
     },
     {
-      key: "9",
+      key: "/favourite",
       icon: (
         <span>
           <IconFavourite />
         </span>
       ),
-      label: <Link href="/Favourite">Favourite</Link>,
+      label: "Favourite",
     },
     {
-      key: "10",
+      key: "/history",
       icon: (
         <span>
-          {" "}
           <IconHistory />
         </span>
       ),
-      label: <Link href="/History">History</Link>,
+      label: "History",
     },
     {
-      key: "11",
+      key: "/auth/Login",
       icon: (
         <span>
           <IconLogin />
         </span>
       ),
-      label: <Link href="/Auth/Login">Login</Link>,
+      label: "Login",
     },
     {
-      key: "12",
+      key: "/auth/Signup",
       icon: (
         <span>
-          {" "}
           <IconSign />
         </span>
       ),
-      label: <Link href="/Auth/Signup">Signup</Link>,
+      label: "Signup",
     },
   ];
 
-  return { items, current, setCurrent };
+  return { items, current, setCurrent, handleMenuClick };
 };

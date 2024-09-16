@@ -1,0 +1,21 @@
+:root {
+  --color_bg_pagination: #2b2b364d;
+  --color_white: #fff;
+}
+.ant-pagination {
+  .ant-pagination-next button {
+    color: var(--color_white);
+  }
+  .ant-pagination-prev button {
+    color: var(--color_white);
+  }
+  .ant-pagination-item {
+    background-color: var(--color_bg_pagination);
+  }
+  .ant-pagination-item-active {
+    border-radius: 50px;
+  }
+  .ant-pagination-item a {
+    color: var(--color_white);
+  }
+}

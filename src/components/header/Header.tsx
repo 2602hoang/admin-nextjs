@@ -1,7 +1,17 @@
-import { DataIcon } from "@/assets/DataIcon";
-import { BellOutlined, DownOutlined, SearchOutlined } from "@ant-design/icons";
+import { DownOutlined, SearchOutlined, UpOutlined } from "@ant-design/icons";
+import {
+  IconHelp,
+  SwitchAccout,
+  IconSettingAccout,
+  IconViewProfile,
+  IconNotication,
+  IconOut,
+  IconColese,
+  IconOpen,
+  IconNotications,
+} from "@/assets/DataIcon";
 import { Avatar, Badge, Button, Dropdown, Input, MenuProps, Space } from "antd";
-import React from "react";
+import React, { useState } from "react";
 interface HeaderProps {
   collapsed: boolean;
   toggleCollapsed: () => void;
@@ -10,14 +20,10 @@ export const Header: React.FC<HeaderProps> = ({
   collapsed,
   toggleCollapsed,
 }) => {
-  const {
-    IconHelp,
-    SwitchAccout,
-    IconSettingAccout,
-    IconViewProfile,
-    IconNotication,
-    IconOut,
-  } = DataIcon();
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+
+  const toggleDropdown = () => setDropdownVisible(!dropdownVisible);
+
   const items: MenuProps["items"] = [
     {
       label: (
@@ -65,51 +71,62 @@ export const Header: React.FC<HeaderProps> = ({
     {
       // icon: <IconOut />,
       label: (
-        <a href="#" className=" gap-2 flex-row flex items-center">
+        <a href="/auth/Login" className=" gap-2 flex-row flex items-center">
           <IconOut /> <span className="text-red-500">Logout</span>
         </a>
       ),
       key: "5",
     },
   ];
-  const { IconColese, IconOpen } = DataIcon();
   return (
     <div
-      className={` h-16 px-1 md:px-6 flex items-center
+      className={` h-28 px-2  flex items-center z-50
          bg-menu justify-between  transition-all duration-300`}
     >
-      <div className="flex items-center gap-1 md:gap-5 w-full">
-        <Button type="text" onClick={toggleCollapsed}>
-          {!collapsed ? <IconColese /> : <IconOpen />}
+      <div className="flex items-center gap-4  w-full">
+        <Button
+          className=" rounded-full size-"
+          type="text"
+          onClick={toggleCollapsed}
+        >
+          {collapsed ? <IconColese /> : <IconOpen />}
         </Button>
         <Input
-          className=" md:w-1/2 flex bg-slate-500 text-white border-slate-500 focus-within:bg-slate-700 focus-within:border-white hover:bg-slate-700"
+          className=" md:w-[67%] h-[52px] w-1/3   flex text-sm border-none bg-content1 text-white  border-slate-500 focus-within:bg-[#88888c]  hover:bg-[#88888c]"
           placeholder="Search here . . . "
           prefix={<SearchOutlined />}
         />
       </div>
-      <div className="flex items-center flex-row  md:gap-4">
-        <Badge dot={true}>
-          <Button
-            // onClick={toggleCollapsed}
-            type="text"
-            icon={<BellOutlined style={{ color: "white", fontSize: "30px" }} />}
-          ></Button>
-        </Badge>
-
-        <Avatar className="bg-white 	 text-black" size="large">
-          A
-        </Avatar>
-        <Dropdown className="bg-menu" menu={{ items }} trigger={["click"]}>
-          <a onClick={(e) => e.preventDefault()}>
-            <Space>
-              <DownOutlined
-                className="hover:cursor-pointer"
-                style={{ color: "white" }}
-              />
-            </Space>
-          </a>
-        </Dropdown>
+      <div className="flex gap-x-4 flex-row items-center ">
+        <div className="relative">
+          <Badge dot={true}>
+            <Button type="text" icon={<IconNotications />} />
+          </Badge>
+        </div>
+        <div className="flex flex-row items-center gap-x-4 pr-3">
+          <Avatar className="bg-white size-10 	 text-black">A</Avatar>
+          <Dropdown
+            menu={{ items }}
+            trigger={["click"]}
+            onOpenChange={toggleDropdown}
+          >
+            <a onClick={(e) => e.preventDefault()}>
+              <Space>
+                {dropdownVisible ? (
+                  <UpOutlined
+                    className="cursor-pointer"
+                    style={{ color: "white" }}
+                  />
+                ) : (
+                  <DownOutlined
+                    className="cursor-pointer"
+                    style={{ color: "white" }}
+                  />
+                )}
+              </Space>
+            </a>
+          </Dropdown>
+        </div>
       </div>
     </div>
   );

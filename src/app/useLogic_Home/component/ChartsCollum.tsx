@@ -2,12 +2,11 @@ import React from "react";
 import {
   Bar,
   BarChart,
-  XAxis,
-  YAxis,
-  CartesianGrid,
+  // CartesianGrid,
   Legend,
   Tooltip,
   ResponsiveContainer,
+  XAxis,
 } from "recharts";
 
 const ChartsCollum = () => {
@@ -20,36 +19,36 @@ const ChartsCollum = () => {
     { name: "Level 6", Volume: 105, Service: 52 },
   ];
   return (
-    <div className="flex w-full items-start justify-center flex-col h-auto p-4">
-      <h1 className="text-2xl font-semibold leading-9 mb-7">Level</h1>
+    <div className="flex w-full items-start justify-center  flex-col h-auto p-3">
+      <h4 className="text-2xl font-semibold font-inter leading-9 ">Level</h4>
       <ResponsiveContainer
-        className="w-full h-full min-h-52"
-        width="100%"
-        height="100%"
+        className="w-full h-auto mt-10 2xl:mt-0 gao-y-4"
+        width={"100%"}
+        height={290}
       >
         <BarChart
           // width={400}
           // height={300}
           data={data}
-          // margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+          margin={{ top: 30, right: 10, bottom: 30, left: 0 }}
         >
           {/* Đường lưới của biểu đồ */}
-          <CartesianGrid strokeDasharray="3 3" />
+          {/* <CartesianGrid strokeDasharray="3 3" /> */}
           {/* Trục X hiển thị các mức */}
-          <XAxis dataKey="name" />
+          <XAxis />
           {/* Trục Y hiển thị giá trị */}
-          <YAxis />
+          {/* <YAxis /> */}
           {/* Tooltip hiển thị thông tin chi tiết */}
           <Tooltip />
           {/* Chú thích */}
-          <Legend />
+          <Legend margin={{ top: 30, right: 0, bottom: 0, left: 0 }} />
           {/* Biểu đồ cột hiển thị dữ liệu Volume */}
           <Bar
             dataKey="Volume"
             stackId="a"
             fill="#A9DFD8"
             name="Volume"
-            barSize={10}
+            barSize={20}
           />
           {/* Biểu đồ cột hiển thị dữ liệu Service */}
           <Bar
@@ -57,7 +56,7 @@ const ChartsCollum = () => {
             stackId="a"
             fill="#666666"
             name="Service"
-            barSize={10}
+            barSize={20}
           />
         </BarChart>
       </ResponsiveContainer>

@@ -2,7 +2,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import { Avatar, Progress, Tooltip } from "antd";
-import Meta from "antd/es/card/Meta";
 import { useDataContent } from "./Data";
 import { AntDesignOutlined, UserOutlined } from "@ant-design/icons";
 
@@ -55,10 +54,12 @@ const SlideTrending = () => {
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative w-full h-auto justify-center items-center  overflow-hidden bg-content1 md:pr-0 pr-3 md:pl-3"
+      className="relative rounded-xl  w-full h-auto justify-center items-center space-y-4 overflow-hidden bg-content1 py-3 md:pr-0 pr-3 md:pl-3"
     >
-      <div className="flex justify-between items-center ">
-        <h1 className="text-2xl font-semibold leading-9">Trending Now</h1>
+      <div className="flex  justify-between items-center mx-4 ">
+        <h4 className="text-2xl font-inter font-semibold leading-9">
+          Trending Now
+        </h4>
         <div className="flex space-x-4 items-center mt-4">
           <button
             className="text-white p-2 rounded-full z-30"
@@ -75,7 +76,7 @@ const SlideTrending = () => {
         </div>
       </div>
       <div
-        className={`flex w-full transition-transform duration-500 gap-2  `}
+        className={`flex w-full transition-transform duration-50 `}
         style={{
           transform: `translateX(-${currentIndex * 100}%)`,
         }}
@@ -83,27 +84,34 @@ const SlideTrending = () => {
         {testimonials.map((testimonial, index) => (
           <div
             key={index}
-            className="flex-shrink-0  w-full md:w-[49%] h-auto justify-start items-start flex flex-col   border border-gray-200 rounded-md bg-content1"
+            className="flex-shrink-0  w-full md:w-[50%] h-auto justify-center items-center flex flex-col    border-gray-200 rounded-lg bg-content1"
           >
             <img
-              className="w-full max-h-[350px] "
+              className="w-[90%] max-h-[250px] rounded-t-lg "
               src="https://via.placeholder.com/200"
               alt={testimonial.name}
             />
-            <div className="w-full">
-              <p className="text-[1rem] my-3 font-medium leading-[1.5] text-white">
+            <div className="w-[90%] p-2 bg-menu ">
+              <p className="text-[1rem] my-2 px-2 font-inter font-medium leading-[1.5] text-white">
                 {testimonial.name}
               </p>
-              <p className="text-[0.75rem] font-medium leading-[1.43] text-color_menu">
-                Popularity
-              </p>
+              <div className="flex justify-between items-center px-2">
+                <p className="text-[0.75rem] font-medium leading-[1.43] font-inter text-color_menu">
+                  Popularity
+                </p>
+                <p className="text-[0.75rem] font-inter font-medium leading-[1.43] text-color_menu">
+                  {testimonial.number} %
+                </p>
+              </div>
               <Progress
                 className="text-white px-2 my-2"
                 percent={testimonial.number}
                 status="active"
+                showInfo={false}
+                size={["100%", 4]}
               />
             </div>
-            <div className="flex w-full justify-end items-end">
+            <div className="flex w-[90%]  justify-end items-end p-2 rounded-b-lg bg-menu">
               <Avatar.Group
                 size="default"
                 max={{

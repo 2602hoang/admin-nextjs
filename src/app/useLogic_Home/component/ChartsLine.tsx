@@ -28,17 +28,13 @@ const ChartsLine = () => {
   ];
 
   return (
-    <div className="w-full h-autoflex justify-center items-center space-y-5 flex-col flex">
-      <ResponsiveContainer
-        className="w-full h-full min-h-52"
-        width="100%"
-        height="100%"
-      >
+    <div className="w-full h-auto  justify-center items-center space-y-5 p-5 flex-col flex">
+      <ResponsiveContainer className="" width="100%" height={400}>
         <AreaChart
           // width={300}
           // height={208}
           data={data}
-          margin={{ top: 45, right: 0, left: 10, bottom: 5 }}
+          margin={{ top: 60, right: 20, left: 20, bottom: 0 }}
         >
           <CartesianGrid strokeDasharray="3 3" />{" "}
           {/* Đường kẻ ô lưới trong biểu đồ */}

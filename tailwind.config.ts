@@ -9,12 +9,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // mauden
         menu: "#171821",
         background: "var(--background)",
         foreground: "var(--foreground)",
-        content1_card: "#171821",
+        // content1_card: "#171821",
         content1: "#2b2b36",
+        // #212223
+        // #171821
         color_menu: "#87898E",
+        logo: "#A9DFD8",
+        border_menu: "#2C2D33",
+      },
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
       },
     },
   },

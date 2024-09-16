@@ -1,0 +1,15 @@
+:root {
+  --color_bg_dropdown: #001529;
+  --color_white: #fff;
+}
+.ant-dropdown {
+  .ant-dropdown-menu {
+    background-color: var(--color_bg_dropdown);
+    margin-top: 15px;
+    margin-right: 10px;
+    color: var(--color_white);
+    .ant-dropdown-menu-item {
+      color: var(--color_white);
+    }
+  }
+}
