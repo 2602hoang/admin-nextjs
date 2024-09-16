@@ -83,27 +83,23 @@ export const Header: React.FC<HeaderProps> = ({
       className={` h-28 px-2  flex items-center z-50
          bg-menu justify-between  transition-all duration-300`}
     >
-      <div className="flex items-center gap-4  w-full">
-        <Button
-          className=" rounded-full size-"
-          type="text"
-          onClick={toggleCollapsed}
-        >
+      <div className="flex items-center gap-1 md:gap-4  w-full">
+        <Button className=" rounded-full" type="text" onClick={toggleCollapsed}>
           {collapsed ? <IconColese /> : <IconOpen />}
         </Button>
         <Input
-          className=" md:w-[67%] h-[52px] w-1/3   flex text-sm border-none bg-content1 text-white  border-slate-500 focus-within:bg-[#88888c]  hover:bg-[#88888c]"
+          className=" md:w-[67%] h-[52px]    flex text-sm border-none bg-content1 text-white  border-slate-500 focus-within:bg-[#88888c]  hover:bg-[#88888c]"
           placeholder="Search here . . . "
           prefix={<SearchOutlined />}
         />
       </div>
-      <div className="flex gap-x-4 flex-row items-center ">
+      <div className="flex gap-x-1 md:gap-x-4 flex-row items-center ">
         <div className="relative">
           <Badge dot={true}>
             <Button type="text" icon={<IconNotications />} />
           </Badge>
         </div>
-        <div className="flex flex-row items-center gap-x-4 pr-3">
+        <div className="flex flex-row items-center gap-x-1 md:gap-x-4 pr-3">
           <Avatar className="bg-white size-10 	 text-black">A</Avatar>
           <Dropdown
             menu={{ items }}

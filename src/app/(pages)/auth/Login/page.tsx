@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable jsx-a11y/alt-text */
 "use client";
 import {
   IconFacebook,
@@ -18,13 +18,14 @@ function Login() {
   return (
     <div className="w-full h-screen font-inter flex flex-col gap-y-8 justify-center items-center">
       <div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           title="logo"
           className="bg-menu w-[210px] h-14"
           src="https://themewagon.github.io/nickelfox/Logo-with-text.png"
         />
       </div>
-      <div className="bg-content1 w-10/12 md:w-2/5 py-4 rounded-2xl shadow-xl overflow-hidden">
+      <div className="bg-content1 w-10/12 md:w-2/6 py-4 rounded-2xl shadow-xl overflow-hidden">
         <div className="gap-y-4 p-7 flex flex-col">
           <div>
             <h3 className="text-center text-[2rem]  font-semibold leading-[1.167rem] text-white">
