@@ -30,7 +30,7 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
             {/* Navbar */}
             <div
               className={`${
-                collapsed ? "w-full md:w-[250px]" : "w-3/5 md:w-[100px] z-50"
+                !collapsed ? "w-full md:w-[250px]" : "w-3/5 md:w-[100px] z-50"
               } fixed top-0 left-0 h-screen  bg-menu md:row-span-5`}
             >
               <Navbar
@@ -41,7 +41,7 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
             </div>
 
             {/* Overlay for Drawer */}
-            {!collapsed && (
+            {collapsed && (
               <div
                 className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
                 onClick={toggleCollapsed}
