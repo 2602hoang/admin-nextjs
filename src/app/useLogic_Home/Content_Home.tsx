@@ -40,7 +40,7 @@ function Content() {
       <div className="  2xl:w-[49%] h-auto md:h-[500px] w-full  lg:w-[99%] 2xl:order-4 ">
         <TableUser />
       </div>
-      <div className="mt-2 text-white w-full text-center md:text-end md:h-[60px]   h-[100px] pb-10 2xl:order-5 px-5 mb-24 ">
+      <div className="mt-2 text-white w-full text-center md:text-end md:h-[60px]   h-[130px] pb-10 2xl:order-5 px-5 mb-24 ">
         <h1 className="">Made in vietname 🇻🇳</h1>
       </div>
       {/* <div className="mt-14 text-white w-full text-center    h-[60px]  2xl:order-5 px-5 mb-24 ">
