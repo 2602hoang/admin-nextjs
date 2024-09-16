@@ -111,7 +111,7 @@ export const TableUser = () => {
   };
 
   return (
-    <div className="w-full rounded-xl flex-col space-y-8 bg-content1 justify-center  items-center h-[500px] overflow-auto ">
+    <div className="w-full rounded-xl flex-col space-y-8 bg-content1 justify-center  items-center h-auto md:h-[500px] overflow-auto ">
       <div className="w-full bg-content1 rounded-md px-2 gap-2 justify-between md:px-12 items-center pt-7 flex">
         <div>
           <h4 className="text-[1.5rem] font-semibold font-inter leading-[1.235rem]">
