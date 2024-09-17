@@ -13,13 +13,13 @@ export const Earnings = () => {
         <h4 className="font-inter text-[1.5rem] font-semibold leading-[1.235rem]">
           Earnings
         </h4>
-        <p className="text-[1rem] font-inter font-normal mt-4  leading-5 text-slate-500">
+        <p className="text-[1rem] font-inter font-normal mt-4  leading-[1.5rem] text-focus_border">
           Total Expense
         </p>
-        <p className="md:text-[3rem] font-black mt-8 font-inter text-logo text-wrap text-4xl">
+        <p className="text-[2.5rem] md:text-[3rem]  font-bold mt-8 font-inter text-logo leading-[1.167rem] text-wrap ">
           $6078.76
         </p>
-        <p className="text-[1rem] font-normal mt-7 font-inter leading-5 text-slate-500">
+        <p className="text-[1rem] font-normal mt-7 font-inter leading-5 text-focus_border">
           Profit is 48% More than last Month
         </p>
       </div>
