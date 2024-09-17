@@ -45,7 +45,7 @@ const ChartsLine = () => {
           <XAxis dataKey="month" /> {/* Trục X biểu diễn các tháng */}
           <YAxis /> {/* Trục Y biểu diễn giá trị tổng cộng */}
           <Tooltip /> {/* Hiển thị thông tin khi di chuột vào biểu đồ */}
-          <Legend /> {/* Hiển thị chú thích cho các đường trong biểu đồ */}
+          {/* <Legend /> Hiển thị chú thích cho các đường trong biểu đồ */}
           <Area
             type="monotone"
             dataKey="total"
