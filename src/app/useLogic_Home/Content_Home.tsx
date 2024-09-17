@@ -14,30 +14,30 @@ import TodaySale from "./component/TodaySale";
 function Content() {
   return (
     <div className="flex w-full  h-auto justify-start items-start gap-x-[14px] flex-row  gap-y-[13px]    flex-wrap  ">
-      <div className=" bg-content1 w-full rounded-xl 2xl:w-[67%] h-auto md:h-[320px] lg:w-[99%] md:w-[100%]  2xl:h-[330px]">
+      <div className=" bg-content1 w-full rounded-xl 2xl:w-[66%] xl:w-[99%]  h-auto md:h-[320px] xl:h-[400px] lg:w-[99%] md:w-[100%]  2xl:h-[330px]">
         <TodaySale />
       </div>
-      <div className=" bg-content1 w-full md:mt-[214px] lg:mt-0  md:w-[100%]  rounded-xl h-[400px] 2xl:h-[330px] lg:w-[31%] 2xl:w-[32%]">
+      <div className=" bg-content1 w-full md:mt-[214px] lg:mt-0  md:w-[100%] xl:w-[31%] rounded-xl h-[400px] 2xl:h-[330px] lg:w-[31%] 2xl:w-[32%]">
         <ChartsCollum />
       </div>
-      <div className=" bg-content1 w-full  lg:mt-0  rounded-xl h-[500px] md:h-[400px] lg:w-[67%] md:w-[100%] ">
+      <div className=" bg-content1 w-full  lg:mt-0  rounded-xl 2xl:h-[450px] h-[500px] md:h-[400px] lg:w-[67%] 2xl:w-[66%] md:w-[100%] ">
         <TableRank />
       </div>
-      <div className=" bg-content1 w-full  rounded-xl h-[400px] lg:h-[450px] xl:h-[400px] md:w-[100%] xl:w-[31%] lg:w-[49%] 2xl:w-[32%] xl:order-1  lg:order-1">
+      <div className=" bg-content1 w-full  rounded-xl h-[400px] lg:h-[450px] xl:h-[450px] md:w-[100%] xl:w-[31%] lg:w-[49%] 2xl:w-[32%] xl:order-1  lg:order-1">
         <Charttwoline />
       </div>
 
-      <div className=" bg-content1 w-full  rounded-xl h-[400px] 2xl:h-[450px]  xl:w-[67%] lg:w-[100%] lg:order-3 xl:order-2 2xl:order-2">
+      <div className=" bg-content1 w-full  rounded-xl h-[400px] 2xl:h-[450px] xl:h-[450px] xl:w-[67%] lg:w-[100%] lg:order-3 xl:order-2 2xl:w-[66%] 2xl:order-2">
         <ChartsLine />
       </div>
       <div className=" bg-content1 w-full  rounded-xl h-[450px] 2xl:h-[450px] lg:w-[49%] xl:w-[31%] md:w-[100%]  lg:order-2 xl:order-3 2xl:w-[32%] 2xl:order-1">
         <Earnings />
       </div>
 
-      <div className=" bg-content1 w-full 2xl:ml-0 rounded-xl   lg:w-full h-[450px] 2xl:h-[500px]  lg:order-4  xl:w-[67%] 2xl:w-[49.5%] ">
+      <div className=" bg-content1 w-full 2xl:ml-0 rounded-xl   lg:w-full h-[450px] 2xl:h-[500px]  lg:order-4  xl:w-[67%] 2xl:w-[48.5%] ">
         <SlideTrending />
       </div>
-      <div className="  2xl:w-[49.5%]  h-auto md:h-[500px] w-full  lg:w-[100%] lg:order-5 ">
+      <div className="  2xl:w-[49.5%]  h-auto md:h-[500px] w-full  lg:w-[99%] lg:order-5 ">
         <TableUser />
       </div>
 
