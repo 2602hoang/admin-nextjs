@@ -111,7 +111,7 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
         <div className="w-full h-[52px]">
           <Input
-            className=" md:w-[71.5%] h-full gap-x-[3px] rounded-lg pl-2 flex  border-none bg-content1 text-white  focus:border-focus_border  focus-within:bg-focus_border  hover:bg-focus_border"
+            className=" md:w-[70.5%] h-full gap-x-[3px] rounded-lg pl-2 flex  border-none bg-content1 text-white  focus:border-focus_border  focus-within:bg-focus_border  hover:bg-focus_border"
             placeholder="Search here . . . "
             prefix={<IconSearch />}
           />
