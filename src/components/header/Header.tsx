@@ -97,7 +97,7 @@ export const Header: React.FC<HeaderProps> = ({
   ];
   return (
     <div
-      className={` h-28  flex items-center z-50 
+      className={` h-20 md:h-28  flex items-center z-50 
          bg-menu justify-between  transition-all duration-300`}
     >
       <div className="flex items-center   justify-start gap-2  w-full">
@@ -111,7 +111,7 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
         <div className="w-full h-[52px]">
           <Input
-            className=" md:w-[71%] h-full  rounded-lg  flex  border-none bg-content1 text-white  border-slate-500 focus-within:bg-focus_border  hover:bg-focus_border"
+            className=" md:w-[71.5%] h-full  rounded-lg  flex  border-none bg-content1 text-white  border-slate-500 focus-within:bg-focus_border  hover:bg-focus_border"
             placeholder="Search here . . . "
             prefix={<IconSearch />}
           />
