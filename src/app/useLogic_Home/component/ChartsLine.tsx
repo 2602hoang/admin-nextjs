@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  CartesianGrid,
   Legend,
   Area,
   AreaChart,
@@ -28,15 +27,20 @@ const ChartsLine = () => {
   ];
 
   return (
-    <div className="w-full h-auto  justify-center items-center space-y-5 p-5 flex-col flex">
-      <ResponsiveContainer className="" width="100%" height={400}>
+    <div className="w-full h-auto  justify-center items-start space-y-3 md:space-y-9 p-5 flex-col flex">
+      <div>
+        <h4 className="text-2xl font-semibold font-inter leading-9 pt-4 pl-4">
+          Visitor Insights
+        </h4>
+      </div>
+      <ResponsiveContainer className="" width="100%" height={300}>
         <AreaChart
           // width={300}
-          // height={208}
+          // height={300}
           data={data}
-          margin={{ top: 60, right: 20, left: 20, bottom: 0 }}
+          // margin={{ top: 60, right: 20, left: 20, bottom: 0 }}
         >
-          <CartesianGrid strokeDasharray="3 3" />{" "}
+          {/* <CartesianGrid strokeDasharray="3 3" />{" "} */}
           {/* Đường kẻ ô lưới trong biểu đồ */}
           <XAxis dataKey="month" /> {/* Trục X biểu diễn các tháng */}
           <YAxis /> {/* Trục Y biểu diễn giá trị tổng cộng */}
@@ -48,17 +52,6 @@ const ChartsLine = () => {
             stroke="#A9DFD8"
             fill="#A9DFD8"
           />
-          <text
-            x={100}
-            y={10}
-            textAnchor="middle"
-            dominantBaseline="hanging"
-            fill="#fff"
-            fontWeight={"bold"}
-            fontSize={"1.5rem"}
-          >
-            Visitor Insights
-          </text>
         </AreaChart>
       </ResponsiveContainer>
     </div>

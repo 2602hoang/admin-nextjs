@@ -32,17 +32,25 @@ const Navbar: React.FC<NavbarProps> = ({ collapsed }) => {
 
   return (
     <div
-      className={`flex gap-y-3 flex-col h-screen bg-menu w-full 
-${flag === "open" ? "open-menu" : "close-menu"}
-       border-r-[0.5px] border-r-border_menu border-solid  `}
+      className={` h-screen bg-menu relative
+${flag === "open" ? "open-menu  pt-2" : "close-menu hidden md:block"}
+       border-r-[1px] border-r-border_menu border-solid z-20 w-full `}
     >
-      <div className="flex h-24  ">
-        <div className="flex h-24 flex-row md:justify-center w-full justify-center items-center md:px-0 pl-7">
+      <div
+        className={`${
+          collapsed ? "w-[240px]" : "w-0 md:w-[110px]"
+        } h-[98px] fixed justify-center items-center flex bg-menu top-0 border-r-[1px] border-r-border_menu border-solid z-50  left-0 px-5 `}
+      >
+        <div
+          className={`${
+            collapsed ? "w-full" : ""
+          } flex h-[98px]   justify-center items-center  `}
+        >
           <a href="/">
             {!collapsed ? (
               <img
                 title="logo"
-                className="bg-menu w-[31px] h-10"
+                className="bg-menu w-[30px] h-10"
                 src="https://themewagon.github.io/nickelfox/LOGO.png"
               />
             ) : (
@@ -56,16 +64,18 @@ ${flag === "open" ? "open-menu" : "close-menu"}
         </div>
       </div>
       <div
-        className={`flex ${
-          collapsed ? "justify-start items-start z-50 w-full " : ""
-        }   bg-menu   h-full  overscroll-y-auto hover:overflow-y-auto `}
+        className={`flex  overscroll-y-auto hover:overflow-y-auto ${
+          collapsed ? "justify-start items-start  w-full " : ""
+        }   bg-menu   h-full z-30  pt-[90px]`}
       >
         <Menu
           selectedKeys={[current]}
           defaultSelectedKeys={["1"]}
           mode="inline"
           theme="dark"
-          className=" text-[1rem]  space-y-[19px] pl-[18px] font-medium "
+          className={`${
+            collapsed ? "px-5" : "pl-7 pt-[15px]"
+          } text-[1rem] h-11 space-y-[16px]  font-medium `}
           items={items}
           onClick={onClick}
         />

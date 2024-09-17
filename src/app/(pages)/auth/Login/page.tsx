@@ -16,7 +16,7 @@ function Login() {
     setShowPassword(!showPassword);
   };
   return (
-    <div className="w-full h-screen font-inter flex flex-col gap-y-8 justify-center items-center">
+    <div className="w-full h-screen font-inter py-10 flex flex-col gap-y-8 justify-center items-center">
       <div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img

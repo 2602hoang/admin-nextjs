@@ -120,7 +120,7 @@ export const TableUser = () => {
         </div>
         <div>
           <Input
-            className="w-full h-12 flex bg-menu border-none text-white  border-slate-500 focus-within:bg-[#88888ccc]  hover:bg-[#88888ccc]"
+            className="w-full h-12 flex bg-menu border-none text-white  border-slate-500 focus-within:bg-focus_border hover:bg-focus_border"
             placeholder="Search . . . "
             prefix={<SearchOutlined />}
           />

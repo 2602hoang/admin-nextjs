@@ -87,7 +87,7 @@ const SlideTrending = () => {
             className="flex-shrink-0  w-full md:w-[50%] h-auto justify-center items-center flex flex-col    border-gray-200 rounded-lg bg-content1"
           >
             <img
-              className="w-[90%] max-h-[250px] rounded-t-lg "
+              className="w-[90%] max-h-[200px] rounded-t-lg "
               src="https://via.placeholder.com/200"
               alt={testimonial.name}
             />

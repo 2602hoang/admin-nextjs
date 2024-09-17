@@ -30,8 +30,9 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
             {/* Navbar */}
             <div
               className={`${
-                !collapsed ? "w-full md:w-[100px]" : "w-3/5 md:w-[250px] z-50"
-              } fixed top-0 left-0 h-screen  bg-menu md:row-span-5`}
+                !collapsed ? "md:w-[110px] w-0" : "w-[240px] "
+              } fixed top-0 left-0 h-screen  bg-menu md:row-span-5 z-50
+              `}
             >
               <Navbar
                 toggleCollapsed={toggleCollapsed}
@@ -43,7 +44,7 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
             {/* Overlay for Drawer */}
             {collapsed && (
               <div
-                className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+                className="fixed inset-0 bg-black bg-opacity-50 z-20 md:hidden"
                 onClick={toggleCollapsed}
               ></div>
             )}
@@ -52,9 +53,9 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
             <div
               className={`${
                 collapsed
-                  ? "col-span-4 md:ml-[250px] ml-0"
-                  : "md:col-span-4 md:ml-[100px] ml-0"
-              } h-16 z-999 bg-menu fixed top-0 left-0 right-0`}
+                  ? "col-span-4 md:ml-[240px] ml-0"
+                  : "md:col-span-4 md:ml-[110px] ml-0"
+              } h-[116px] z-999 bg-menu fixed px-3 top-0 left-0 right-0`}
             >
               <Header collapsed={collapsed} toggleCollapsed={toggleCollapsed} />
             </div>
@@ -63,9 +64,9 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
             <div
               className={`${
                 collapsed
-                  ? "col-span-4 md:ml-[250px] ml-0  "
-                  : "col-span-4 md:ml-[100px] ml-0 "
-              } h-[100vh]  font-inter  bg-menu fixed   top-28 left-0 right-0 overflow-auto`}
+                  ? "col-span-4 md:ml-[240px] ml-0  "
+                  : "col-span-4 md:ml-[110px] ml-0 "
+              } h-[100vh]  font-inter  bg-menu fixed   top-[116px] left-0 right-0 overflow-auto`}
             >
               {children}
             </div>

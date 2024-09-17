@@ -20,7 +20,9 @@ const ChartsCollum = () => {
   ];
   return (
     <div className="flex w-full items-start justify-center  flex-col h-auto p-3">
-      <h4 className="text-2xl font-semibold font-inter leading-9 ">Level</h4>
+      <h4 className="text-2xl font-semibold font-inter leading-9 pt-4 pl-8">
+        Level
+      </h4>
       <ResponsiveContainer
         className="w-full h-auto mt-10 2xl:mt-0 gao-y-4"
         width={"100%"}
@@ -30,7 +32,7 @@ const ChartsCollum = () => {
           // width={400}
           // height={300}
           data={data}
-          margin={{ top: 30, right: 10, bottom: 30, left: 0 }}
+          margin={{ top: 30, right: 10, bottom: 30, left: 35 }}
         >
           {/* Đường lưới của biểu đồ */}
           {/* <CartesianGrid strokeDasharray="3 3" /> */}

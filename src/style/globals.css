@@ -10,7 +10,8 @@
   --color-scrollbar-thumb-hover: "#121212";
 }
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 4px;
+  position: absolute;
 }
 
 /* Track */

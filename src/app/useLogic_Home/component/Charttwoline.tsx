@@ -2,7 +2,6 @@ import React from "react";
 import {
   Area,
   AreaChart,
-  CartesianGrid,
   Legend,
   ResponsiveContainer,
   Tooltip,
@@ -56,14 +55,14 @@ export const Charttwoline = () => {
     },
   ];
   return (
-    <div className="w-full h-auto justify-center gap-y-5 items-start space-y-5 p-5 flex-col flex">
-      <h4 className="text-2xl font-semibold text-start leading-9">
+    <div className="w-full h-auto justify-center gap-y-5 items-start md:space-y-5 p-5 flex-col flex">
+      <h4 className="text-2xl md:pt-4 pl-6  font-semibold text-start leading-9">
         Customer Fulfillment
       </h4>
       <ResponsiveContainer
         className="w-full h-full flex"
         width="100%"
-        height={300}
+        height={280}
       >
         <AreaChart
           // width={730}
@@ -83,7 +82,7 @@ export const Charttwoline = () => {
           </defs>
           <XAxis dataKey="name" />
           <YAxis />
-          <CartesianGrid strokeDasharray="3 3" />
+          {/* <CartesianGrid strokeDasharray="3 3" /> */}
           <Tooltip />
           <Legend />
           <Area

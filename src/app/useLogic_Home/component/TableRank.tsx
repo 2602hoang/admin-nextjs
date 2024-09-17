@@ -30,25 +30,25 @@ function TableRank() {
   };
   const columns = [
     {
-      title: "#",
+      title: <span className="custom-table-title">#</span>,
       dataIndex: "key",
       key: "key",
       render: (text: string | number) => <span>0{text}</span>,
     },
     {
-      title: "Name",
+      title: <span>Name</span>,
       dataIndex: "name",
       key: "name",
     },
     {
-      title: "Popularity",
+      title: <span>Popularity</span>,
       key: "popularity",
       render: (record: {
         key: string | number;
         number: number | undefined;
       }) => (
         <Progress
-          className="text-white px-2"
+          className="text-white px-2 "
           percent={record.number}
           status="active"
           showInfo={false}
@@ -58,12 +58,12 @@ function TableRank() {
       ),
     },
     {
-      title: "Sales",
+      title: <span className="ml-20">Sales</span>,
       dataIndex: "number",
       key: "sales",
       render: (sales: number, record: { key: string | number }) => (
         <Tag
-          className={`w-20 h-9 flex justify-center items-center rounded-lg border p-3 `}
+          className={`w-20 h-9 ml-20 flex justify-center items-center rounded-lg border p-3 `}
           style={{
             backgroundColor: `${getTagColorByKey(record.key)}3D`,
             color: getTagColorByKey(record.key),
@@ -77,19 +77,21 @@ function TableRank() {
   ];
 
   return (
-    <div className="w-full bg-content1 overflow-x-auto flex flex-col text-start h-auto gap-y-5  rounded-md p-5 justify-center items-start space-y-0">
-      <h4 className="text-2xl font-semibold leading-9 font-inter">
-        Top Product
+    <div className="w-full bg-content1 hover:overflow-x-auto flex flex-col text-start h-auto gap-y-5  rounded-md px-5 py-5 justify-center items-start space-y-0">
+      <h4 className="text-2xl pt-4 pl-4 font-semibold leading-9 font-inter">
+        Top Products
       </h4>
-      <Table
-        columns={columns}
-        dataSource={testimonials}
-        size="middle"
-        className="w-full font-inter"
-        rowKey="key"
-        pagination={false}
-        showSorterTooltip={{ target: "sorter-icon" }}
-      />
+      <div className="px-6 w-full">
+        <Table
+          columns={columns}
+          dataSource={testimonials}
+          size="small"
+          className="w-full font-inter "
+          rowKey="key"
+          pagination={false}
+          showSorterTooltip={{ target: "sorter-icon" }}
+        />
+      </div>
     </div>
   );
 }

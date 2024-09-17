@@ -5,44 +5,48 @@
   --color_hover_black: #21222d;
   --color_boder_menu: #87888c;
 }
-
+.ant-menu-item {
+  padding-left: 0px !important;
+  padding-right: 20px !important;
+}
+.ant-menu-item {
+  height: 44px;
+  line-height: 60px;
+  color: var(--color_boder_menu);
+  border-width: 4px;
+  border-color: var(--color_logo);
+  border-width: 2px;
+  .ant-menu-item-icon {
+    padding-left: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 5px;
+  }
+}
+.ant-menu-inline .ant-menu-item {
+  height: 44px;
+  width: 100%;
+  margin-inline: 0px;
+  margin-block: 0px;
+}
 .ant-menu-dark {
   background-color: var(--color_menu);
 
   .ant-menu-inline {
     background-color: var(--color_menu);
-    padding: 10px 30px 10px 0px;
-
-    .ant-menu-item {
-      height: 70px;
-      line-height: 60px;
-      color: var(--color_boder_menu);
-      padding: 6px 0px;
-      border-width: 4px;
-      border-color: var(--color_logo);
-      border-width: 2px;
-      margin-left: 8px;
-    }
   }
 }
 
-.ant-menu-dark:not(.ant-menu-horizontal)
-  .ant-menu-item:not(.ant-menu-item-selected):hover {
-  background-color: var(--color_hover_black);
-}
-
-.ant-menu-dark.ant-menu-inline .ant-menu-item-selected {
-  border-right-style: solid;
-  border-right-width: 4px;
-  border-color: var(--color_logo);
-}
 .ant-menu-dark.ant-menu-inline .ant-menu-item-selected:hover {
-  background-color: var(--color_logo_hover);
-  // border-color: var(--color_logo_hover);
-  border-right-width: 0px;
+  border-right-width: 2px;
 }
 
 .open-menu {
+  .ant-menu-dark.ant-menu-inline .ant-menu-item-selected:hover {
+    background-color: var(--color_logo_hover);
+    // border-color: var(--color_logo_hover);
+    border-right-width: 0px;
+  }
   .ant-menu-item-selected {
     background-color: var(--color_logo);
     color: var(--color_menu);
@@ -51,15 +55,27 @@
     border-right-width: 0px;
   }
 }
-
+.ant-menu .ant-menu-item .ant-menu-item-icon + span {
+  margin-inline-start: 0px;
+}
 .close-menu {
+  .ant-menu-item-icon:hover {
+    background-color: var(--color_hover_black);
+    padding-right: 21px;
+    border-radius: 8px;
+  }
   .ant-menu-item-selected {
     color: var(--color_logo);
     background-color: var(--color_menu);
     border-right-style: solid;
     border-color: var(--color_logo);
     border-radius: 0px;
-    border-right-width: 4px;
+    border-right-width: 3px;
+    position: absolute;
+  }
+  .ant-menu-dark:not(.ant-menu-horizontal)
+    .ant-menu-item:not(.ant-menu-item-selected):hover {
+    background-color: var(--color_menu);
   }
   @media (min-width: 768px) {
     .ant-menu-title-content {

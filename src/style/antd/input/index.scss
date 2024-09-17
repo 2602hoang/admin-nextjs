@@ -1,4 +1,12 @@
+:root {
+  --color-text-placeholder: "#D2D2D2";
+}
 .ant-input::placeholder {
-  color: #fff;
+  // padding-top: 30px;
+  margin: 16px 12px;
+  font-size: 15px;
   opacity: 0.5;
+  font-family: inherit;
+  font-weight: 300;
+  color: var(--color-text-placeholder);
 }

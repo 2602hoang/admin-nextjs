@@ -20,6 +20,7 @@ import { useEffect, useState } from "react";
 
 type MenuItem = Required<MenuProps>["items"][number] & {
   key: string;
+  icon: React.ReactNode;
   label: string;
 };
 export const useLogicNavbar = () => {
@@ -48,9 +49,9 @@ export const useLogicNavbar = () => {
     {
       key: "/profile",
       icon: (
-        <span>
+        <a>
           <IconProfile />
-        </span>
+        </a>
       ),
       label: "Profile",
     },

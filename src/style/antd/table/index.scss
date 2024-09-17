@@ -66,3 +66,14 @@ tbody {
   background-color: var(--color_table_bg);
   color: var(--color_wihite);
 }
+#table .ant-table {
+  background-color: #f0f2f5; /* Example custom background color */
+  border-radius: 10px; /* Custom border radius */
+}
+
+#table .ant-table-wrapper .ant-table-thead > tr > th {
+  background-color: #007bff; /* Header background color */
+  color: white; /* Header text color */
+  font-weight: 600; /* Bold font weight */
+  margin-left: 100px;
+}
