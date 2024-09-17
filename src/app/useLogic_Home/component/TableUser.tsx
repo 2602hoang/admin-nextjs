@@ -58,11 +58,11 @@ const columns: TableColumnsType<DataType> = [
       <Space size="middle">
         <Button
           type="link"
-          icon={<EditOutlined style={{ color: "white" }} />}
+          icon={<EditOutlined className="text-white" />}
         ></Button>
         <Button
           type="link"
-          icon={<DeleteFilled style={{ color: "red" }} />}
+          icon={<DeleteFilled className="text-red-500" />}
         ></Button>
       </Space>
     ),

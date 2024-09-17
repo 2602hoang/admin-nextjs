@@ -116,19 +116,20 @@ const SlideTrending = () => {
                 size="default"
                 max={{
                   count: 2,
-                  style: { color: "#f56a00", backgroundColor: "#fde3cf" },
+                  style: { color: "menu", backgroundColor: "logo" },
                 }}
               >
                 <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=3" />
-                <Avatar style={{ backgroundColor: "#f56a00" }}>K</Avatar>
+                <Avatar className="bg-red-300">K</Avatar>
                 <Tooltip title="Ant User" placement="top">
                   <Avatar
-                    style={{ backgroundColor: "#87d068" }}
+                    // style={{ backgroundColor: "#87d068" }}
+                    className="bg-yellow-200"
                     icon={<UserOutlined />}
                   />
                 </Tooltip>
                 <Avatar
-                  style={{ backgroundColor: "#1677ff" }}
+                  className="bg-orange-300"
                   icon={<AntDesignOutlined />}
                 />
               </Avatar.Group>
