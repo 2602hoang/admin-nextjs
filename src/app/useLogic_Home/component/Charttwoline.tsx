@@ -6,7 +6,6 @@ import {
   ResponsiveContainer,
   Tooltip,
   XAxis,
-  YAxis,
 } from "recharts";
 
 export const Charttwoline = () => {
@@ -81,7 +80,7 @@ export const Charttwoline = () => {
             </linearGradient>
           </defs>
           <XAxis dataKey="name" />
-          <YAxis />
+          {/* <YAxis /> */}
           {/* <CartesianGrid strokeDasharray="3 3" /> */}
           <Tooltip />
           <Legend />
