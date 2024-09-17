@@ -42,12 +42,18 @@
 }
 
 .open-menu {
+  .ant-menu-dark.ant-menu-inline .ant-menu-item {
+    color: var(--color_boder_menu);
+  }
+  .ant-menu-dark.ant-menu-inline .ant-menu-item:hover {
+    background-color: var(--color_hover_black);
+  }
   .ant-menu-dark.ant-menu-inline .ant-menu-item-selected:hover {
     background-color: var(--color_logo_hover);
     // border-color: var(--color_logo_hover);
     border-right-width: 0px;
   }
-  .ant-menu-item-selected {
+  .ant-menu-dark.ant-menu-inline .ant-menu-item-selected {
     background-color: var(--color_logo);
     color: var(--color_menu);
     border-radius: 8px;
