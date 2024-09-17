@@ -77,7 +77,7 @@ function TableRank() {
   ];
 
   return (
-    <div className="w-full bg-content1 hover:overflow-x-auto flex flex-col text-start h-auto gap-y-5  rounded-md px-5 py-5 justify-center items-start space-y-0">
+    <div className="w-full bg-content1 overflow-x-auto flex flex-col text-start h-auto gap-y-5  rounded-md px-5 py-5 justify-center items-start space-y-0">
       <h4 className="text-2xl pt-4 pl-4 font-semibold leading-9 font-inter">
         Top Products
       </h4>
