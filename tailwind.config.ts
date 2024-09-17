@@ -16,7 +16,7 @@ const config: Config = {
         // content1_card: "#171821",
         content2: "#2b2b36",
         content1: "#21222D",
-        focus_border: "#88888c",
+        focus_border: "#88888c4d",
         // #212223
         // #171821
 
