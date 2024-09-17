@@ -1,6 +1,6 @@
 import React from "react";
 
-function page() {
+function Auth() {
   return (
     <div>
       <h1>Login or Sign Up</h1>
@@ -9,4 +9,4 @@ function page() {
   );
 }
 
-export default page;
+export default Auth;
