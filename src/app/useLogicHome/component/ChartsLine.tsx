@@ -28,11 +28,11 @@ const ChartsLine = () => {
   return (
     <div className="w-full h-auto  justify-center items-start space-y-3 md:space-y-9 p-5 flex-col flex">
       <div>
-        <h4 className="text-2xl font-semibold font-inter leading-9 pt-4 pl-4">
+        <h4 className="text-[24px] font-semibold font-inter leading-[29px] pt-4 pl-4">
           Visitor Insights
         </h4>
       </div>
-      <ResponsiveContainer className="" width="100%" height={300}>
+      <ResponsiveContainer width="100%" height={300}>
         <AreaChart
           data={data}
           margin={{ top: 10, right: 20, left: 20, bottom: 0 }}

@@ -55,14 +55,10 @@ export const Charttwoline = () => {
   ];
   return (
     <div className="w-full h-auto justify-center gap-y-5 items-start md:space-y-5 p-5 flex-col flex">
-      <h4 className="text-2xl md:pt-4 pl-2  font-semibold text-start leading-9">
+      <h4 className="text-[24px] font-semibold font-inter leading-[29px] pt-4 pl-4">
         Customer Fulfillment
       </h4>
-      <ResponsiveContainer
-        className="w-full h-full flex"
-        width="100%"
-        height={250}
-      >
+      <ResponsiveContainer width="100%" height={300}>
         <AreaChart
           data={data}
           margin={{ top: 0, right: 10, left: 10, bottom: 0 }}

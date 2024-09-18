@@ -78,7 +78,7 @@ function TableRank() {
 
   return (
     <div className=" overflow-x-auto flex flex-col  h-auto gap-y-5   px-5 py-5 justify-center items-start ">
-      <h4 className="text-2xl pt-2 pl-3 font-semibold leading-9 font-inter">
+      <h4 className="text-[24px] font-semibold font-inter leading-[29px] pt-4 pl-4">
         Top Products
       </h4>
       <div className="px-6 w-full">

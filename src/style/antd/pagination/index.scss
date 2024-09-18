@@ -1,14 +1,16 @@
 :root {
   --color_bg_pagination: #a9dfd8;
-
+  --color_text_pagination: #87888c;
+  --color_text_pagination_active: #000000de;
   --color_white: #fff;
 }
 .ant-pagination {
   .ant-pagination-next button {
-    color: var(--color_white);
+    color: var(--color_text_pagination);
   }
   .ant-pagination-prev button {
-    color: var(--color_white);
+    color: var(--color_text_pagination);
+    // color: var(--color_white);
   }
   .ant-pagination-item {
     border-radius: 0px;
@@ -17,12 +19,19 @@
   .ant-pagination-item-active {
     background-color: var(--color_bg_pagination);
     border-radius: 50px;
+    border: none;
+  }
+  .ant-pagination-item-active a {
+    color: var(--color_text_pagination_active);
   }
   .ant-pagination-item a {
-    color: var(--color_white);
+    color: var(--color_text_pagination);
   }
-  .ant-pagination .ant-pagination-item:not(.ant-pagination-item-active):active {
+  .ant-pagination-item:not(.ant-pagination-item-active):active {
     background-color: var(--color_bg_pagination);
+  }
+  .ant-pagination-item-active:hover a {
+    color: var(--color_text_pagination_active);
   }
 }
 .ant-table-wrapper .ant-table-pagination.ant-pagination {

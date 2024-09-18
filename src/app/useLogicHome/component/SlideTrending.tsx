@@ -54,7 +54,7 @@ const SlideTrending = () => {
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative rounded-xl   justify-center items-center space-y-4 overflow-hidden bg-content1 py-3 md:pr-0 pr-3 md:pl-3"
+      className="relative rounded-xl   justify-center items-center space-y-4 overflow-hidden  py-3 md:pr-0 pr-3 md:pl-3"
     >
       <div className="flex  justify-between items-center mx-4 ">
         <h4 className="text-2xl font-inter font-semibold leading-9">
@@ -111,7 +111,7 @@ const SlideTrending = () => {
                 </p>
               </div>
               <Progress
-                className="text-white px-2 my-2"
+                className=" px-2 my-2"
                 percent={testimonial.number}
                 status="active"
                 showInfo={false}
