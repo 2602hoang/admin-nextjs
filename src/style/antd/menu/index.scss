@@ -56,7 +56,7 @@
   .ant-menu-dark.ant-menu-inline .ant-menu-item-selected {
     background-color: var(--color_logo);
     color: var(--color_menu);
-    border-radius: 8px;
+    border-radius: 6px;
     max-width: 100%;
     border-right-width: 0px;
   }
@@ -76,6 +76,7 @@
     border-right-style: solid;
     border-color: var(--color_logo);
     border-radius: 0px;
+    height: 40px;
     border-right-width: 3px;
     position: absolute;
   }

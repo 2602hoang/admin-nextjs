@@ -1,6 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { DeleteFilled, EditOutlined, SearchOutlined } from "@ant-design/icons";
-import { Avatar, Button, Input, Space, Table, TableColumnsType } from "antd";
+import {
+  Avatar,
+  Button,
+  Input,
+  Pagination,
+  Space,
+  Table,
+  TableColumnsType,
+} from "antd";
 import {
   TablePaginationConfig,
   TableRowSelection,
@@ -104,15 +112,24 @@ export const TableUser = () => {
     const start = (currentPage - 1) * pageSize + 1;
     const end = Math.min(currentPage * pageSize, data.length);
     return (
-      <div className="text-white">
-        Show {start} - {end} of {data.length} total items
+      <div className="flex justify-between items-center text-white">
+        <div>
+          Show {start} - {end} of {data.length} total items
+        </div>
+        <Pagination
+          current={currentPage}
+          pageSize={pageSize}
+          total={data.length}
+          onChange={(page) => setCurrentPage(page)}
+          hideOnSinglePage
+        />
       </div>
     );
   };
 
   return (
-    <div className="w-full rounded-xl flex-col space-y-8 bg-content1 justify-center  items-center h-auto md:h-[500px] overflow-auto ">
-      <div className="w-full bg-content1 rounded-md px-2 gap-2 justify-between md:px-12 items-center pt-7 flex">
+    <div className="overflow-auto">
+      <div className=" rounded-md px-2 gap-2 justify-between md:px-12 items-center pt-5 flex">
         <div>
           <h4 className="text-[1.5rem] font-semibold font-inter leading-[1.235rem]">
             Customers
@@ -120,31 +137,31 @@ export const TableUser = () => {
         </div>
         <div>
           <Input
-            className="w-full h-12 flex bg-menu border-none text-white  border-slate-500 focus-within:bg-focus_border hover:bg-focus_border"
+            className="h-12 flex bg-menu border-none text-white  border-slate-500 focus-within:bg-focus_border hover:bg-focus_border"
             placeholder="Search . . . "
             prefix={<SearchOutlined />}
           />
         </div>
       </div>
-      <div className="w-full bg-content1 font-inter rounded-md max-h-auto justify-center items-center  flex overflow-auto  hover:overflow-x-auto">
+      <div className="w-full px-5 font-inter rounded-md justify-center items-center    flex overflow-auto  hover:overflow-x-auto">
         <Table
-          className="w-[95%] font-inter"
+          className="font-inter w-[95%]  "
           pagination={{
             current: currentPage,
             pageSize,
             total: data.length,
             onChange: (page) => setCurrentPage(page),
-            // itemRender: (page, type, originalElement) => {
-            //   if (type === "prev") {
-            //     return <button>Previous</button>;
-            //   }
-            //   if (type === "next") {
-            //     return <button>Next</button>;
-            //   }
-            //   return originalElement;
-            // },
+            //   itemRender: (page, type, originalElement) => {
+            //     if (type === "prev") {
+            //       return <button>Previous</button>;
+            //     }
+            //     if (type === "next") {
+            //       return <button>Next</button>;
+            //     }
+            //     return originalElement;
+            //   },
           }}
-          size="middle"
+          size="small"
           rowSelection={rowSelection}
           columns={columns}
           dataSource={data}

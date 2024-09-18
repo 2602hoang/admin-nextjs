@@ -26,7 +26,7 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
         {loading === true ? (
           <LoadingPage />
         ) : (
-          <div className="md:w-full font-inter grid grid-cols-5  grid-rows-5 h-screen overflow-hidden relative">
+          <div className="w-full font-inter grid grid-cols-5  grid-rows-5 h-screen overflow-hidden relative">
             {/* Navbar */}
             <div
               className={`${
@@ -64,9 +64,9 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
             <div
               className={`${
                 collapsed
-                  ? "col-span-4 md:ml-[240px] ml-0  "
-                  : "col-span-4 md:ml-[110px] ml-0 "
-              } h-[100vh]  font-inter  bg-menu fixed  top-[80px] md:top-[116px] left-0 right-0 overflow-auto`}
+                  ? "col-span-4 md:ml-[240px] ml-0"
+                  : "col-span-4 md:ml-[110px] ml-0"
+              } h-screen  font-inter  bg-menu fixed  top-[80px] md:top-[116px] left-0 right-0 overflow-auto`}
             >
               {children}
             </div>

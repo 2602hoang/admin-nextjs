@@ -33,7 +33,7 @@ const Navbar: React.FC<NavbarProps> = ({ collapsed }) => {
   return (
     <div
       className={` h-screen bg-menu relative
-${flag === "open" ? "open-menu  pt-2" : "close-menu hidden md:block"}
+${flag === "open" ? "open-menu  pt-[10px]" : "close-menu hidden md:block"}
        border-r-[1px] border-r-border_menu border-solid z-20 w-full `}
     >
       <div
@@ -43,8 +43,8 @@ ${flag === "open" ? "open-menu  pt-2" : "close-menu hidden md:block"}
       >
         <div
           className={`${
-            collapsed ? "w-full" : ""
-          } flex h-[98px]   justify-center items-center  `}
+            collapsed ? " px-[25px] pt-[32px] pb-[26px]" : " "
+          } flex h-[98px] w-full  justify-center items-center  `}
         >
           <a href="/">
             {!collapsed ? (
@@ -56,7 +56,7 @@ ${flag === "open" ? "open-menu  pt-2" : "close-menu hidden md:block"}
             ) : (
               <img
                 title="logo"
-                className="bg-menu w-40 h-10"
+                className="bg-menu w-[140px] h-10"
                 src="https://themewagon.github.io/nickelfox/Logo-with-text.png"
               />
             )}
@@ -66,7 +66,7 @@ ${flag === "open" ? "open-menu  pt-2" : "close-menu hidden md:block"}
       <div
         className={`flex  overscroll-y-auto hover:overflow-y-auto ${
           collapsed ? "justify-start items-start  w-full " : ""
-        }   bg-menu   h-full z-30  pt-[90px]`}
+        }   bg-menu   h-full z-30  pt-[102px]`}
       >
         <Menu
           selectedKeys={[current]}
@@ -74,7 +74,7 @@ ${flag === "open" ? "open-menu  pt-2" : "close-menu hidden md:block"}
           mode="inline"
           theme="dark"
           className={`${
-            collapsed ? "px-5" : "pl-7 pt-[15px]"
+            collapsed ? "px-5" : "pl-[29px] py-1 "
           } text-[1rem] h-11 space-y-[16px]  font-medium `}
           items={items}
           onClick={onClick}

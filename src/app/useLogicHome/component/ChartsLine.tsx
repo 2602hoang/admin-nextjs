@@ -34,17 +34,12 @@ const ChartsLine = () => {
       </div>
       <ResponsiveContainer className="" width="100%" height={300}>
         <AreaChart
-          // width={300}
-          // height={300}
           data={data}
           margin={{ top: 10, right: 20, left: 20, bottom: 0 }}
         >
-          {/* <CartesianGrid strokeDasharray="3 3" />{" "} */}
-          {/* Đường kẻ ô lưới trong biểu đồ */}
-          <XAxis dataKey="month" /> {/* Trục X biểu diễn các tháng */}
-          <YAxis /> {/* Trục Y biểu diễn giá trị tổng cộng */}
-          <Tooltip /> {/* Hiển thị thông tin khi di chuột vào biểu đồ */}
-          {/* <Legend /> Hiển thị chú thích cho các đường trong biểu đồ */}
+          <XAxis dataKey="month" />
+          <YAxis />
+          <Tooltip />
           <Area
             type="monotone"
             dataKey="total"

@@ -55,19 +55,17 @@ export const Charttwoline = () => {
   ];
   return (
     <div className="w-full h-auto justify-center gap-y-5 items-start md:space-y-5 p-5 flex-col flex">
-      <h4 className="text-2xl md:pt-4 pl-6  font-semibold text-start leading-9">
+      <h4 className="text-2xl md:pt-4 pl-2  font-semibold text-start leading-9">
         Customer Fulfillment
       </h4>
       <ResponsiveContainer
         className="w-full h-full flex"
         width="100%"
-        height={280}
+        height={250}
       >
         <AreaChart
-          // width={730}
-          // height={250}
           data={data}
-          margin={{ top: 10, right: 10, left: 10, bottom: 0 }}
+          margin={{ top: 0, right: 10, left: 10, bottom: 0 }}
         >
           <defs>
             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
@@ -80,8 +78,6 @@ export const Charttwoline = () => {
             </linearGradient>
           </defs>
           <XAxis />
-          {/* <YAxis /> */}
-          {/* <CartesianGrid strokeDasharray="3 3" /> */}
           <Tooltip />
           <Legend />
           <Area

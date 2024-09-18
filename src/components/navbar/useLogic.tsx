@@ -128,7 +128,7 @@ export const useLogicNavbar = () => {
       label: "History",
     },
     {
-      key: "/auth/Login",
+      key: "/login",
       icon: (
         <span>
           <IconLogin />
@@ -137,7 +137,7 @@ export const useLogicNavbar = () => {
       label: "Login",
     },
     {
-      key: "/auth/Signup",
+      key: "/signup",
       icon: (
         <span>
           <IconSign />

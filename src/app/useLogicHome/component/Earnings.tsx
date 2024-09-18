@@ -30,7 +30,7 @@ export const Earnings = () => {
           strokeWidth={20}
           strokeColor="#A9DFD8"
           size={200}
-          format={(percent) => Percent(percent)} // Pass the Percent function to format prop
+          format={(percent) => Percent(percent)} 
         />
       </div>
     </div>

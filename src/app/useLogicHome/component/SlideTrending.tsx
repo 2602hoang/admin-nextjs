@@ -18,9 +18,9 @@ const SlideTrending = () => {
   }
 
   useEffect(() => {
-    function handleResize() {
+    const handleResize = () => {
       setSlidesToShowCount(getSlidesToShow());
-    }
+    };
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -54,7 +54,7 @@ const SlideTrending = () => {
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative rounded-xl  w-full h-auto justify-center items-center space-y-4 overflow-hidden bg-content1 py-3 md:pr-0 pr-3 md:pl-3"
+      className="relative rounded-xl   justify-center items-center space-y-4 overflow-hidden bg-content1 py-3 md:pr-0 pr-3 md:pl-3"
     >
       <div className="flex  justify-between items-center mx-4 ">
         <h4 className="text-2xl font-inter font-semibold leading-9">
@@ -86,10 +86,17 @@ const SlideTrending = () => {
             key={index}
             className="flex-shrink-0  w-full md:w-[50%] h-auto justify-center items-center flex flex-col    border-gray-200 rounded-lg bg-content1"
           >
-            <img
-              className="w-[90%] max-h-[200px] rounded-t-lg "
-              src="https://via.placeholder.com/200"
-              alt={testimonial.name}
+            <div
+              style={{
+                backgroundImage: `url(${testimonial.img})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                width: "90%",
+                height: "200px",
+              }}
+              className="w-[90%] max-h-[200px] rounded-t-lg"
+              aria-label="Background image"
             />
             <div className="w-[90%] p-2 bg-menu ">
               <p className="text-[1rem] my-2 px-2 font-inter font-medium leading-[1.5] text-white">

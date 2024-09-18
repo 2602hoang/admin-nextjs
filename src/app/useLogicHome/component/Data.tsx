@@ -11,6 +11,7 @@ interface Testimonial {
   key: number;
   name: string;
   number: number;
+  img: string;
 }
 export const useDataContent = () => {
   const [data] = useState<Statistic[]>([
@@ -45,10 +46,30 @@ export const useDataContent = () => {
   ]);
 
   const testimonials: Testimonial[] = [
-    { key: 1, name: "Home Decor Range", number: 78 },
-    { key: 2, name: "Disney Princess Dress", number: 62 },
-    { key: 3, name: "Bathroom Essentials", number: 51 },
-    { key: 4, name: "Apple Smartwatch", number: 29 },
+    {
+      key: 1,
+      name: "Home Decor Range",
+      number: 78,
+      img: "https://themewagon.github.io/nickelfox/assets/home-decor-range-CcM1ybHr.jpg",
+    },
+    {
+      key: 2,
+      name: "Disney Princess Dress",
+      number: 62,
+      img: "https://themewagon.github.io/nickelfox/assets/disney-princess-dresses-Cjj8uIOi.jpg",
+    },
+    {
+      key: 3,
+      name: "Bathroom Essentials",
+      number: 51,
+      img: "https://themewagon.github.io/nickelfox/assets/bathroom-essentials-cvlkOIR7.jpg",
+    },
+    {
+      key: 4,
+      name: "Apple Smartwatch",
+      number: 29,
+      img: "https://themewagon.github.io/nickelfox/assets/apple-smartwatch-BudkkcRE.jpg",
+    },
   ];
   return { data, testimonials };
 };

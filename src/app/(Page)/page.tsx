@@ -1,10 +1,10 @@
 "use client";
 
-import Content from "../useLogic_Home/Content_Home";
+import Content from "../useLogicHome/ContentHome";
 
 export default function Home({}) {
   return (
-    <div className="w-full h-auto flex flex-col px-3 md:pr-[20.7px] md:pl-[21px] pb-[25px] text-white  overflow-hidden">
+    <div className="px-[21px] pb-[25px] text-white  overflow-hidden">
       <Content />
     </div>
   );

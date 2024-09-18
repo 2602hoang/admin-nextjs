@@ -1,5 +1,6 @@
 :root {
-  --color_bg_pagination: #2b2b364d;
+  --color_bg_pagination: #a9dfd8;
+
   --color_white: #fff;
 }
 .ant-pagination {
@@ -10,12 +11,20 @@
     color: var(--color_white);
   }
   .ant-pagination-item {
-    background-color: var(--color_bg_pagination);
+    border-radius: 0px;
+    background: none;
   }
   .ant-pagination-item-active {
+    background-color: var(--color_bg_pagination);
     border-radius: 50px;
   }
   .ant-pagination-item a {
     color: var(--color_white);
   }
+  .ant-pagination .ant-pagination-item:not(.ant-pagination-item-active):active {
+    background-color: var(--color_bg_pagination);
+  }
+}
+.ant-table-wrapper .ant-table-pagination.ant-pagination {
+  display: none;
 }

@@ -19,32 +19,22 @@ const ChartsCollum = () => {
     { name: "Level 6", Volume: 105, Service: 52 },
   ];
   return (
-    <div className="flex w-full items-start justify-center  flex-col h-auto p-3">
-      <h4 className="text-2xl font-semibold font-inter leading-9 pt-4 pl-8">
+    <div className="flex w-full items-start justify-center gap-y-14 flex-col h-auto p-3">
+      <h4 className="text-2xl font-semibold font-inter leading-9 pt-4 pl-5">
         Level
       </h4>
       <ResponsiveContainer
         className="w-full h-auto mt-10 2xl:mt-0 gao-y-4"
         width={"100%"}
-        height={290}
+        height={200}
       >
         <BarChart
-          // width={400}
-          // height={300}
           data={data}
-          margin={{ top: 30, right: 10, bottom: 30, left: 35 }}
+          margin={{ top: 0, right: 10, bottom: 0, left: 35 }}
         >
-          {/* Đường lưới của biểu đồ */}
-          {/* <CartesianGrid strokeDasharray="3 3" /> */}
-          {/* Trục X hiển thị các mức */}
           <XAxis />
-          {/* Trục Y hiển thị giá trị */}
-          {/* <YAxis /> */}
-          {/* Tooltip hiển thị thông tin chi tiết */}
           <Tooltip />
-          {/* Chú thích */}
           <Legend margin={{ top: 30, right: 0, bottom: 0, left: 0 }} />
-          {/* Biểu đồ cột hiển thị dữ liệu Volume */}
           <Bar
             dataKey="Volume"
             stackId="a"
@@ -52,7 +42,6 @@ const ChartsCollum = () => {
             name="Volume"
             barSize={20}
           />
-          {/* Biểu đồ cột hiển thị dữ liệu Service */}
           <Bar
             dataKey="Service"
             stackId="a"

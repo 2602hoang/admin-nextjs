@@ -58,12 +58,12 @@ function TableRank() {
       ),
     },
     {
-      title: <span className="ml-20">Sales</span>,
+      title: <span className="ml-28">Sales</span>,
       dataIndex: "number",
       key: "sales",
       render: (sales: number, record: { key: string | number }) => (
         <Tag
-          className={`w-20 h-9 ml-20 flex justify-center items-center rounded-lg border p-3 `}
+          className={`w-20 h-9 ml-28 flex justify-center items-center rounded-lg border p-3 `}
           style={{
             backgroundColor: `${getTagColorByKey(record.key)}3D`,
             color: getTagColorByKey(record.key),
@@ -77,8 +77,8 @@ function TableRank() {
   ];
 
   return (
-    <div className="w-full bg-content1 overflow-x-auto flex flex-col text-start h-auto gap-y-5  rounded-md px-5 py-5 justify-center items-start space-y-0">
-      <h4 className="text-2xl pt-4 pl-4 font-semibold leading-9 font-inter">
+    <div className=" overflow-x-auto flex flex-col  h-auto gap-y-5   px-5 py-5 justify-center items-start ">
+      <h4 className="text-2xl pt-2 pl-3 font-semibold leading-9 font-inter">
         Top Products
       </h4>
       <div className="px-6 w-full">
@@ -86,7 +86,7 @@ function TableRank() {
           columns={columns}
           dataSource={testimonials}
           size="small"
-          className="w-full font-inter "
+          className="font-inter "
           rowKey="key"
           pagination={false}
           showSorterTooltip={{ target: "sorter-icon" }}
