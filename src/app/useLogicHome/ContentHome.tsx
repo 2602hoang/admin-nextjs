@@ -17,10 +17,10 @@ function Content() {
       <div className=" bg-content1 rounded-xl  h-auto 2xl:w-[66%] lg:w-[99.5%] w-[100%] ">
         <TodaySale />
       </div>
-      <div className=" bg-content1 rounded-xl h-auto  md:h-[398px] 2xl:h-[330px]  w-[100%] lg:w-[32%] 2xl:w-[32%]">
+      <div className=" bg-content1 rounded-xl h-auto  md:h-[398px] 2xl:h-[330px]  w-[100%] lg:w-[32.5%] 2xl:w-[32%]">
         <ChartsCollum />
       </div>
-      <div className=" bg-content1 rounded-xl w-full  h-auto md:h-[398px] 2xl:h-[467px] lg:w-[66%] md:w-[100%] ">
+      <div className=" bg-content1 rounded-xl w-full  h-auto md:h-[398px] 2xl:h-[467px]  lg:w-[65.5%] xl:w-[66%] md:w-[100%] ">
         <TableRank />
       </div>
       <div className=" bg-content1 rounded-xl w-full  h-auto xl:h-[467px] md:h-[450px]  md:w-[100%] xl:w-[32.5%] lg:w-[49%] 2xl:w-[32%] md:order-1 xl:order-1  lg:order-1">
