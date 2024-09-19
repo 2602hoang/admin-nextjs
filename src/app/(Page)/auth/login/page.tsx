@@ -97,7 +97,7 @@ function Login() {
               >
                 Log In
               </a>
-              <hr className="flex-shrink-0 border-b border-solid border-[#36373f] mt-4"></hr>
+              <hr className="flex-shrink-0 border-b border-solid border-border_menu mt-4"></hr>
             </div>
           </form>
         </div>
