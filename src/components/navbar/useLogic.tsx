@@ -49,9 +49,9 @@ export const useLogicNavbar = () => {
     {
       key: "/profile",
       icon: (
-        <a>
+        <span>
           <IconProfile />
-        </a>
+        </span>
       ),
       label: "Profile",
     },
