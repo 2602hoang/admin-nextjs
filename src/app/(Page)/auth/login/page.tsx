@@ -7,11 +7,12 @@ import {
   Iconshow,
 } from "@/assets/DataIcon";
 import { Button } from "antd";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
-
+  const router = useRouter();
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -35,7 +36,10 @@ function Login() {
           <div className="mt-4">
             <h6 className="text-center leading-[1.6rem] text-[1.25rem] font-medium  text-color_menu">
               Don’t have an account?{" "}
-              <a href="/auth/Signup" className="text-logo">
+              <a
+                onClick={() => router.push("/auth/signup")}
+                className="text-logo"
+              >
                 Sign up
               </a>
             </h6>

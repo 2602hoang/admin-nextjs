@@ -37,7 +37,12 @@ const columns: TableColumnsType<DataType> = [
     dataIndex: "name",
     render: (text) => (
       <span className="gap-1 flex flex-row items-center">
-        <Avatar style={{ backgroundColor: getRandomColor() }}>{text[0]}</Avatar>
+        <Avatar
+          className="size-7"
+          style={{ backgroundColor: getRandomColor() }}
+        >
+          {text[0]}
+        </Avatar>
         {text}
       </span>
     ),
@@ -143,9 +148,9 @@ export const TableUser = () => {
           />
         </div>
       </div>
-      <div className="w-full px-5 font-inter rounded-md justify-center items-center    flex overflow-auto  hover:overflow-x-auto">
+      <div className="px-5 justify-center items-center    flex overflow-auto  hover:overflow-auto">
         <Table
-          className="font-inter w-[95%]  "
+          className="font-inter w-[95%]"
           pagination={{
             current: currentPage,
             pageSize,
@@ -161,7 +166,7 @@ export const TableUser = () => {
             //     return originalElement;
             //   },
           }}
-          size="middle"
+          size="small"
           rowSelection={rowSelection}
           columns={columns}
           dataSource={data}

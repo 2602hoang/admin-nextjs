@@ -13,6 +13,7 @@ import {
 } from "@/assets/DataIcon";
 import { Avatar, Badge, Button, Dropdown, Input, MenuProps, Space } from "antd";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 interface HeaderProps {
   collapsed: boolean;
   toggleCollapsed: () => void;
@@ -24,7 +25,7 @@ export const Header: React.FC<HeaderProps> = ({
   const [dropdownVisible, setDropdownVisible] = useState(false);
 
   const toggleDropdown = () => setDropdownVisible(!dropdownVisible);
-
+  const router = useRouter();
   const items: MenuProps["items"] = [
     {
       label: (
@@ -88,7 +89,10 @@ export const Header: React.FC<HeaderProps> = ({
     {
       // icon: <IconOut />,
       label: (
-        <a href="/Login" className=" gap-2 flex-row flex items-center">
+        <a
+          onClick={() => router.push("/auth/login")}
+          className=" gap-2 flex-row flex items-center"
+        >
           <IconOut /> <span className="text-red-500">Logout</span>
         </a>
       ),
