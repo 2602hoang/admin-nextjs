@@ -75,7 +75,7 @@ ${flag === "open" ? "open-menu  pt-[10px]" : "close-menu hidden md:block"}
           theme="dark"
           className={`${
             collapsed ? "px-5" : "pl-[29px] py-1 "
-          } text-[1rem] h-11 space-y-[16px]  font-medium `}
+          } text-[1rem] h-11 space-y-[17px]  font-medium `}
           items={items}
           onClick={onClick}
         />

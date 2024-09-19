@@ -34,7 +34,7 @@ function Content() {
         <Earnings />
       </div>
 
-      <div className=" bg-content1 rounded-xl h-auto  xl:h-[467px] md:w-full  lg:order-4  md:order-4 xl:w-[66%] 2xl:w-[49%] ">
+      <div className=" bg-content1 rounded-xl h-auto  xl:h-[467px] w-full  lg:order-4  md:order-4 xl:w-[66%] 2xl:w-[49%] ">
         <SlideTrending />
       </div>
       <div className=" bg-content1 rounded-xl 2xl:w-[49%] xl:h-[449px] 2xl:h-[467px] h-auto   w-full xl:w-[99.5%]  lg:order-5 md:order-5">

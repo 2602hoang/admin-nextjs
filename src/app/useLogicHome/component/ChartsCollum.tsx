@@ -20,7 +20,7 @@ const ChartsCollum = () => {
   ];
   return (
     <div className="flex w-full items-start justify-center gap-y-14 flex-col h-auto p-3">
-      <h4 className="text-[24px] font-semibold font-inter leading-[29px] pt-4 pl-4">
+      <h4 className="text-[24px] font-semibold font-inter leading-[29px] pt-6 pl-5">
         Level
       </h4>
       <ResponsiveContainer className=" gap-y-4" width={"100%"} height={200}>
