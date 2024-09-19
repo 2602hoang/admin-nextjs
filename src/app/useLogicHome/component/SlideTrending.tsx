@@ -33,8 +33,6 @@ const SlideTrending = () => {
     }
   }, [isHovered, slidesToShowCount]);
 
-  // console.log(currentIndex);
-
   const handleNext = () => {
     setCurrentIndex(
       (prevIndex) =>

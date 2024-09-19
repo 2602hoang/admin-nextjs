@@ -128,7 +128,7 @@ export const TableUser = () => {
   };
 
   return (
-    <div className="overflow-auto">
+    <div>
       <div className=" rounded-md px-2 gap-2 justify-between md:px-12 items-center pt-5 flex">
         <div>
           <h4 className="text-[1.5rem] font-semibold font-inter leading-[1.235rem]">
@@ -161,7 +161,7 @@ export const TableUser = () => {
             //     return originalElement;
             //   },
           }}
-          size="small"
+          size="middle"
           rowSelection={rowSelection}
           columns={columns}
           dataSource={data}

@@ -23,6 +23,9 @@ const config: Config = {
         color_menu: "#87898E",
         logo: "#A9DFD8",
         border_menu: "#2C2D33",
+        totalsale: "#FCB859",
+        productsold: "#f2c8ed",
+        newcustomer: "#20aef3",
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],

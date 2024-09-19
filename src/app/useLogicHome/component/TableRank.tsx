@@ -5,27 +5,24 @@ import { useDataContent } from "./Data";
 function TableRank() {
   const { testimonials } = useDataContent();
   const getTagColorByKey = (key: string | number) => {
-    // Define key-to-color mapping, adjust as needed
     const keyColorMap: Record<string | number, string> = {
       1: "#FCB859",
       3: "#20aef3",
       2: "#A9DFD8",
       4: "#f2c8ed",
     };
-
-    // Default color if the key doesn't match
     return keyColorMap[key] || "green";
   };
   const getBorderColorByKey = (key: string | number) => {
     switch (key) {
       case 1:
-        return "#FCB859"; // Red border
+        return "#FCB859";
       case 3:
-        return "#20aef3"; // Green border
+        return "#20aef3";
       case 2:
-        return "#A9DFD8"; // Blue border
+        return "#A9DFD8";
       default:
-        return "#f2c8ed"; // Default gray border
+        return "#f2c8ed";
     }
   };
   const columns = [

@@ -15,7 +15,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <LayoutPage>
-          <div className="text-white font-inter">{children}</div>
+          <div>{children}</div>
         </LayoutPage>
       </body>
     </html>
