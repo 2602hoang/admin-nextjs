@@ -57,7 +57,7 @@ const SlideTrending = () => {
       className="relative rounded-xl   justify-center items-center space-y-4 overflow-hidden  py-3 md:pr-0 pr-3 md:pl-3"
     >
       <div className="flex  justify-between items-center mx-4 ">
-        <h4 className="text-2xl font-inter font-semibold leading-9">
+        <h4 className="text-[1.5rem] font-inter font-semibold leading-[1.235rem]">
           Trending Now
         </h4>
         <div className="flex space-x-4 items-center mt-4">

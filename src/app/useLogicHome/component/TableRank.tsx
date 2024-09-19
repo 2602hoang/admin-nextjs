@@ -77,15 +77,15 @@ function TableRank() {
   ];
 
   return (
-    <div className=" overflow-x-auto flex flex-col  h-auto gap-y-5   px-5 py-5 justify-center items-start ">
-      <h4 className="text-[24px] font-semibold font-inter leading-[29px] pt-4 pl-4">
+    <div className=" overflow-x-auto flex flex-col   gap-y-5   px-5 py-5 justify-center items-start ">
+      <h4 className="text-[1.5rem] font-semibold font-inter leading-[1.235rem] pt-5 pl-3">
         Top Products
       </h4>
       <div className="px-6 w-full">
         <Table
           columns={columns}
           dataSource={testimonials}
-          size="small"
+          size="middle"
           className="font-inter "
           rowKey="key"
           pagination={false}
