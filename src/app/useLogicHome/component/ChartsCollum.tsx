@@ -56,7 +56,10 @@ const ChartsCollum = () => {
         >
           <XAxis />
           <Tooltip />
-          <Legend margin={{ top: 10, right: 0, bottom: 0, left: 0 }} />
+          <Legend
+            iconType="circle"
+            margin={{ top: 10, right: 0, bottom: 0, left: 0 }}
+          />
           <Bar
             dataKey="Volume"
             stackId="a"

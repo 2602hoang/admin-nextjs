@@ -39,6 +39,7 @@ const ChartsLine = () => {
         >
           <XAxis dataKey="month" />
           <YAxis />
+
           <Tooltip />
           <Area
             type="monotone"
