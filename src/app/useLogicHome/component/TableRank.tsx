@@ -29,40 +29,44 @@ function TableRank() {
     {
       title: <span className="custom-table-title">#</span>,
       dataIndex: "key",
-      width: 100,
+      width: 80,
       key: "key",
       render: (text: string | number) => <span>0{text}</span>,
     },
     {
       title: <span className="custom-table-title">Name</span>,
       dataIndex: "name",
-      width: 300,
+      width: 325,
       key: "name",
+      render: (text: string) => (
+        <span className="leading-[19px] text-[16px] font-inter">{text}</span>
+      ),
     },
     {
-      title: <span className="custom-table-title ml-2">Popularity</span>,
+      title: <span className="custom-table-title ">Popularity</span>,
       key: "popularity",
+      width: 240,
       render: (record: {
         key: string | number;
         number: number | undefined;
       }) => (
         <Progress
-          className="text-white px-2 "
           percent={record.number}
           status="active"
+          trailColor="transparent"
           showInfo={false}
-          size={["100%", 3]}
           strokeColor={getBorderColorByKey(record.key)}
+          size={["70%", 3]}
         />
       ),
     },
     {
-      title: <span className="custom-table-title ml-28">Sales</span>,
+      title: <span className="custom-table-title  ">Sales</span>,
       dataIndex: "number",
       key: "sales",
       render: (sales: number, record: { key: string | number }) => (
         <Tag
-          className={`w-20 h-9 ml-28 flex justify-center items-center rounded-lg border p-3 `}
+          className={`w-20 h-9  flex justify-center items-center rounded-lg border p-3 `}
           style={{
             backgroundColor: `${getTagColorByKey(record.key)}3D`,
             color: getTagColorByKey(record.key),
@@ -76,7 +80,7 @@ function TableRank() {
   ];
 
   return (
-    <div className=" overflow-x-auto flex flex-col   gap-y-5   px-5 py-5 justify-center items-start ">
+    <div className=" overflow-x-auto flex flex-col   gap-y-7   px-5 py-5 justify-center items-start ">
       <h4 className="text-[1.5rem] font-semibold font-inter leading-[1.235rem] pt-5 pl-3">
         Top Products
       </h4>
