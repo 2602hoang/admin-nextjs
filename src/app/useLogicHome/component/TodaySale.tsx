@@ -7,7 +7,7 @@ function TodaySale() {
   const { data } = useDataContent();
 
   return (
-    <div className="w-full  text-white justify-start items-start font-inter p-8 md:px-8 md:py-7 flex-col flex">
+    <div className="font-inter p-8 md:px-8 md:py-7 ">
       <div className="flex  text-start flex-col space-y-2 mb-[24px] pt-2   ">
         <h4 className="text-[1.5rem] font-inter font-semibold mb-[4px] leading-[1.235rem]">
           Today’s Sales
@@ -18,10 +18,7 @@ function TodaySale() {
       </div>
       <div className="grid lg:grid-cols-4 w-full  gap-5  md:grid-cols-2 grid-cols-1    md:gap-x-6">
         {data.map((item) => (
-          <div
-            key={item.key}
-            className="w-full flex flex-col p-5  justify-start items-start bg-menu  rounded-xl text-white"
-          >
+          <div key={item.key} className="p-5   bg-menu  rounded-xl ">
             <div className="">
               <img src={`${item.icon}`} className="size-[26px]" />
               <p className=" text-[1.5rem] mb-5 mt-7 font-semibold leading-[1.235rem]">
