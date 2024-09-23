@@ -52,7 +52,7 @@ const ChartsCollum = () => {
       >
         <BarChart
           data={data}
-          margin={{ top: 0, right: 10, bottom: 0, left: 35 }}
+          margin={{ top: 0, right: 18, bottom: 0, left: 28 }}
         >
           <XAxis />
           <Tooltip />
@@ -65,14 +65,14 @@ const ChartsCollum = () => {
             stackId="a"
             fill="#A9DFD8"
             name="Volume"
-            barSize={20}
+            barSize={25}
           />
           <Bar
             dataKey="Service"
             stackId="a"
             fill="#666666"
             name="Service"
-            barSize={20}
+            barSize={25}
           />
         </BarChart>
       </ResponsiveContainer>

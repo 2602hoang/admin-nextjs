@@ -34,13 +34,13 @@ function TableRank() {
       render: (text: string | number) => <span>0{text}</span>,
     },
     {
-      title: <span>Name</span>,
+      title: <span className="custom-table-title">Name</span>,
       dataIndex: "name",
       width: 300,
       key: "name",
     },
     {
-      title: <span>Popularity</span>,
+      title: <span className="custom-table-title ml-2">Popularity</span>,
       key: "popularity",
       render: (record: {
         key: string | number;
@@ -57,7 +57,7 @@ function TableRank() {
       ),
     },
     {
-      title: <span className="ml-28">Sales</span>,
+      title: <span className="custom-table-title ml-28">Sales</span>,
       dataIndex: "number",
       key: "sales",
       render: (sales: number, record: { key: string | number }) => (
