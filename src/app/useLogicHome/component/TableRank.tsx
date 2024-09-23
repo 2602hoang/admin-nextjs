@@ -29,12 +29,14 @@ function TableRank() {
     {
       title: <span className="custom-table-title">#</span>,
       dataIndex: "key",
+      width: 100,
       key: "key",
       render: (text: string | number) => <span>0{text}</span>,
     },
     {
       title: <span>Name</span>,
       dataIndex: "name",
+      width: 300,
       key: "name",
     },
     {
