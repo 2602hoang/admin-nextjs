@@ -65,7 +65,7 @@ const SlideTrending: React.FC = () => {
       className="relative rounded-xl overflow-hidden p-3"
     >
       <div className="flex justify-between items-center mx-4">
-        <h4 className="font-inter text-[24px] font-semibold leading-[29.64px]">
+        <h4 className=" text-[24px] font-semibold leading-[29.64px]">
           Trending Now
         </h4>
         <div className="flex space-x-4 items-center mt-4">
@@ -119,15 +119,15 @@ const SlideTrending: React.FC = () => {
               }}
               className="max-h-[200px] rounded-t-lg"
             />
-            <div className="w-[90%] p-2 bg-Brown">
-              <p className="my-2 px-2 font-inter font-medium leading-[24px] text-white">
+            <div className="w-[90%] p-2 bg-brown">
+              <p className="my-2 px-2  font-medium leading-[24px] text-white">
                 {testimonial.name}
               </p>
               <div className="flex justify-between items-center px-2">
-                <p className="text-[12px] font-medium leading-[17px] font-inter text-Gray_menu">
+                <p className="text-[12px] font-medium leading-[17px]  text-gray-menu">
                   Popularity
                 </p>
-                <p className="text-[12px] font-medium leading-[17px] font-inter text-Gray_menu">
+                <p className="text-[12px] font-medium leading-[17px]  text-gray-menu">
                   {testimonial.number}%
                 </p>
               </div>
@@ -139,7 +139,7 @@ const SlideTrending: React.FC = () => {
                 size={["100%", 4]}
               />
             </div>
-            <div className="flex w-[90%] justify-end items-end p-2 rounded-b-lg bg-Brown">
+            <div className="flex w-[90%] justify-end items-end p-2 rounded-b-lg bg-brown">
               <Avatar.Group
                 size="default"
                 max={{

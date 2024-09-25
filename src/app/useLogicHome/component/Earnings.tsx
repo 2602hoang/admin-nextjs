@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Progress } from "antd";
 import React from "react";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Percent = (percent: any) => (
   <span className="text-white text-3xl font-black">{percent}%</span>
 );
@@ -10,16 +10,16 @@ export const Earnings = () => {
   return (
     <div className="p-5">
       <div className="pt-4 pl-4 mb-2 xl:mb-12">
-        <h4 className="font-inter text-[24px] font-semibold leading-[29.64px]">
+        <h4 className="text-[24px] font-semibold leading-[29.64px]">
           Earnings
         </h4>
-        <p className="font-inter font-normal mt-4  leading-[24px] text-Light_Gray">
+        <p className="font-normal mt-4  leading-[24px] text-light-gray">
           Total Expense
         </p>
-        <h1 className="text-[48px]  font-bold mt-8 font-inter text-Light_Teal leading-[56px] text-wrap ">
+        <h1 className="text-[48px]  font-bold mt-8 text-light-teal leading-[56px] text-wrap ">
           $6078.76
         </h1>
-        <p className="font-normal text-[16px] mt-7 font-inter leading-[24px] text-Light_Gray">
+        <p className="font-normal text-[16px] mt-7 leading-[24px] text-light-gray">
           Profit is 48% More than last Month
         </p>
       </div>

@@ -31,49 +31,45 @@ const Navbar: React.FC<NavbarProps> = ({ collapsed }) => {
 
   return (
     <div
-      className={` h-screen bg-Brown relative
-${flag === "open" ? "open-menu  pt-[10px]" : "close-menu hidden md:block"}
-       border-r-[1px] border-r-Darker_Gray border-solid z-20 w-full `}
+      className={` h-screen overflow-hidden  relative border-r-[1px] border-r-darker-gray border-solid  overscroll-y-auto hover:overflow-y-auto
+      ${collapsed ? "w-[239px] " : "w-0 md:w-[110px]"}
+      ${flag === "open" ? "open-menu  " : "close-menu hidden md:block"}`}
     >
       <div
         className={`${
-          collapsed ? "w-[240px]" : "w-0 md:w-[110px]"
-        } h-[98px] fixed  top-0 border-r-[1px] border-r-Darker_Gray border-solid z-50  left-0 px-5 `}
+          collapsed ? " " : "w-0 md:w-[110px]"
+        } h-[98px] sticky  top-0  z-50  left-0 bg-brown `}
       >
         <div
-          className={`${
-            collapsed ? " px-[25px] pt-[32px] pb-[26px]" : " "
-          } flex h-[98px] w-full  justify-center items-center  `}
+          className={`flex h-[98px] w-full  justify-center items-center ${
+            collapsed ? "px-[49px] pt-[6px] " : "px-9"
+          }`}
         >
           <a href="/">
             {!collapsed ? (
               <img
                 title="Light_Teal"
-                className="bg-Brown w-[30px] h-10"
+                className=" w-[30px] h-10"
                 src="https://themewagon.github.io/nickelfox/LOGO.png"
               />
             ) : (
               <img
                 title="Light_Teal"
-                className="bg-Brown w-[140px] h-10"
+                className=" w-[140px] h-10"
                 src="https://themewagon.github.io/nickelfox/Logo-with-text.png"
               />
             )}
           </a>
         </div>
       </div>
-      <div
-        className={`flex  overscroll-y-auto hover:overflow-y-auto ${
-          collapsed ? "justify-start items-start  w-full " : ""
-        }   bg-Brown   h-full z-30  pt-[102px]`}
-      >
+      <div className={`pt-[3px]`}>
         <Menu
           selectedKeys={[current]}
           defaultSelectedKeys={["1"]}
           mode="inline"
           theme="dark"
           className={`${
-            collapsed ? "px-5" : "pl-[28px] pt-[6px] "
+            collapsed ? "px-5" : "pl-7 pt-[6px] "
           } text-[16px] h-11 space-y-[17px]  font-medium `}
           items={items}
           onClick={onClick}

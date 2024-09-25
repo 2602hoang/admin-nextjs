@@ -38,7 +38,7 @@ function TableRank() {
       width: 325,
       key: "name",
       render: (text: string) => (
-        <span className="leading-[19px] text-[16px] font-inter">{text}</span>
+        <span className="leading-[19px] text-[16px] ">{text}</span>
       ),
     },
     {
@@ -84,7 +84,7 @@ function TableRank() {
 
   return (
     <div className="overflow-hidden  p-5">
-      <h4 className=" font-inter text-[24px] font-semibold leading-[29.64px] pt-4  pl-3">
+      <h4 className="text-[24px] font-semibold leading-[29.64px] pt-4  pl-3">
         Top Products
       </h4>
       <div className="px-6 mt-7 ">
@@ -92,7 +92,7 @@ function TableRank() {
           columns={columns}
           dataSource={tableRank}
           size="middle"
-          className="font-inter"
+          className="overflow-x-auto overflow-auto"
           rowKey="key"
           pagination={false}
           showSorterTooltip={{ target: "sorter-icon" }}

@@ -14,15 +14,8 @@ import {
   TableRowSelection,
 } from "antd/es/table/interface";
 import React, { useState } from "react";
+import { dataTableUser, DataTableUser } from "./Data";
 
-interface DataType {
-  key: React.Key;
-  name: string;
-  email: string;
-  phone: string;
-  address: string;
-  total: number;
-}
 const getRandomColor = () => {
   const letters = "0123456789ABCDEF";
   let color = "#";
@@ -31,7 +24,7 @@ const getRandomColor = () => {
   }
   return color;
 };
-const columns: TableColumnsType<DataType> = [
+const columns: TableColumnsType<DataTableUser> = [
   {
     title: "Name",
     dataIndex: "name",
@@ -82,18 +75,6 @@ const columns: TableColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [];
-for (let i = 1; i < 23; i++) {
-  data.push({
-    key: i,
-    name: `nam ${i}`,
-    email: `${i}huy@gmail.com`,
-    phone: `${i}987654321`,
-    address: `London, Park Lane no. ${i}`,
-    total: 10 * i,
-  });
-}
-
 export const TableUser = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -104,7 +85,7 @@ export const TableUser = () => {
     setSelectedRowKeys(newSelectedRowKeys);
   };
 
-  const rowSelection: TableRowSelection<DataType> = {
+  const rowSelection: TableRowSelection<DataTableUser> = {
     selectedRowKeys,
     onChange: onSelectChange,
   };
@@ -115,16 +96,16 @@ export const TableUser = () => {
 
   const footer = () => {
     const start = (currentPage - 1) * pageSize + 1;
-    const end = Math.min(currentPage * pageSize, data.length);
+    const end = Math.min(currentPage * pageSize, dataTableUser.length);
     return (
       <div className="flex mt-3 justify-between items-center text-white">
         <div>
-          Show {start} - {end} of {data.length} total items
+          Show {start} - {end} of {dataTableUser.length} total items
         </div>
         <Pagination
           current={currentPage}
           pageSize={pageSize}
-          total={data.length}
+          total={dataTableUser.length}
           onChange={(page) => setCurrentPage(page)}
           hideOnSinglePage
         />
@@ -135,13 +116,13 @@ export const TableUser = () => {
   return (
     <div>
       <div className=" rounded-md px-2 gap-2 justify-between md:px-12 items-center pt-5 flex">
-        <h4 className="font-inter text-[24px]  font-semibold leading-[29.64px]">
+        <h4 className="text-[24px]  font-semibold leading-[29.64px]">
           Customers
         </h4>
 
         <div>
           <Input
-            className="h-12 flex bg-Brown border-none text-white  border-slate-500 focus-within:bg-Light_Gray hover:bg-Light_Gray"
+            className="h-12 flex bg-brown border-none text-white  border-slate-500 focus-within:bg-light-gray hover:bg-light-gray"
             placeholder="Search . . . "
             prefix={<SearchOutlined />}
           />
@@ -149,18 +130,18 @@ export const TableUser = () => {
       </div>
       <div className="px-5 justify-center items-center flex  mt-6  ">
         <Table
-          className="font-inter w-[95%]"
+          className="w-[95%]"
           pagination={{
             current: currentPage,
             pageSize,
-            total: data.length,
+            total: dataTableUser.length,
             onChange: (page) => setCurrentPage(page),
           }}
           size="small"
           scroll={{ x: "max-content" }}
           rowSelection={rowSelection}
           columns={columns}
-          dataSource={data}
+          dataSource={dataTableUser}
           footer={footer}
           onChange={handleChange}
         />

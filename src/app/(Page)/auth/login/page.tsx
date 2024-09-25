@@ -17,16 +17,16 @@ function Login() {
     setShowPassword(!showPassword);
   };
   return (
-    <div className="w-full h-screen font-inter py-10 flex flex-col gap-y-8 justify-center items-center">
+    <div className="w-full h-screen  py-10 flex flex-col gap-y-8 justify-center items-center">
       <div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           title="Light_Teal"
-          className="bg-Brown w-[210px] h-14"
+          className="bg-brown w-[210px] h-14"
           src="https://themewagon.github.io/nickelfox/Logo-with-text.png"
         />
       </div>
-      <div className="bg-Dark_Slate_Gray w-10/12 md:w-2/6 py-4 rounded-2xl shadow-xl overflow-hidden">
+      <div className="bg-dark-slate-gray w-10/12 md:w-2/6 py-4 rounded-2xl shadow-xl overflow-hidden">
         <div className="gap-y-4 p-7 flex flex-col">
           <div>
             <h3 className="text-center text-[2rem]  font-semibold leading-[1.167rem] text-white">
@@ -34,11 +34,11 @@ function Login() {
             </h3>
           </div>
           <div className="mt-4">
-            <h6 className="text-center leading-[1.6rem] text-[1.25rem] font-medium  text-Gray_menu">
+            <h6 className="text-center leading-[1.6rem] text-[1.25rem] font-medium  text-gray-menu">
               Don’t have an account?{" "}
               <a
                 onClick={() => router.push("/auth/signup")}
-                className="text-Light_Teal"
+                className="text-light-teal"
               >
                 Sign up
               </a>
@@ -92,12 +92,12 @@ function Login() {
             <div>
               <a
                 href="/"
-                className="group relative w-full flex justify-center py-3  px-4 border border-transparent text-sm font-medium rounded-md text-gray-900 bg-Light_Teal hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="group relative w-full flex justify-center py-3  px-4 border border-transparent text-sm font-medium rounded-md text-gray-900 bg-light-teal hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 type="submit"
               >
                 Log In
               </a>
-              <hr className="flex-shrink-0 border-b border-solid border-Darker_Gray mt-4"></hr>
+              <hr className="flex-shrink-0 border-b border-solid border-darker-gray mt-4"></hr>
             </div>
           </form>
         </div>
@@ -109,14 +109,14 @@ function Login() {
             <Button
               type="link"
               icon={<IconGoogle />}
-              className="w-[45%] h-14 leading-[1.75rem] text-Light_Teal border-2 py-3 flex px-4 justify-center items-center border-Light_Teal"
+              className="w-[45%] h-14 leading-[1.75rem] text-light-teal border-2 py-3 flex px-4 justify-center items-center border-light-teal"
             >
               Google
             </Button>
             <Button
               icon={<IconFacebook />}
               type="link"
-              className="w-[45%] text-Light_Teal h-14 leading-[1.75rem] flex justify-center items-center px-4 border-2 py-3 border-Light_Teal"
+              className="w-[45%] text-light-teal h-14 leading-[1.75rem] flex justify-center items-center px-4 border-2 py-3 border-light-teal"
             >
               Facebook
             </Button>

@@ -1,5 +1,5 @@
 :root {
-  --Gray_menu: #171821;
+  --gray-menu: #171821;
   --color_Light_Teal: #a9dfd8;
   --color_Light_Teal_hover: #23d7bf9d;
   --color_hover_black: #21222d;
@@ -30,10 +30,10 @@
   margin-block: 0px;
 }
 .ant-menu-dark {
-  background-color: var(--Gray_menu);
+  background-color: var(--gray-menu);
 
   .ant-menu-inline {
-    background-color: var(--Gray_menu);
+    background-color: var(--gray-menu);
   }
 }
 
@@ -55,7 +55,7 @@
   }
   .ant-menu-dark.ant-menu-inline .ant-menu-item-selected {
     background-color: var(--color_Light_Teal);
-    color: var(--Gray_menu);
+    color: var(--gray-menu);
     border-radius: 6px;
     max-width: 100%;
     border-right-width: 0px;
@@ -72,7 +72,7 @@
   }
   .ant-menu-item-selected {
     color: var(--color_Light_Teal);
-    background-color: var(--Gray_menu);
+    background-color: var(--gray-menu);
     border-right-style: solid;
     border-color: var(--color_Light_Teal);
     border-radius: 0px;
@@ -82,7 +82,7 @@
   }
   .ant-menu-dark:not(.ant-menu-horizontal)
     .ant-menu-item:not(.ant-menu-item-selected):hover {
-    background-color: var(--Gray_menu);
+    background-color: var(--gray-menu);
   }
   @media (min-width: 768px) {
     .ant-menu-title-content {

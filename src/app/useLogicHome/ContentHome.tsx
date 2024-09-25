@@ -1,43 +1,45 @@
-
 import React from "react";
 import TableRank from "./component/TableRank";
 import { Earnings } from "./component/Earnings";
 import SlideTrending from "./component/SlideTrending";
-import ChartsLine from "./component/ChartsLine";
 import { TableUser } from "./component/TableUser";
-import { Charttwoline } from "./component/Charttwoline";
-import ChartsCollum from "./component/ChartsCollum";
 import TodaySale from "./component/TodaySale";
+import {
+  ChartsColumnLevel,
+  ChartsLine,
+  Charttwoline,
+} from "./component/AllCharts";
+import Charts from "./component/ComponentCharts";
 
 function Content() {
   return (
-    <div className="flex  w-full gap-[14px] flex-wrap h-auto">
-      <div className=" div_home 2xl:w-[66%] lg:w-[99.5%]  ">
+    <div className="grid grid-cols-12  gap-[14px]  h-auto overflow-hidden">
+      <div className=" 2xl:col-span-8 wrapper-box-rounded-xl ">
         <TodaySale />
       </div>
-      <div className=" div_home lg:w-[32.5%] 2xl:w-[32%]">
-        <ChartsCollum />
+      <div className=" lg:col-span-4 wrapper-box-rounded-xl">
+        <Charts title={"Level"} charts={<ChartsColumnLevel />} />
       </div>
-      <div className=" div_home  lg:w-[65.5%] xl:w-[66%]  ">
+      <div className=" lg:col-span-8 wrapper-box-rounded-xl  ">
         <TableRank />
       </div>
-      <div className=" div_home  xl:w-[32.5%] lg:w-[49%] 2xl:w-[32%] md:order-1 xl:order-1  lg:order-1">
-        <Charttwoline />
+      <div className=" xl:col-span-4 lg:col-span-6 wrapper-box-rounded-xl ">
+        <Charts title={"Customer Fulfillment"} charts={<Charttwoline />} />
       </div>
-      <div className=" div_home xl:w-[66%] lg:w-[99.5%]  md:order-3 lg:order-3 xl:order-2 2xl:order-2">
-        <ChartsLine />
+      <div className=" xl:col-span-8 wrapper-box-rounded-xl lg:col-span-12  md:order-3 lg:order-3 xl:order-2 2xl:order-2">
+        <Charts title={"Visitor Insights"} charts={<ChartsLine />} />
       </div>
-      <div className=" div_home  lg:w-[49%]  xl:w-[32.5%]  md:order-2 lg:order-2 xl:order-3 2xl:w-[32%] 2xl:order-1">
+      <div className=" xl:col-span-4 min-h-[470px] lg:col-span-6 wrapper-box-rounded-xl md:order-2 lg:order-2 xl:order-3  2xl:order-1">
         <Earnings />
       </div>
-      <div className=" div_home lg:order-4  md:order-4 lg:w-[99.5%] xl:w-[66%] 2xl:w-[49%] ">
+      <div className=" xl:col-span-8 2xl:col-span-6   wrapper-box-rounded-xl lg:order-4  md:order-4 ">
         <SlideTrending />
       </div>
-      <div className=" div_home 2xl:w-[49%] min-h-[460px]    lg:w-[99.5%]  lg:order-5 md:order-5">
+      <div className="2xl:col-span-6  wrapper-box-rounded-xl min-h-[460px]   lg:order-5 md:order-5">
         <TableUser />
       </div>
 
-      <div className="w-full text-center md:text-end h-[60px] my-16 px-10 lg:order-5   md:order-6">
+      <div className="col-span-12 text-center md:text-end h-[60px] mt-5 px-10 lg:order-5   md:order-6">
         <h1 className="">Made in vietname 🇻🇳</h1>
       </div>
     </div>

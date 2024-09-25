@@ -10,7 +10,7 @@
   --color-scrollbar-thumb-hover: "#121212";
 }
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 8px;
   position: absolute;
 }
 
@@ -29,7 +29,7 @@
   background: var(--color-scrollbar-thumb-hover);
 }
 @layer divhome {
-  .div_home {
-    @apply bg-Dark_Slate_Gray rounded-xl w-full;
+  .wrapper-box-rounded-xl {
+    @apply bg-dark-slate-gray rounded-xl col-span-12;
   }
 }

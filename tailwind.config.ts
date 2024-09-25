@@ -9,18 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        Brown: "#171821",
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-        Dark_Slate_Gray: "#21222D",
-        Light_Gray: "#88888c4d",
-        Gray_menu: "#87898E",
-        Light_Teal: "#A9DFD8",
-        Light_Gray_text: "#a0a0a0",
-        Darker_Gray: "#2C2D33",
-        Gold: "#FCB859",
-        Light_Pink: "#f2c8ed",
-        Sky_Blue: "#20aef3",
+        brown: "#171821",
+        "dark-slate-gray": "#21222D",
+        "light-gray": "#88888c4d",
+        "gray-menu": "#87898E",
+        "light-teal": "#A9DFD8",
+        "light-gray-text": "#a0a0a0",
+        "darker-gray": "#2C2D33",
+        gold: "#FCB859",
+        "light-pink": "#f2c8ed",
+        "sky-blue": "#20aef3",
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
