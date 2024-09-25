@@ -14,7 +14,7 @@ import {
   TableRowSelection,
 } from "antd/es/table/interface";
 import React, { useState } from "react";
-import { dataTableUser, DataTableUser } from "./Data";
+import { dataTableUser, DataTableUser } from "./data";
 
 const getRandomColor = () => {
   const letters = "0123456789ABCDEF";
