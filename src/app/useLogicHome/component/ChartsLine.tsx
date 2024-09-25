@@ -9,7 +9,6 @@ import {
 } from "recharts";
 
 const ChartsLine = () => {
-  // Dữ liệu cho biểu đồ
   const data = [
     { total: 1532, month: "Jan" },
     { total: 3000, month: "Feb" },
@@ -26,12 +25,10 @@ const ChartsLine = () => {
   ];
 
   return (
-    <div className="w-full h-auto  justify-center items-start space-y-3 md:space-y-9 p-5 flex-col flex">
-      <div>
-        <h4 className="text-[24px] font-semibold font-inter leading-[29px] pt-4 pl-4">
-          Visitor Insights
-        </h4>
-      </div>
+    <div className="p-5">
+      <h4 className="font-inter text-[24px] mb-3 md:mb-9 font-semibold leading-[29.64px] pt-4 pl-4">
+        Visitor Insights
+      </h4>
       <ResponsiveContainer width="100%" height={300}>
         <AreaChart
           data={data}

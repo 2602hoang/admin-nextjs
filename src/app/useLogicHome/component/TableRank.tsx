@@ -1,9 +1,8 @@
 import React from "react";
 import { Progress, Table, Tag } from "antd";
-import { useDataContent } from "./Data";
+import { tableRank } from "./Data";
 
 function TableRank() {
-  const { testimonials } = useDataContent();
   const getTagColorByKey = (key: string | number) => {
     const keyColorMap: Record<string | number, string> = {
       1: "#FCB859",
@@ -27,7 +26,7 @@ function TableRank() {
   };
   const columns = [
     {
-      title: <span className="custom-table-title">#</span>,
+      title: <span className="custom-table-title ">#</span>,
       dataIndex: "key",
       width: 80,
       key: "key",
@@ -43,53 +42,57 @@ function TableRank() {
       ),
     },
     {
-      title: <span className="custom-table-title ">Popularity</span>,
+      title: <span className="custom-table-title ml-3 ">Popularity</span>,
       key: "popularity",
-      width: 240,
+      width: 260,
       render: (record: {
         key: string | number;
         number: number | undefined;
       }) => (
-        <Progress
-          percent={record.number}
-          status="active"
-          trailColor="transparent"
-          showInfo={false}
-          strokeColor={getBorderColorByKey(record.key)}
-          size={["70%", 3]}
-        />
+        <div className="ml-3">
+          <Progress
+            percent={record.number}
+            status="active"
+            trailColor="transparent"
+            showInfo={false}
+            strokeColor={getBorderColorByKey(record.key)}
+            size={["70%", 2]}
+          />
+        </div>
       ),
     },
     {
-      title: <span className="custom-table-title  ">Sales</span>,
+      title: <span className="custom-table-title   ml-4 ">Sales</span>,
       dataIndex: "number",
       key: "sales",
       render: (sales: number, record: { key: string | number }) => (
-        <Tag
-          className={`w-20 h-9  flex justify-center items-center rounded-lg border p-3 `}
-          style={{
-            backgroundColor: `${getTagColorByKey(record.key)}3D`,
-            color: getTagColorByKey(record.key),
-            borderColor: getBorderColorByKey(record.key),
-          }}
-        >
-          {sales}%
-        </Tag>
+        <div className="mr-6">
+          <Tag
+            className={`w-[80px] h-8  flex justify-center items-center rounded-md  border p-3 `}
+            style={{
+              backgroundColor: `${getTagColorByKey(record.key)}3D`,
+              color: getTagColorByKey(record.key),
+              borderColor: getBorderColorByKey(record.key),
+            }}
+          >
+            {sales}%
+          </Tag>
+        </div>
       ),
     },
   ];
 
   return (
-    <div className=" overflow-x-auto flex flex-col   gap-y-7   px-5 py-5 justify-center items-start ">
-      <h4 className="text-[1.5rem] font-semibold font-inter leading-[1.235rem] pt-5 pl-3">
+    <div className="overflow-hidden  p-5">
+      <h4 className=" font-inter text-[24px] font-semibold leading-[29.64px] pt-4  pl-3">
         Top Products
       </h4>
-      <div className="px-6 w-full">
+      <div className="px-6 mt-7 ">
         <Table
           columns={columns}
-          dataSource={testimonials}
+          dataSource={tableRank}
           size="middle"
-          className="font-inter "
+          className="font-inter"
           rowKey="key"
           pagination={false}
           showSorterTooltip={{ target: "sorter-icon" }}

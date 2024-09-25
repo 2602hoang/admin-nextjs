@@ -17,7 +17,6 @@ import {
 import { MenuProps } from "antd";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-
 type MenuItem = Required<MenuProps>["items"][number] & {
   key: string;
   icon: React.ReactNode;

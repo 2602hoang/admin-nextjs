@@ -1,72 +1,94 @@
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Avatar, Progress, Tooltip } from "antd";
-import { useDataContent } from "./Data";
 import { AntDesignOutlined, UserOutlined } from "@ant-design/icons";
+import { tableRank } from "./Data";
 
-const SlideTrending = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [slidesToShowCount, setSlidesToShowCount] = useState(getSlidesToShow());
-  const [isHovered, setIsHovered] = useState(false);
-  const { testimonials } = useDataContent();
-  function getSlidesToShow(): number {
-    if (typeof window === "undefined") return 1;
-    if (window.innerWidth >= 1024) return 2;
-    if (window.innerWidth >= 768) return 2;
-    return 1;
-  }
+const SlideTrending: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [startX, setStartX] = useState<number>(0);
+  const [isDragging, setIsDragging] = useState<boolean>(false);
+  const [isSmallScreen, setIsSmallScreen] = useState<boolean>(
+    window.innerWidth < 768
+  );
 
   useEffect(() => {
     const handleResize = () => {
-      setSlidesToShowCount(getSlidesToShow());
+      setIsSmallScreen(window.innerWidth < 768);
     };
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
-    if (!isHovered) {
-      const id = setInterval(handleNext, 3000);
-      return () => clearInterval(id);
-    }
-  }, [isHovered, slidesToShowCount]);
-
   const handleNext = () => {
-    setCurrentIndex(
-      (prevIndex) =>
-        (prevIndex + 1) % Math.ceil(testimonials.length / slidesToShowCount)
-    );
+    const flag = isSmallScreen ? 0 : 1;
+    const newIndex = currentIndex + 1;
+    if (newIndex < tableRank.length - flag) {
+      setCurrentIndex(newIndex);
+    }
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0
-        ? Math.ceil(testimonials.length / slidesToShowCount) - 1
-        : prevIndex - 1
-    );
+    const flag = isSmallScreen ? 0 : 1;
+    const newIndex = currentIndex - flag;
+    if (newIndex >= 0) {
+      setCurrentIndex(newIndex);
+    }
+  };
+
+  const handleMouseDown = (event: React.MouseEvent) => {
+    setIsDragging(true);
+    setStartX(event.clientX);
+  };
+
+  const handleMouseMove = (event: React.MouseEvent) => {
+    if (isDragging) {
+      const moveX = event.clientX - startX;
+      if (moveX > 50) {
+        handlePrev();
+        setIsDragging(false);
+      } else if (moveX < -50) {
+        handleNext();
+        setIsDragging(false);
+      }
+    }
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
   };
 
   return (
     <div
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="relative rounded-xl   justify-center items-center space-y-4 overflow-hidden  py-3 md:pr-0 pr-3 md:pl-3"
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      className="relative rounded-xl overflow-hidden p-3"
     >
-      <div className="flex  justify-between items-center mx-4 ">
-        <h4 className="text-[1.5rem] font-inter font-semibold leading-[1.235rem]">
+      <div className="flex justify-between items-center mx-4">
+        <h4 className="font-inter text-[24px] font-semibold leading-[29.64px]">
           Trending Now
         </h4>
         <div className="flex space-x-4 items-center mt-4">
           <button
-            className="text-white p-2 rounded-full z-30"
+            className={`${
+              currentIndex === 0
+                ? "text-gray-400 cursor-not-allowed"
+                : "text-white"
+            } p-2 rounded-full z-30`}
             onClick={handlePrev}
           >
             &#10094;
           </button>
           <button
-            className="text-white p-2 rounded-full z-30"
+            className={`${
+              (
+                isSmallScreen
+                  ? currentIndex + 1 >= tableRank.length
+                  : currentIndex * 2 + 1 >= tableRank.length
+              )
+                ? "text-gray-400 cursor-not-allowed"
+                : "text-white"
+            } p-2 rounded-full z-30`}
             onClick={handleNext}
           >
             &#10095;
@@ -74,15 +96,17 @@ const SlideTrending = () => {
         </div>
       </div>
       <div
-        className={`flex w-full transition-transform duration-50 `}
+        className={`flex w-full mt-5 transition-transform duration-50`}
         style={{
-          transform: `translateX(-${currentIndex * 100}%)`,
+          transform: `translateX(-${
+            currentIndex * (100 / (isSmallScreen ? 1 : 2))
+          }%)`,
         }}
       >
-        {testimonials.map((testimonial, index) => (
+        {tableRank.map((testimonial, index) => (
           <div
             key={index}
-            className="flex-shrink-0  w-full md:w-[50%] h-auto justify-center items-center flex flex-col    border-gray-200 rounded-lg bg-content1"
+            className="flex-shrink-0 flex justify-center items-center flex-col w-full md:w-[50%] h-auto border-gray-200 rounded-lg"
           >
             <div
               style={{
@@ -93,45 +117,40 @@ const SlideTrending = () => {
                 width: "90%",
                 height: "200px",
               }}
-              className="w-[90%] max-h-[200px] rounded-t-lg"
-              aria-label="Background image"
+              className="max-h-[200px] rounded-t-lg"
             />
-            <div className="w-[90%] p-2 bg-menu ">
-              <p className="text-[1rem] my-2 px-2 font-inter font-medium leading-[1.5] text-white">
+            <div className="w-[90%] p-2 bg-Brown">
+              <p className="my-2 px-2 font-inter font-medium leading-[24px] text-white">
                 {testimonial.name}
               </p>
               <div className="flex justify-between items-center px-2">
-                <p className="text-[0.75rem] font-medium leading-[1.43] font-inter text-color_menu">
+                <p className="text-[12px] font-medium leading-[17px] font-inter text-Gray_menu">
                   Popularity
                 </p>
-                <p className="text-[0.75rem] font-inter font-medium leading-[1.43] text-color_menu">
-                  {testimonial.number} %
+                <p className="text-[12px] font-medium leading-[17px] font-inter text-Gray_menu">
+                  {testimonial.number}%
                 </p>
               </div>
               <Progress
-                className=" px-2 my-2"
+                className="px-2 my-2"
                 percent={testimonial.number}
                 status="active"
                 showInfo={false}
                 size={["100%", 4]}
               />
             </div>
-            <div className="flex w-[90%]  justify-end items-end p-2 rounded-b-lg bg-menu">
+            <div className="flex w-[90%] justify-end items-end p-2 rounded-b-lg bg-Brown">
               <Avatar.Group
                 size="default"
                 max={{
                   count: 2,
-                  style: { color: "menu", backgroundColor: "logo" },
+                  style: { color: "menu", backgroundColor: "Light_Teal" },
                 }}
               >
                 <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=3" />
                 <Avatar className="bg-red-300">K</Avatar>
                 <Tooltip title="Ant User" placement="top">
-                  <Avatar
-                    // style={{ backgroundColor: "#87d068" }}
-                    className="bg-yellow-200"
-                    icon={<UserOutlined />}
-                  />
+                  <Avatar className="bg-yellow-200" icon={<UserOutlined />} />
                 </Tooltip>
                 <Avatar
                   className="bg-orange-300"

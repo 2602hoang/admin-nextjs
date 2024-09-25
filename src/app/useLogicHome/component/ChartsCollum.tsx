@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import {
   Bar,
   BarChart,
-  // CartesianGrid,
   Legend,
   Tooltip,
   ResponsiveContainer,
@@ -26,7 +25,7 @@ const ChartsCollum = () => {
       setChartHeight(200);
       return;
     } else if (windowHeight >= 480) {
-      setChartHeight(250);
+      setChartHeight(300);
       return;
     } else {
       setChartHeight(270);
@@ -41,18 +40,18 @@ const ChartsCollum = () => {
   }, []);
 
   return (
-    <div className="flex w-full items-start justify-center gap-y-14 flex-col h-auto p-3">
-      <h4 className="text-[24px] font-semibold font-inter leading-[29px] pt-6 pl-5">
+    <div className="p-3 h-full">
+      <h4 className="font-inter text-xl font-semibold leading-[29.64px] pt-6 pl-5">
         Level
       </h4>
       <ResponsiveContainer
-        className=" gap-y-4"
+        className=" gap-y-4 mt-14"
         width={"100%"}
         height={chartHeight}
       >
         <BarChart
           data={data}
-          margin={{ top: 0, right: 18, bottom: 0, left: 28 }}
+          margin={{ top: 10, right: 18, bottom: 0, left: 28 }}
         >
           <XAxis />
           <Tooltip />

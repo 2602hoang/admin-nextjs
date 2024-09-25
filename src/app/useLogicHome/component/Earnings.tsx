@@ -8,29 +8,29 @@ const Percent = (percent: any) => (
 
 export const Earnings = () => {
   return (
-    <div className="flex w-full h-auto flex-col justify-between items-start  p-5 ">
-      <div className="w-full h-auto justify-start  pt-4 pl-4">
-        <h4 className="font-inter text-[1.5rem] font-semibold leading-[1.235rem]">
+    <div className="p-5">
+      <div className="pt-4 pl-4 mb-2 xl:mb-12">
+        <h4 className="font-inter text-[24px] font-semibold leading-[29.64px]">
           Earnings
         </h4>
-        <p className="text-[1rem] font-inter font-normal mt-4  leading-[1.5rem] text-focus_border">
+        <p className="font-inter font-normal mt-4  leading-[24px] text-Light_Gray">
           Total Expense
         </p>
-        <p className="text-[2.5rem] md:text-[3rem]  font-bold mt-8 font-inter text-logo leading-[1.167rem] text-wrap ">
+        <h1 className="text-[48px]  font-bold mt-8 font-inter text-Light_Teal leading-[56px] text-wrap ">
           $6078.76
-        </p>
-        <p className="text-[1rem] font-normal mt-7 font-inter leading-5 text-focus_border">
+        </h1>
+        <p className="font-normal text-[16px] mt-7 font-inter leading-[24px] text-Light_Gray">
           Profit is 48% More than last Month
         </p>
       </div>
-      <div className="w-full h-auto flex justify-center mt-9 items-end ">
+      <div className="w-full h-auto flex justify-center ">
         <Progress
           type="dashboard"
           percent={80}
           strokeWidth={20}
           strokeColor="#A9DFD8"
-          size={200}
-          format={(percent) => Percent(percent)} 
+          size={180}
+          format={(percent) => Percent(percent)}
         />
       </div>
     </div>

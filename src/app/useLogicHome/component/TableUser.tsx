@@ -117,7 +117,7 @@ export const TableUser = () => {
     const start = (currentPage - 1) * pageSize + 1;
     const end = Math.min(currentPage * pageSize, data.length);
     return (
-      <div className="flex justify-between items-center text-white">
+      <div className="flex mt-3 justify-between items-center text-white">
         <div>
           Show {start} - {end} of {data.length} total items
         </div>
@@ -135,20 +135,19 @@ export const TableUser = () => {
   return (
     <div>
       <div className=" rounded-md px-2 gap-2 justify-between md:px-12 items-center pt-5 flex">
-        <div>
-          <h4 className="text-[1.5rem] font-semibold font-inter leading-[1.235rem]">
-            Customers
-          </h4>
-        </div>
+        <h4 className="font-inter text-[24px]  font-semibold leading-[29.64px]">
+          Customers
+        </h4>
+
         <div>
           <Input
-            className="h-12 flex bg-menu border-none text-white  border-slate-500 focus-within:bg-focus_border hover:bg-focus_border"
+            className="h-12 flex bg-Brown border-none text-white  border-slate-500 focus-within:bg-Light_Gray hover:bg-Light_Gray"
             placeholder="Search . . . "
             prefix={<SearchOutlined />}
           />
         </div>
       </div>
-      <div className="px-5 justify-center items-center    flex overflow-auto  hover:overflow-auto">
+      <div className="px-5 justify-center items-center flex  mt-6  ">
         <Table
           className="font-inter w-[95%]"
           pagination={{
@@ -156,17 +155,9 @@ export const TableUser = () => {
             pageSize,
             total: data.length,
             onChange: (page) => setCurrentPage(page),
-            //   itemRender: (page, type, originalElement) => {
-            //     if (type === "prev") {
-            //       return <button>Previous</button>;
-            //     }
-            //     if (type === "next") {
-            //       return <button>Next</button>;
-            //     }
-            //     return originalElement;
-            //   },
           }}
           size="small"
+          scroll={{ x: "max-content" }}
           rowSelection={rowSelection}
           columns={columns}
           dataSource={data}

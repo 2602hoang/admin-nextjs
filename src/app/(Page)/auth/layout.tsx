@@ -6,7 +6,7 @@ export default function AuthLayout({
   return (
     <html lang="en">
       <body>
-        <div className="text-white bg-menu flex justify-center h-screen items-center w-full font-inter">
+        <div className="text-white bg-Brown flex justify-center h-screen items-center w-full font-inter">
           {children}
         </div>
       </body>

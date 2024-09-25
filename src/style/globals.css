@@ -28,3 +28,8 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-scrollbar-thumb-hover);
 }
+@layer divhome {
+  .div_home {
+    @apply bg-Dark_Slate_Gray rounded-xl w-full;
+  }
+}

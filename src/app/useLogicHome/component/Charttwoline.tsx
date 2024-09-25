@@ -54,8 +54,8 @@ export const Charttwoline = () => {
     },
   ];
   return (
-    <div className="w-full h-auto justify-center gap-y-5 items-start md:space-y-5 p-5 flex-col flex">
-      <h4 className="text-[24px] font-semibold font-inter leading-[29px] pt-4 pl-4">
+    <div className="p-5">
+      <h4 className="text-[24px] font-semibold mb-10 font-inter leading-[29px] pt-4 pl-4">
         Customer Fulfillment
       </h4>
       <ResponsiveContainer width="100%" height={300}>

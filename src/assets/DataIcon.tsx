@@ -447,7 +447,7 @@ export const IconFacebook = () => {
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
       role="img"
-      className="iconify iconify--logos MuiBox-root css-0"
+      className="iconify iconify--Light_Teals MuiBox-root css-0"
       width="20px"
       height="20px"
       viewBox="0 0 256 256"
