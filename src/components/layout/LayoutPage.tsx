@@ -1,5 +1,4 @@
 "use client";
-
 import "@/style/index.scss";
 import Navbar from "../navbar/NavBar";
 import { Header } from "../header/Header";

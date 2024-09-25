@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-
 import {
   IconFavourite,
   IconHistory,
@@ -145,6 +144,5 @@ export const useLogicNavbar = () => {
       label: "Signup",
     },
   ];
-
   return { items, current, setCurrent, handleMenuClick };
 };
