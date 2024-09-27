@@ -6,7 +6,6 @@ import { formatCurrency, formattedTimestamp } from "@/utils";
 import LayoutStateHandler from "@/components/layout/LayoutState";
 import { useFetchOrderData } from "./useLogic";
 
-
 // Define the OrderDetail interface for order details
 export interface OrderDetail {
   id_order: number;
@@ -23,7 +22,7 @@ function Order() {
 
   const totalAmount =
     order?.reduce(
-      (total: any, order: OrderDetail) => total + order.total_price,
+      (total: number, order: OrderDetail) => total + order.total_price,
       0
     ) || 0;
 
