@@ -1,6 +1,6 @@
 import React from "react";
 import { Progress, Table, Tag } from "antd";
-import { tableRank } from "./data";
+import { tableRank } from "./Data";
 
 function TableRank() {
   const getTagColorByKey = (key: string | number) => {

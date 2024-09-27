@@ -10,7 +10,7 @@ import {
   YAxis,
   Area,
 } from "recharts";
-import { chartsCollum, chartsLine, charttwoline } from "./data";
+import { chartsCollum, chartsLine, charttwoline } from "./Data";
 
 // 1
 export const ChartsColumnLevel: React.FC = () => {

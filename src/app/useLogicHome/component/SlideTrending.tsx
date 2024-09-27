@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Avatar, Progress, Tooltip } from "antd";
 import { AntDesignOutlined, UserOutlined } from "@ant-design/icons";
-import { tableRank } from "./data";
+import { tableRank } from "./Data";
 
 const SlideTrending: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
