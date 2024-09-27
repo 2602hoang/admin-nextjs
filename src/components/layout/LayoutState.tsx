@@ -7,9 +7,9 @@ import {
 } from "@/components/state/StateCallApi";
 
 interface LayoutStateHandlerProps {
-  isLoading: any;
-  error: any; // Adjust the type according to your error structure
-  data: any; // Adjust the type according to your data structure
+  isLoading: React.ReactNode;
+  error: React.ReactNode;
+  data: React.ReactNode;
   children: React.ReactNode;
 }
 

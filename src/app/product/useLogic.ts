@@ -1,8 +1,8 @@
 import { useQuery } from "react-query";
 import { useAxios } from "@/providers/AxiosProvider";
 import { Product } from "./page";
-import axios from "axios";
-import { URL } from "@/utils/index";
+// import axios from "axios";
+// import { URL } from "@/utils/index";
 
 export const useDataProduct = () => {
   const { axiosInstance } = useAxios();

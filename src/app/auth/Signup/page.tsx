@@ -1,5 +1,3 @@
-import { useAuth } from "@/contexts/AuthContext";
-import AuthLogin from "@/middlewear/AuthLogin";
 import React from "react";
 
 function Signup() {
