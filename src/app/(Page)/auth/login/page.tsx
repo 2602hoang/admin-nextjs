@@ -20,15 +20,6 @@ function Login() {
     setShowPassword(!showPassword);
   };
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    // if (!phone) {
-    //   alert("Phone cannot be left blank 😓😓😓");
-    //   return;
-    // }
-
-    // if (!password) {
-    //   alert("Password cannot be left blank 😓😓😓");
-    //   return;
-    // }
     event.preventDefault();
     await login(phone, password);
   };
