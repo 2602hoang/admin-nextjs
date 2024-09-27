@@ -4,7 +4,7 @@ import React from "react";
 import { Tag } from "antd";
 import { formatCurrency, formattedTimestamp } from "@/utils";
 import LayoutStateHandler from "@/components/layout/LayoutState";
-import { useFetchOrderData } from "@/app/(page)/order/useLogic";
+import { useFetchOrderData } from "@/app/(Page)/order/useLogic";
 
 // Define the OrderDetail interface for order details
 export interface OrderDetail {

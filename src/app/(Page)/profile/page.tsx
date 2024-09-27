@@ -2,7 +2,7 @@
 import React from "react";
 
 import LayoutStateHandler from "@/components/layout/LayoutState";
-import { useFetchUserData } from "@/app/(page)/profile/useLogic";
+import { useFetchUserData } from "@/app/(Page)/profile/useLogic";
 
 function Profile() {
   const { user, isLoading, error } = useFetchUserData();
