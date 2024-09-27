@@ -3,7 +3,7 @@ import axios from "axios";
 
 // const URL = "https://server-api-lime.vercel.app/api/v1/auth/login";
 
-export const loginUser = async (
+export const useloginUser = async (
   phone: string,
   password: string
 ): Promise<{ success: boolean; error?: string }> => {

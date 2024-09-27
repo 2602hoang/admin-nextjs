@@ -1,5 +1,5 @@
 "use client";
-import { loginUser } from "@/app/(Page)/auth/Login/useLogic";
+import { useloginUser } from "@/app/(Page)/auth/Login/useloginUser";
 import { useRouter } from "next/navigation";
 import React, {
   createContext,
@@ -38,7 +38,7 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     }
   }, [router]);
   const login = async (phone: string, password: string): Promise<void> => {
-    const result = await loginUser(phone, password);
+    const result = await useloginUser(phone, password);
 
     if (result.success) {
       const token = localStorage.getItem("userToken");
