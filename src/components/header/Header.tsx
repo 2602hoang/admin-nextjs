@@ -82,12 +82,7 @@ export const Header: React.FC<HeaderProps> = ({
     },
     {
       label: (
-        <a
-          onClick={() => {
-            logout();
-          }}
-          className="gap-2  flex items-center"
-        >
+        <a onClick={logout} className="gap-2  flex items-center">
           <IconOut /> <span className="text-red-500">Logout</span>
         </a>
       ),

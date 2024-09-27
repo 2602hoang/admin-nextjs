@@ -10,7 +10,7 @@ const AuthLogin: React.FC<NoAuthLoginProps> = ({ children }) => {
   const router = useRouter();
   const { userToken } = useAuth();
 
-  return <>{!userToken ? children : router.push("/")}</>;
+  return <>{!userToken ? <> {children}</> : router.push("/")}</>;
 };
 
 export default AuthLogin;

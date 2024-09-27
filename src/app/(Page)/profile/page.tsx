@@ -1,12 +1,14 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React from "react";
 
 import LayoutStateHandler from "@/components/layout/LayoutState";
 import { useFetchUserData } from "@/app/(Page)/profile/useLogic";
+import { useAuth } from "@/contexts/AuthContext";
 
 function Profile() {
   const { user, isLoading, error } = useFetchUserData();
-
+  const { logout } = useAuth();
   return (
     <LayoutStateHandler isLoading={isLoading} error={error} data={user}>
       <div className="flex px-5  pt-5 flex-col space-y-6 justify-center items-center ">
@@ -29,7 +31,10 @@ function Profile() {
             <p className="font-extrabold">Username: {user?.username}</p>
             <p className="">Phone: {user?.phone}</p>
           </div>
-          <button className="bg-sky-700 font-extrabold p-2 px-6 rounded-xl hover:bg-sky-500 transition-colors">
+          <button
+            onClick={logout}
+            className="bg-sky-700 font-extrabold p-2 px-6 rounded-xl hover:bg-sky-500 transition-colors"
+          >
             See more
           </button>
         </div>

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { URL } from "@/utils/index";
 import axios from "axios";
 
@@ -17,10 +18,10 @@ export const useloginUser = async (
     if (data.status === 1) {
       return { success: false, error: "Tài khoản đã bị khóa" };
     } else if (data.mes === "Đăng nhập thành công" || data.access_token) {
-      // alert("Login successful");
-      const token = data.access_token!;
-      const userId = data.id_user!;
+      const token = data.access_token;
+      const userId = data.id_user;
       localStorage.setItem("userToken", token);
+
       localStorage.setItem("userId", userId);
       return { success: true };
     } else if (data.error === 1) {

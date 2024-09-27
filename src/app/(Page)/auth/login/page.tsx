@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable jsx-a11y/alt-text */
 "use client";
 import { IconFacebook, IconGoogle, IconHiden, Iconshow } from "@/icon/DataIcon";
@@ -22,6 +23,9 @@ function Login() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     await login(phone, password);
+    if (userToken) {
+      router.push("/");
+    }
   };
   useEffect(() => {
     if (error && error !== prevError && error.trim() !== "") {

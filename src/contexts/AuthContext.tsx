@@ -45,30 +45,26 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
       const token = localStorage.getItem("userToken");
       const role = localStorage.getItem("userRole");
       const id = localStorage.getItem("userId");
-
       if (token) {
         setUserToken(token);
       }
-      // Set the user token and role if it exists
       if (role) {
         setUserRole(parseInt(role));
       }
       setUserId(id);
       setError("");
-      router.push("/");
     } else {
       setError(result.error || "Login failed");
     }
   };
   const logout = () => {
     localStorage.removeItem("userToken");
-    localStorage.removeItem("userId");
-    localStorage.removeItem("userRole");
-    // Set the error if the login fails
     setUserToken(null);
-    setUserRole(null);
+    localStorage.removeItem("userId");
     setUserId(null);
-    router.push("/Login");
+    localStorage.removeItem("userRole");
+    setUserRole(null);
+    router.push("/auth/Login");
   };
 
   return (
