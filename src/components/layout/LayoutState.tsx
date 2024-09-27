@@ -7,9 +7,9 @@ import {
 } from "@/components/state/StateCallApi";
 
 interface LayoutStateHandlerProps {
-  isLoading: unknown;
-  error: unknown;
-  data: unknown;
+  isLoading: any;
+  error: any;
+  data: any;
   children: React.ReactNode;
 }
 
