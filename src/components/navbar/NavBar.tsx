@@ -30,17 +30,17 @@ const Navbar: React.FC<NavbarProps> = ({ collapsed }) => {
 
   return (
     <div
-      className={` h-screen overflow-hidden  relative border-r-[1px] border-r-darker-gray border-solid  overscroll-y-auto hover:overflow-y-auto
+      className={` h-screen overflow-hidden bg-brown relative border-r-[1px] border-r-darker-gray border-solid  overscroll-y-auto md:hover:overflow-y-auto
       ${collapsed ? "w-[239px] " : "w-0 md:w-[110px]"}
       ${flag === "open" ? "open-menu  " : "close-menu hidden md:block"}`}
     >
       <div
         className={`${
           collapsed ? " " : "w-0 md:w-[110px]"
-        } h-[98px] sticky  top-0  z-50  left-0 bg-brown `}
+        } h-[98px] md:sticky  top-0  z-50  left-0 bg-brown `}
       >
         <div
-          className={`flex h-[98px] w-full  justify-center items-center ${
+          className={`flex h-[98px] w-full  justify-center bg-brown items-center ${
             collapsed ? "px-[49px] pt-[6px] " : "px-9"
           }`}
         >
@@ -48,7 +48,7 @@ const Navbar: React.FC<NavbarProps> = ({ collapsed }) => {
             {!collapsed ? (
               <img
                 title="Light_Teal"
-                className=" w-[30px] h-10"
+                className=" w-[30px] h-10 "
                 src="https://themewagon.github.io/nickelfox/LOGO.png"
               />
             ) : (

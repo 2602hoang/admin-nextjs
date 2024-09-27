@@ -23,9 +23,9 @@ function Login() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     await login(phone, password);
-    if (userToken) {
-      router.push("/");
-    }
+    // if (userToken) {
+    //   router.push("/");
+    // }
   };
   useEffect(() => {
     if (error && error !== prevError && error.trim() !== "") {

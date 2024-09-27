@@ -29,13 +29,13 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
   return (
     <html lang="en">
       <body>
-        <div className="w-full font-inter flex  h-screen relative bg-brown overflow-hidden">
+        <div className="w-full font-inter flex  md:h-screen relative bg-brown overflow-hidden">
           {/* Navbar */}
           <div
-            className={`bg-brown  ${
+            className={`bg-brown    ${
               collapsed
-                ? "w-[239px] z-50 md:relative fixed"
-                : "md:w-[110px] w-0"
+                ? "w-[239px] z-50 md:relative  fixed"
+                : "md:w-[110px] w-0 "
             }`}
           >
             <Navbar
@@ -43,13 +43,14 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
               collapsed={collapsed}
               setCollapsed={setCollapsed}
             />
+            {collapsed && (
+              <div
+                className="fixed inset-0 bg-black bg-opacity-30  z-40 md:hidden"
+                onClick={toggleCollapsed}
+              />
+            )}
           </div>
-          {collapsed && (
-            <div
-              className="fixed inset-0 bg-black bg-opacity-30  z-50 md:hidden"
-              onClick={toggleCollapsed}
-            />
-          )}
+
           <div className={` w-full flex flex-col relative  overflow-auto  `}>
             {/* Header */}
             <div className={`h-[116px] sticky top-0 z-30 `}>
