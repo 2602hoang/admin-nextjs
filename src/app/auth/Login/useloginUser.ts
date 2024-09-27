@@ -17,7 +17,6 @@ export const useloginUser = async (
     if (data.status === 1) {
       return { success: false, error: "Tài khoản đã bị khóa" };
     } else if (data.mes === "Đăng nhập thành công" || data.access_token) {
-      alert("Login successful");
       const token = data.access_token!;
       const userId = data.id_user!;
 
