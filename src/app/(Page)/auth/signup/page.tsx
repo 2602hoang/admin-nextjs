@@ -1,12 +1,12 @@
-import { useAuth } from "@/contexts/AuthContext";
-import AuthLogin from "@/middlewear/AuthLogin";
+import AuthLogin from "@/middleware/AuthLogin";
 import React from "react";
 
 function Signup() {
   return (
     <>
-      {" "}
-      <h1>hello</h1>{" "}
+      <AuthLogin>
+        <h1>hello</h1>{" "}
+      </AuthLogin>
     </>
   );
 }

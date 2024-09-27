@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import { useAuth } from "@/contexts/AuthContext";
 import {
   IconFavourite,
   IconHistory,
@@ -25,6 +26,7 @@ export const useLogicNavbar = () => {
   const [current, setCurrent] = useState<string>("");
   const router = useRouter();
   const pathname = usePathname();
+  const { logout } = useAuth();
   useEffect(() => {
     const key = items.find((item) => item.key === pathname)?.key;
     if (key) setCurrent(key);
@@ -128,7 +130,7 @@ export const useLogicNavbar = () => {
     {
       key: "/auth/Login",
       icon: (
-        <span>
+        <span onClick={() => logout()}>
           <IconLogin />
         </span>
       ),
