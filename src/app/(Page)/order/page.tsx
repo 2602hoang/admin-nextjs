@@ -1,9 +1,10 @@
 "use client";
 import React from "react";
-import { useFetchOrderData } from "./useLogin"; // Adjust the path as needed
+
 import { Tag } from "antd";
 import { formatCurrency, formattedTimestamp } from "@/utils";
 import LayoutStateHandler from "@/components/layout/LayoutState";
+import { useFetchOrderData } from "@/app/(page)/order/useLogic";
 
 // Define the OrderDetail interface for order details
 export interface OrderDetail {

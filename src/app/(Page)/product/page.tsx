@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
-import { useDataProduct } from "./useLogic";
+
 import LayoutStateHandler from "@/components/layout/LayoutState";
+import { useDataProduct } from "@/app/(page)/product/useLogic";
 export interface Product {
   id: string;
   title: string;

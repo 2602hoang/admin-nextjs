@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
-import { loginUser } from "@/app/(Page)/auth/Login/useLogic";
+
+import { loginUser } from "@/app/(page)/auth/Login/useLogic";
 import { useRouter } from "next/navigation";
 import React, {
   createContext,
