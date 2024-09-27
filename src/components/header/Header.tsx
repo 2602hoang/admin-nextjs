@@ -10,10 +10,11 @@ import {
   IconOpen,
   IconNotications,
   IconSearch,
-} from "@/assets/DataIcon";
+} from "@/icon/DataIcon";
 import { Avatar, Badge, Button, Dropdown, Input, MenuProps, Space } from "antd";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface HeaderProps {
   collapsed: boolean;
@@ -32,6 +33,7 @@ export const Header: React.FC<HeaderProps> = ({
   const handleMenuClick: MenuProps["onClick"] = ({ key }) => {
     router.push(key);
   };
+  const { logout } = useAuth();
 
   const items: MenuProps["items"] = [
     {
@@ -80,17 +82,29 @@ export const Header: React.FC<HeaderProps> = ({
     },
     {
       label: (
-        <p className="gap-2  flex items-center">
+        <a
+          onClick={() => {
+            logout();
+          }}
+          className="gap-2  flex items-center"
+        >
           <IconOut /> <span className="text-red-500">Logout</span>
-        </p>
+        </a>
       ),
-      key: "/auth/login",
+      key: "/auth/Login",
     },
   ];
+  //  ${
+  //       collapsed
+  //         ? " w-[calc(100%-240px)] ml-[240px]"
+  //         : "w-[calc(100%-110px)] ml-[110px]"
+  //     }
 
   return (
     <div
-      className={`h-20 px-3 bg-brown md:h-[116px] flex items-center z-50 justify-between `}
+      className={`h-20 px-3 bg-brown md:h-[116px]  flex items-center z-50 justify-between 
+       
+      `}
     >
       <div className="flex items-center justify-start gap-2 w-full">
         <div className="">

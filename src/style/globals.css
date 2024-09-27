@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap");
 
 :root {
@@ -11,7 +10,6 @@
 }
 ::-webkit-scrollbar {
   width: 8px;
-  position: absolute;
 }
 
 /* Track */
@@ -29,7 +27,7 @@
   background: var(--color-scrollbar-thumb-hover);
 }
 @layer divhome {
-  .wrapper-box-rounded-xl {
+  .wrapper-box-style-mobile {
     @apply bg-dark-slate-gray rounded-xl col-span-12;
   }
 }

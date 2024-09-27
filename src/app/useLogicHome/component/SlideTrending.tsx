@@ -56,6 +56,7 @@ const SlideTrending: React.FC = () => {
   const handleMouseUp = () => {
     setIsDragging(false);
   };
+  console.log(currentIndex);
 
   return (
     <div
@@ -74,7 +75,7 @@ const SlideTrending: React.FC = () => {
               currentIndex === 0
                 ? "text-gray-400 cursor-not-allowed"
                 : "text-white"
-            } p-2 rounded-full z-30`}
+            } p-2 rounded-full z-20`}
             onClick={handlePrev}
           >
             &#10094;
@@ -88,7 +89,7 @@ const SlideTrending: React.FC = () => {
               )
                 ? "text-gray-400 cursor-not-allowed"
                 : "text-white"
-            } p-2 rounded-full z-30`}
+            } p-2 rounded-full z-20`}
             onClick={handleNext}
           >
             &#10095;

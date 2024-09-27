@@ -26,7 +26,7 @@ function TableRank() {
   };
   const columns = [
     {
-      title: <span className="custom-table-title ">#</span>,
+      title: <span className="custom-table-title">#</span>,
       dataIndex: "key",
       width: 80,
       key: "key",
@@ -83,7 +83,7 @@ function TableRank() {
   ];
 
   return (
-    <div className="overflow-hidden  p-5">
+    <div className="p-5">
       <h4 className="text-[24px] font-semibold leading-[29.64px] pt-4  pl-3">
         Top Products
       </h4>

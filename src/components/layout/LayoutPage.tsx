@@ -18,7 +18,7 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 400);
+    const timer = setTimeout(() => setLoading(false), 200);
     return () => clearTimeout(timer);
   }, []);
 
@@ -50,13 +50,13 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
               onClick={toggleCollapsed}
             />
           )}
-          <div className={`flex w-full flex-col  md:relative  overflow-auto  `}>
+          <div className={` w-full flex flex-col relative  overflow-auto  `}>
             {/* Header */}
-            <div className={`h-[116px] sticky top-0 z-30`}>
+            <div className={`h-[116px] sticky top-0 z-30 `}>
               <Header collapsed={collapsed} toggleCollapsed={toggleCollapsed} />
             </div>
             {/* Main Content */}
-            <div className={`flex-grow`}>{children}</div>
+            <div>{children}</div>
           </div>
         </div>
       </body>

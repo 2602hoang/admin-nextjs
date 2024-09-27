@@ -27,7 +27,6 @@ const Navbar: React.FC<NavbarProps> = ({ collapsed }) => {
   useEffect(() => {
     setFlag(collapsed ? "open" : "close");
   }, [collapsed]);
-  console.log(flag);
 
   return (
     <div

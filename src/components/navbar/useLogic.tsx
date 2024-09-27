@@ -12,7 +12,7 @@ import {
   IconSalereport,
   IconSetting,
   IconSign,
-} from "@/assets/DataIcon";
+} from "@/icon/DataIcon";
 import { MenuProps } from "antd";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -126,7 +126,7 @@ export const useLogicNavbar = () => {
       label: "History",
     },
     {
-      key: "/auth/login",
+      key: "/auth/Login",
       icon: (
         <span>
           <IconLogin />
@@ -135,7 +135,7 @@ export const useLogicNavbar = () => {
       label: "Login",
     },
     {
-      key: "/auth/signup",
+      key: "/auth/Signup",
       icon: (
         <span>
           <IconSign />
