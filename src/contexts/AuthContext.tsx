@@ -1,5 +1,5 @@
 "use client";
-import { useloginUser } from "@/app/(Page)/auth/Login/useloginUser";
+import { useloginUser } from "../app/(Page)/auth/Login/useloginUser";
 import { useRouter } from "next/navigation";
 import React, {
   createContext,
