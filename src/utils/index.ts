@@ -1,4 +1,4 @@
-export const URL = "https://server-api-mauve.vercel.app";
+export const URL = "https://server-api-mauve.vercel.app/";
 // ;
 // "http://127.0.0.1:8080/"
 export function formatCurrency(price: any) {
