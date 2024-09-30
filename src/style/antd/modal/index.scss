@@ -1,0 +1,18 @@
+:root {
+  --color_bg_root: #111111cf;
+  --color_bg_modal: #171821;
+  --color_white: #fff;
+}
+.ant-modal-root .ant-modal-wrap {
+  background-color: var(--color_bg_root);
+  .ant-modal {
+    padding: 0px;
+
+    .ant-modal-content {
+      background-color: var(--color_bg_modal);
+    }
+    .ant-modal-close-x {
+      color: var(--color_white);
+    }
+  }
+}

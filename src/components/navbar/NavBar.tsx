@@ -2,18 +2,19 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from "react";
 import { Menu, MenuProps } from "antd";
-
-import { useLogicNavbar } from "./useLogic";
+import { NavbarProps, useLogicNavbar } from "./useLogic";
 import { useRouter } from "next/navigation";
 
-interface NavbarProps {
-  collapsed: boolean;
-  setCollapsed: (collapsed: boolean) => void;
-  toggleCollapsed: () => void;
-}
-
-const Navbar: React.FC<NavbarProps> = ({ collapsed }) => {
-  const { items, current, setCurrent } = useLogicNavbar();
+const Navbar: React.FC<NavbarProps> = ({
+  collapsed,
+  setCollapsed,
+  toggleCollapsed,
+}) => {
+  const { items, current, setCurrent } = useLogicNavbar({
+    collapsed,
+    setCollapsed,
+    toggleCollapsed,
+  });
   const [flag, setFlag] = useState<string>("");
   const router = useRouter();
 
@@ -30,14 +31,15 @@ const Navbar: React.FC<NavbarProps> = ({ collapsed }) => {
 
   return (
     <div
-      className={` h-screen overflow-hidden bg-brown relative border-r-[1px] border-r-darker-gray border-solid  overscroll-y-auto md:hover:overflow-y-auto
+      className={` h-screen md:overflow-hidden bg-brown fixed md:relative border-r-[1px]
+         border-r-darker-gray border-solid  overflow-y-auto md:hover:overflow-y-auto
       ${collapsed ? "w-[239px] " : "w-0 md:w-[110px]"}
       ${flag === "open" ? "open-menu  " : "close-menu hidden md:block"}`}
     >
       <div
         className={`${
           collapsed ? " " : "w-0 md:w-[110px]"
-        } h-[98px] md:sticky  top-0  z-50  left-0 bg-brown `}
+        } h-[98px] sticky  top-0  z-50  left-0 bg-brown `}
       >
         <div
           className={`flex h-[98px] w-full  justify-center bg-brown items-center ${
@@ -68,7 +70,7 @@ const Navbar: React.FC<NavbarProps> = ({ collapsed }) => {
           mode="inline"
           theme="dark"
           className={`${
-            collapsed ? "px-5" : "pl-7 pt-[6px] "
+            collapsed ? "px-5 " : "pl-7 pt-[6px] "
           } text-[16px] h-11 space-y-[17px]  font-medium `}
           items={items}
           onClick={onClick}

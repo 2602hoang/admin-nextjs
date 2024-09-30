@@ -2,11 +2,11 @@
 import { useAuth } from "@/contexts/AuthContext";
 import { useRouter } from "next/navigation";
 
-interface NoAuthLoginProps {
+interface AuthLoginProps {
   children: React.ReactNode;
 }
 
-const AuthLogin: React.FC<NoAuthLoginProps> = ({ children }) => {
+const AuthLogin: React.FC<AuthLoginProps> = ({ children }) => {
   const router = useRouter();
   const { userToken } = useAuth();
 

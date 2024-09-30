@@ -28,7 +28,7 @@ const LayoutStateHandler: React.FC<LayoutStateHandlerProps> = ({
   }
 
   if (error) {
-    const errorMessage = error.message; // Adjust if your error has a different structure
+    const errorMessage = error.message;
     return (
       <div className="z-50 w-full h-screen   bg-opacity-50 opacity-50 ">
         <ErrorComponent message={errorMessage} />
@@ -48,7 +48,7 @@ const LayoutStateHandler: React.FC<LayoutStateHandlerProps> = ({
     );
   }
 
-  return <>{children}</>; // Render children if everything is okay
+  return <>{children}</>;
 };
 
 export default LayoutStateHandler;

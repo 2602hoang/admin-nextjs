@@ -1,8 +1,5 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import { URL } from "@/utils/index";
 import axios from "axios";
-
-// const URL = "https://server-api-lime.vercel.app/api/v1/auth/login";
 
 export const useloginUser = async (
   phone: string,
@@ -13,23 +10,26 @@ export const useloginUser = async (
       phone,
       password,
     });
+
     const data = response.data;
 
     if (data.status === 1) {
       return { success: false, error: "Tài khoản đã bị khóa" };
-    } else if (data.mes === "Đăng nhập thành công" || data.access_token) {
-      const token = data.access_token;
-      const userId = data.id_user;
+    }
+    if (data.mes === "Đăng nhập thành công" || data.access_token) {
+      const { access_token: token, id_user: userId } = data;
       localStorage.setItem("userToken", token);
-
       localStorage.setItem("userId", userId);
       return { success: true };
-    } else if (data.error === 1) {
-      return { success: false, error: "Invalid phone" };
-    } else if (data.error === 2) {
-      return { success: false, error: "Invalid password" };
     }
-    return { success: false, error: "Login failed" };
+    switch (data.error) {
+      case 1:
+        return { success: false, error: "Invalid phone" };
+      case 2:
+        return { success: false, error: "Invalid password" };
+      default:
+        return { success: false, error: "Login failed" };
+    }
   } catch (error) {
     console.error("Login error: ", error);
     return { success: false, error: "Information cannot be left blank 😓😓😓" };

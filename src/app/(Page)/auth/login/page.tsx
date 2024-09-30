@@ -23,9 +23,6 @@ function Login() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     await login(phone, password);
-    // if (userToken) {
-    //   router.push("/");
-    // }
   };
   useEffect(() => {
     if (error && error !== prevError && error.trim() !== "") {
@@ -74,7 +71,7 @@ function Login() {
               <form onSubmit={handleSubmit} className="mt-8 space-y-6">
                 <div className="rounded-md shadow-sm">
                   <div className="flex flex-col gap-y-2">
-                    <label className="">Email </label>
+                    <label className="">Phone </label>
                     <input
                       placeholder="Enter Phone"
                       className="appearance-none relative block w-full px-3 py-3 border border-gray-700 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"

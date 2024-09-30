@@ -56,7 +56,6 @@ const SlideTrending: React.FC = () => {
   const handleMouseUp = () => {
     setIsDragging(false);
   };
-  console.log(currentIndex);
 
   return (
     <div

@@ -17,8 +17,6 @@ interface AxiosProviderProps {
 
 export const AxiosProvider: React.FC<AxiosProviderProps> = ({ children }) => {
   const { userToken } = useAuth();
-  // const [token, setToken] = useState<string | null>(userToken || null);
-
   const axiosInstance = useMemo(() => {
     const instance = axios.create({
       baseURL: URL,

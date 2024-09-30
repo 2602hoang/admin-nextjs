@@ -1,7 +1,6 @@
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { todaySale } from "./Data";
+import Image from "next/image";
 
 function TodaySale() {
   const colorClasses = [
@@ -24,7 +23,12 @@ function TodaySale() {
         {todaySale.map((item, index) => (
           <div key={item.key} className="p-5   bg-brown  rounded-xl ">
             <div className="">
-              <img src={`${item.icon}`} className="size-[26px]" />
+              <Image
+                src={`${item.icon}`}
+                width={26}
+                height={26}
+                alt={item.title}
+              />
               <p className=" text-[24px] mb-4 mt-6 font-semibold leading-[29.64px]">
                 {item.number}
               </p>

@@ -11,10 +11,20 @@ import {
   IconNotications,
   IconSearch,
 } from "@/icon/DataIcon";
-import { Avatar, Badge, Button, Dropdown, Input, MenuProps, Space } from "antd";
+import {
+  Avatar,
+  Badge,
+  Button,
+  Dropdown,
+  Input,
+  MenuProps,
+  Space,
+  Modal,
+} from "antd";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
+import { KeyboardShortcuts } from "../navbar/useLogic";
 
 interface HeaderProps {
   collapsed: boolean;
@@ -26,30 +36,45 @@ export const Header: React.FC<HeaderProps> = ({
   toggleCollapsed,
 }) => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const router = useRouter();
+  const { logout } = useAuth();
 
   const toggleDropdown = () => setDropdownVisible(!dropdownVisible);
 
   const handleMenuClick: MenuProps["onClick"] = ({ key }) => {
-    router.push(key);
+    if (key === "help") {
+      setIsModalVisible(true); // Open the modal when "Help Center" is clicked
+    } else {
+      router.push(key);
+    }
   };
-  const { logout } = useAuth();
+
+  const handleModalClose = () => {
+    setIsModalVisible(false); // Close the modal
+  };
 
   const items: MenuProps["items"] = [
     {
       label: (
-        <p className="gap-2 text-light-gray flex items-center">
+        <p className="gap-2 text-light-gray  flex items-center">
           <IconViewProfile />
-          <span className="text-light-gray"> View Profile</span>
+          <span className="text-light-gray hover:text-white">
+            {" "}
+            View Profile
+          </span>
         </p>
       ),
       key: "/profile",
     },
     {
       label: (
-        <p className="gap-2 text-light-gray flex items-center">
+        <p className="gap-2 text-light-gray  flex items-center">
           <IconSettingAccout />
-          <span className="text-light-gray"> Account Settings</span>
+          <span className="text-light-gray hover:text-white">
+            {" "}
+            Account Settings
+          </span>
         </p>
       ),
       key: "/setting",
@@ -58,48 +83,52 @@ export const Header: React.FC<HeaderProps> = ({
       label: (
         <p className="gap-2 text-light-gray  flex items-center">
           <IconNotication />
-          <span className="text-light-gray"> Notifications</span>
+          <span className="text-light-gray hover:text-white">
+            {" "}
+            Notifications
+          </span>
         </p>
       ),
       key: "/notifications",
     },
     {
       label: (
-        <a className="gap-2 text-light-gray flex items-center">
+        <p className="gap-2 text-light-gray flex items-center">
           <SwitchAccout />
-          <span className="text-light-gray"> Switch Account</span>
-        </a>
+          <span className="text-light-gray hover:text-white">
+            {" "}
+            Switch Account
+          </span>
+        </p>
       ),
       key: "/switch-account",
     },
     {
       label: (
-        <p className="gap-2 text-light-gray flex-row flex items-center">
-          <IconHelp /> <span className="text-light-gray"> Help Center</span>
+        <p
+          className="gap-2 text-light-gray flex-row flex hover:text-white items-center cursor-pointer"
+          onClick={() => setIsModalVisible(true)}
+        >
+          <IconHelp />{" "}
+          <span className="text-light-gray hover:text-white"> Help Center</span>
         </p>
       ),
-      key: "/help",
+      key: "help",
     },
     {
       label: (
-        <a onClick={logout} className="gap-2  flex items-center">
-          <IconOut /> <span className="text-red-500">Logout</span>
-        </a>
+        <p onClick={logout} className="gap-2  flex items-center">
+          <IconOut />{" "}
+          <span className="text-red-500 hover:font-black">Logout</span>
+        </p>
       ),
       key: "/auth/Login",
     },
   ];
-  //  ${
-  //       collapsed
-  //         ? " w-[calc(100%-240px)] ml-[240px]"
-  //         : "w-[calc(100%-110px)] ml-[110px]"
-  //     }
 
   return (
     <div
-      className={`h-20 px-3 bg-brown md:h-[116px]  flex items-center z-50 justify-between 
-       
-      `}
+      className={`h-20 px-3 bg-brown md:h-[116px] flex items-center z-50 justify-between`}
     >
       <div className="flex items-center justify-start gap-2 w-full">
         <div className="">
@@ -118,7 +147,7 @@ export const Header: React.FC<HeaderProps> = ({
           />
         </div>
       </div>
-      <div className="flex gap-x-1 md:gap-x-3  items-center justify-center">
+      <div className="flex gap-x-1 md:gap-x-3 items-center justify-center">
         <div className="relative">
           <Badge dot={true} className="mr-2">
             <Button type="text" icon={<IconNotications />} />
@@ -143,6 +172,22 @@ export const Header: React.FC<HeaderProps> = ({
           </Dropdown>
         </div>
       </div>
+
+      <Modal
+        title={
+          <div className="text-white bg-brown text-center uppercase">
+            Help Center
+          </div>
+        }
+        className="bg-brown"
+        visible={isModalVisible}
+        onCancel={handleModalClose}
+        footer={<div className="text-white bg-brown"></div>}
+      >
+        <div className="text-white bg-brown h-auto">
+          <KeyboardShortcuts />
+        </div>
+      </Modal>
     </div>
   );
 };

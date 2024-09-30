@@ -34,13 +34,13 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     setUserToken(token);
     setUserRole(role ? parseInt(role) : null);
     setUserId(id);
+
     if (!token) {
       router.push("/auth/Login");
     }
   }, [router]);
   const login = async (phone: string, password: string): Promise<void> => {
     const result = await useloginUser(phone, password);
-
     if (result.success) {
       const token = localStorage.getItem("userToken");
       const role = localStorage.getItem("userRole");
@@ -52,7 +52,9 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
         setUserRole(parseInt(role));
       }
       setUserId(id);
-      setError("");
+      window.location.reload();
+      // router.refresh();
+      // router.reload();
     } else {
       setError(result.error || "Login failed");
     }
