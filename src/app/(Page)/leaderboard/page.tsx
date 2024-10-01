@@ -1,7 +1,7 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React from "react";
 import { useFetchPhotoData, useLeaderboard } from "./useLogic";
-import { Input, InputRef } from "antd";
+import { Input, notification } from "antd";
 import { IconSearch } from "@/icon/DataIcon";
 import LayoutStateHandler from "@/components/layout/LayoutState";
 
@@ -29,9 +29,19 @@ function Leaderboard() {
           placeholder="Search by ID"
           ref={inputRef}
           value={searchId}
-          onChange={(e) =>
-            setSearchId(e.target.value ? parseInt(e.target.value) : "")
-          }
+          onChange={(e) => {
+            const value = e.target.value;
+            if (value === "" || /^[0-9]+$/.test(value)) {
+              setSearchId(value ? parseInt(value) : "");
+            } else {
+              // alert("Please enter a valid number");
+              notification.warning({
+                message: "Please enter a valid number",
+                showProgress: true,
+                duration: 1.5,
+              });
+            }
+          }}
           prefix={<IconSearch />}
         />
         <button
