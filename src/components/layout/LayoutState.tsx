@@ -8,8 +8,8 @@ import {
 
 interface LayoutStateHandlerProps {
   isLoading: any;
-  error: any; // Adjust the type according to your error structure
-  data: any; // Adjust the type according to your data structure
+  error: any;
+  data: any;
   children: React.ReactNode;
 }
 
@@ -48,7 +48,7 @@ const LayoutStateHandler: React.FC<LayoutStateHandlerProps> = ({
     );
   }
 
-  return <div className=" w-full">{children}</div>;
+  return <div className="py-3 w-full">{children}</div>;
 };
 
 export default LayoutStateHandler;

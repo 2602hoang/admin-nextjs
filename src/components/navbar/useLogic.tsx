@@ -48,9 +48,9 @@ export const useLogicNavbar = ({ setCollapsed }: NavbarProps) => {
       const keyActions: { [key: string]: () => void } = {
         Q: () => logout(),
         A: () => router.push("/"),
-        I: () => router.push("/profile"),
-        O: () => router.push("/order"),
-        P: () => router.push("/product"),
+        I: () => router.push("/Profile"),
+        O: () => router.push("/Order"),
+        P: () => router.push("/Product"),
         ArrowRight: () => setCollapsed(true),
         ArrowLeft: () => setCollapsed(false),
       };
@@ -88,7 +88,7 @@ export const useLogicNavbar = ({ setCollapsed }: NavbarProps) => {
         label: "Dashboard",
       },
       {
-        key: "/profile",
+        key: "/Profile",
         icon: (
           <span>
             <IconProfile />
@@ -97,7 +97,7 @@ export const useLogicNavbar = ({ setCollapsed }: NavbarProps) => {
         label: "Profile",
       },
       {
-        key: "/leaderboard",
+        key: "/Leaderboard",
         icon: (
           <span>
             <IconLeaderboard />
@@ -106,7 +106,7 @@ export const useLogicNavbar = ({ setCollapsed }: NavbarProps) => {
         label: "Leaderboard",
       },
       {
-        key: "/order",
+        key: "/Order",
         icon: (
           <span>
             <IconOrder />
@@ -115,7 +115,7 @@ export const useLogicNavbar = ({ setCollapsed }: NavbarProps) => {
         label: "Order",
       },
       {
-        key: "/product",
+        key: "/Product",
         icon: (
           <span>
             <IconProduct />
@@ -124,7 +124,7 @@ export const useLogicNavbar = ({ setCollapsed }: NavbarProps) => {
         label: "Product",
       },
       {
-        key: "/salereport",
+        key: "/Salereport",
         icon: (
           <span>
             <IconSalereport />
@@ -133,7 +133,7 @@ export const useLogicNavbar = ({ setCollapsed }: NavbarProps) => {
         label: "Salereport",
       },
       {
-        key: "/message",
+        key: "/Message",
         icon: (
           <span>
             <IconMessage />
@@ -142,7 +142,7 @@ export const useLogicNavbar = ({ setCollapsed }: NavbarProps) => {
         label: "Message",
       },
       {
-        key: "/setting",
+        key: "/Setting",
         icon: (
           <span>
             <IconSetting />
@@ -151,7 +151,7 @@ export const useLogicNavbar = ({ setCollapsed }: NavbarProps) => {
         label: "Setting",
       },
       {
-        key: "/favourite",
+        key: "/Favourite",
         icon: (
           <span>
             <IconFavourite />
@@ -160,7 +160,7 @@ export const useLogicNavbar = ({ setCollapsed }: NavbarProps) => {
         label: "Favourite",
       },
       {
-        key: "/history",
+        key: "/History",
         icon: (
           <span>
             <IconHistory />
@@ -169,7 +169,7 @@ export const useLogicNavbar = ({ setCollapsed }: NavbarProps) => {
         label: "History",
       },
       {
-        key: "/login",
+        key: "/Login",
         icon: (
           <a onClick={logout}>
             <span>
@@ -180,7 +180,7 @@ export const useLogicNavbar = ({ setCollapsed }: NavbarProps) => {
         label: "Login",
       },
       {
-        key: "/signup",
+        key: "/Signup",
         icon: (
           <span>
             <IconSign />

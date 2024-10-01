@@ -3,7 +3,7 @@ import React from "react";
 import { Input, Tag, Tooltip } from "antd";
 import { formatCurrency, formattedTimestamp } from "@/utils";
 import LayoutStateHandler from "@/components/layout/LayoutState";
-import { useFetchOrderData } from "@/app/(Page)/order/useLogic";
+import { useFetchOrderData } from "@/app/(Page)/(dashboard)/Order/useLogic";
 import { IconSearch } from "@/icon/DataIcon";
 
 export interface OrderDetail {
@@ -43,11 +43,11 @@ function Order() {
         <>
           {filteredOrders && filteredOrders.length > 0 ? (
             <div className="border border-white border-solid rounded-b-2xl pb-2 px-1">
-              <div className="max-h-[500px] 2xl:min-h-[600px] hover:overflow-y-auto overflow-auto">
-                <table className="table-auto w-full  border-solid">
+              <div className="max-h-[400px] md:max-h-[500px] 2xl:min-h-[600px]  hover:overflow-auto overflow-hidden">
+                <table className="table-auto w-full  ">
                   <thead className="sticky top-0 bg-dark-slate-gray z-10">
-                    <tr className="text-center text-sm uppercase font-bold border-b-2 border-white">
-                      <th className="py-2 border-b-2 border-white">#</th>
+                    <tr className="text-center border-b-2 ">
+                      <th className="py-2 ">#</th>
                       <th className="py-2">ID</th>
                       <th className="py-2">Phone</th>
                       <th className="py-2">Date</th>
@@ -73,17 +73,19 @@ function Order() {
                         <td className="border-r-2 border-indigo-400">
                           {formattedTimestamp(order.date_order)}
                         </td>
-                        <td className="border-r-2 border-indigo-400">
+                        <td className="border-r-2 text-black border-indigo-400">
                           <Tooltip
                             title={
-                              order.id_pay === 1
-                                ? "Wait for confirmation"
-                                : order.id_pay === 2
-                                ? "Confirmed"
-                                : "Canceled"
+                              <span className="text-black">
+                                {order.id_pay === 1
+                                  ? "Wait for confirmation"
+                                  : order.id_pay === 2
+                                  ? "Confirmed"
+                                  : "Canceled"}
+                              </span>
                             }
-                            placement="leftTop"
-                            color="black"
+                            placement="rightTop"
+                            color="white"
                           >
                             <Tag
                               color={

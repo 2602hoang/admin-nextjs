@@ -2,7 +2,7 @@
 import React from "react";
 
 import LayoutStateHandler from "@/components/layout/LayoutState";
-import { useFetchUserData } from "@/app/(Page)/profile/useLogic";
+import { useFetchUserData } from "@/app/(Page)/(dashboard)/Profile/useLogic";
 import { useAuth } from "@/contexts/AuthContext";
 
 function Profile() {
@@ -10,7 +10,7 @@ function Profile() {
   const { logout } = useAuth();
   return (
     <LayoutStateHandler isLoading={isLoading} error={error} data={user}>
-      <div className="flex px-5  py-5 flex-col space-y-6 justify-center items-center ">
+      <div className="flex px-5 py-0 md:py-5 flex-col space-y-6 justify-center items-center ">
         <div
           className="max-w-1/2
       hover:scale-105

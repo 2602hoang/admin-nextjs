@@ -1,7 +1,14 @@
 export const Loading = () => (
-  <div className="text-center place-content-center  ">
-    <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-yellow-500 mx-auto"></div>
-    <h2 className="text-white text-2xl dark:text-white mt-4">Loading...</h2>
+  <div className="place-items-center gap-y-4 pt-10 grid place-content-center ">
+    <div className="w-full gap-x-2 flex justify-center items-center">
+      <div className="w-5 bg-[#d991c2] animate-pulse h-5 rounded-full "></div>
+      <div className="w-5 animate-pulse h-5 bg-[#9869b8] rounded-full "></div>
+      <div className="w-5 h-5 animate-pulse bg-[#6756cc] rounded-full "></div>
+    </div>
+
+    <h1 className="text-3xl text-clip bg-gradient-to-r from-violet-500 to-red-500 bg-clip-text text-transparent">
+      Loading...
+    </h1>
     <p className="text-zinc-600 dark:text-zinc-400">
       Your adventure is about to begin
     </p>

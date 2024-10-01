@@ -1,5 +1,5 @@
 "use client";
-import { useloginUser } from "@/app/(Page)/(auth)/login/useloginUser";
+import { uselogicLogin } from "@/app/(Page)/(auth)/Login/useloginLogin";
 import { useRouter } from "next/navigation";
 import React, {
   createContext,
@@ -33,13 +33,12 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     setUserToken(token);
     setUserRole(role ? parseInt(role) : null);
     setUserId(id);
-
     if (!token) {
-      router.push("/login");
+      router.push("/Login");
     }
   }, [router]);
   const login = async (phone: string, password: string): Promise<void> => {
-    const result = await useloginUser(phone, password);
+    const result = await uselogicLogin(phone, password);
     if (result.success) {
       const token = localStorage.getItem("userToken");
       const role = localStorage.getItem("userRole");
@@ -65,7 +64,7 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     setUserId(null);
     localStorage.removeItem("userRole");
     setUserRole(null);
-    router.push("/login");
+    router.push("/Login");
   };
 
   return (

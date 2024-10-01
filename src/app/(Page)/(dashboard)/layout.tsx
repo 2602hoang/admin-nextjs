@@ -1,10 +1,10 @@
 "use client";
 import "@/style/index.scss";
-import Navbar from "../navbar/NavBar";
-import { Header } from "../header/Header";
 import { useState, useEffect } from "react";
-import { LoadingPage } from "../loading/LoadingPage";
 import { FloatButton } from "antd";
+import { LoadingPage } from "@/components/loading/LoadingPage";
+import Navbar from "@/components/navbar/NavBar";
+import { Header } from "@/components/header/Header";
 
 interface LayoutPageProps {
   children: React.ReactNode;
@@ -51,17 +51,15 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
           </div>
 
           <div
-            className={` w-full flex flex-col  bg-brown md:relative min-h-screen  overflow-y-auto  `}
+            className={` w-full flex flex-col  bg-brown md:relative min-h-screen overflow-hidden md:overflow-auto`}
           >
             {/* Header */}
             <div className={`h-[116px]  md:sticky top-0 z-30 `}>
               <Header collapsed={collapsed} toggleCollapsed={toggleCollapsed} />
             </div>
             {/* Main Content */}
-            <div>
-              {children}
-              <FloatButton.BackTop className="h-16 w-16" />
-            </div>
+            <div className="text-white px-3 md:px-[21px] ">{children}</div>
+            <FloatButton.BackTop className="h-16 w-16" />
           </div>
         </div>
       </body>
