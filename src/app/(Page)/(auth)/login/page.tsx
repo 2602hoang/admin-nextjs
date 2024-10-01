@@ -38,7 +38,7 @@ function Login() {
       {userToken ? (
         <></>
       ) : (
-        <div className="py-2 md:py-5 w-full flex flex-col gap-y-5 md:gap-y-8 justify-center items-center">
+        <div className="py-2 md:py-5 w-full flex flex-col gap-y-3 md:gap-y-8 justify-center items-center">
           <div>
             <img
               title="Light_Teal"
@@ -46,7 +46,7 @@ function Login() {
               src="https://themewagon.github.io/nickelfox/Logo-with-text.png"
             />
           </div>
-          <div className="bg-dark-slate-gray w-10/12 md:w-3/5 lg:w-2/6 xl:w-2/6 md:py-5 py-0  rounded-2xl shadow-xl overflow-hidden">
+          <div className="bg-dark-slate-gray w-10/12 md:w-3/5 lg:w-2/6 max-w-[500px] md:py-5 py-0  rounded-2xl shadow-xl overflow-hidden">
             <div className="gap-y-4 md:p-7 p-3 flex flex-col">
               <div>
                 <h3 className="text-center text-3xl  font-semibold  text-white">
@@ -119,22 +119,22 @@ function Login() {
                 </div>
               </form>
             </div>
-            <div className="px-8 py-2  text-center ">
-              <div className=" mb-6">
+            <div className="px-8 pb-2  text-center ">
+              <div className=" mb-4">
                 <p className=" ">Or sign in using:</p>
               </div>
-              <div className="flex justify-center gap-x-4 items-center">
+              <div className="flex justify-center gap-x-4 items-center ">
                 <Button
                   type="link"
                   icon={<IconGoogle />}
-                  className="w-[45%] h-14 leading-[1.75rem] text-light-teal border-2 py-3 flex px-4 justify-center items-center border-light-teal"
+                  className="w-[45%] h-10 leading-[1.75rem] text-light-teal border-2 py-2 flex px-3 justify-center items-center border-light-teal"
                 >
                   Google
                 </Button>
                 <Button
                   icon={<IconFacebook />}
                   type="link"
-                  className="w-[45%] text-light-teal h-14 leading-[1.75rem] flex justify-center items-center px-4 border-2 py-3 border-light-teal"
+                  className="w-[45%] text-light-teal h-10 leading-[1.75rem] flex justify-center items-center px-3 border-2 py-2 border-light-teal"
                 >
                   Facebook
                 </Button>
