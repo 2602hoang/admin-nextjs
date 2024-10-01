@@ -38,16 +38,16 @@ function Login() {
       {userToken ? (
         <></>
       ) : (
-        <div className="w-full h-screen  py-7 flex flex-col gap-y-5 md:gap-y-8 justify-center items-center">
+        <div className="py-5 w-full flex flex-col gap-y-5 md:gap-y-8 justify-center items-center">
           <div>
             <img
               title="Light_Teal"
-              className="bg-brown w-[210px] h-12 md:h-14"
+              className="bg-brown max-w-[210px] h-10 md:h-14"
               src="https://themewagon.github.io/nickelfox/Logo-with-text.png"
             />
           </div>
-          <div className="bg-dark-slate-gray w-10/12 md:w-2/6 py-4 rounded-2xl shadow-xl overflow-hidden">
-            <div className="gap-y-4 md:p-7 p-4 flex flex-col">
+          <div className="bg-dark-slate-gray w-10/12 md:w-3/5 lg:w-2/6 xl:w-2/6 md:py-5 py-0  rounded-2xl shadow-xl overflow-hidden">
+            <div className="gap-y-4 md:p-7 p-3 flex flex-col">
               <div>
                 <h3 className="text-center text-3xl  font-semibold  text-white">
                   Log In
