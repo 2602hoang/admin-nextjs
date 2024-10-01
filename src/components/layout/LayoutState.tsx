@@ -48,7 +48,7 @@ const LayoutStateHandler: React.FC<LayoutStateHandlerProps> = ({
     );
   }
 
-  return <>{children}</>;
+  return <div>{children}</div>;
 };
 
 export default LayoutStateHandler;

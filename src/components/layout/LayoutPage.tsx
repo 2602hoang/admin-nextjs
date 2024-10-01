@@ -4,6 +4,7 @@ import Navbar from "../navbar/NavBar";
 import { Header } from "../header/Header";
 import { useState, useEffect } from "react";
 import { LoadingPage } from "../loading/LoadingPage";
+import { FloatButton } from "antd";
 
 interface LayoutPageProps {
   children: React.ReactNode;
@@ -50,14 +51,17 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
           </div>
 
           <div
-            className={` w-full flex flex-col  bg-brown md:relative  overflow-auto `}
+            className={` w-full flex flex-col  bg-brown md:relative max-h-screen  overflow-y-auto  `}
           >
             {/* Header */}
             <div className={`h-[116px] sticky top-0 z-30 `}>
               <Header collapsed={collapsed} toggleCollapsed={toggleCollapsed} />
             </div>
             {/* Main Content */}
-            <div>{children}</div>
+            <div>
+              {children}
+              <FloatButton.BackTop className="h-16 w-16" />
+            </div>
           </div>
         </div>
       </body>

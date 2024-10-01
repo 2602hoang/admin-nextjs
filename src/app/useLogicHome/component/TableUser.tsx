@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { DeleteFilled, EditOutlined, SearchOutlined } from "@ant-design/icons";
 import {
   Avatar,

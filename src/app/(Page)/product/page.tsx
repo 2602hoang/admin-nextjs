@@ -15,16 +15,16 @@ function Product() {
   return (
     <>
       <LayoutStateHandler isLoading={isLoading} error={error} data={products}>
-        <div className="md:p-10 text-red-400 grid md:grid-cols-2 grid-cols-1 md:gap-10 w-full min-h-[400px]">
+        <div className=" text-red-400 grid md:grid-cols-2 xl:grid-cols-3 grid-cols-1 gap-5 py-5  w-full min-h-[400px]">
           {Array.isArray(products) &&
             products.map((product: Product) => (
               <div
                 key={product.id}
-                className=" flex flex-col justify-center md:h-[400px] items-center gap-y-6 p-6 rounded-lg"
+                className=" flex flex-col justify-center md:h-[400px] items-center  rounded-lg"
               >
                 <div
-                  className="rounded-xl bg-dark-slate-gray overflow-hidden relative text-center p-4 group w-full  items-center 
-              flex flex-col max-w-sm hover:shadow-2xl hover:shadow-teal-400 transition-all duration-500 shadow-xl"
+                  className="rounded-xl bg-dark-slate-gray overflow-hidden relative text-center p-4 group  items-center 
+              flex flex-col max-w-sm hover:shadow-2xl hover:shadow-teal-400 transition-all duration-500 hover:cursor-default shadow-xl"
                 >
                   <div className="text-gray-500 group-hover:scale-105 transition-all">
                     <img
@@ -34,7 +34,7 @@ function Product() {
                     />
                   </div>
                   <div className="group-hover:pb-10 transition-all duration-500 mt-10 delay-200">
-                    <h1 className="font-semibold text-light-teal">
+                    <h1 className="font-semibold text-light-teal mb-4">
                       {product.title}
                     </h1>
                     <p className="text-white text-sm">{product.dis}</p>
@@ -64,10 +64,10 @@ function Product() {
                           <path
                             d="M2 2h1.74c1.08 0 1.93.93 1.84 2l-.83 9.96a2.796 2.796 0 0 0 2.79 3.03h10.65c1.44 0 2.7-1.18 2.81-2.61l.54-7.5c.12-1.66-1.14-3.01-2.81-3.01H5.82M16.25 22a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM8.25 22a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM9 8h12"
                             stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="1.5"
+                            strokeMiterlimit="10"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           ></path>
                         </svg>
                       </a>
@@ -83,16 +83,16 @@ function Product() {
                           <path
                             d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10ZM12 8v5"
                             stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           ></path>
                           <path
                             d="M11.995 16h.009"
                             stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           ></path>
                         </svg>
                       </a>

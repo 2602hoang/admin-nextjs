@@ -18,7 +18,7 @@ export const formattedTimestamp = (timestamp: any) => {
   const date = new Date(timestamp);
   const formattedDate = date.toLocaleString("en-US", {
     dateStyle: "short",
-    timeStyle: "medium",
+    // timeStyle: "short",
   });
   return formattedDate;
 };

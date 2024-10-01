@@ -2,7 +2,8 @@ import { useAxios } from "@/providers/AxiosProvider";
 import { useQuery } from "react-query";
 import { User } from "../profile/useLogic";
 import { OrderDetail } from "./page";
-
+import { useCallback, useMemo, useState } from "react";
+import _ from "lodash";
 interface Order {
   id_order: number;
   id_pay: number;
@@ -21,15 +22,57 @@ interface Order {
 
 export const useFetchOrderData = () => {
   const { axiosInstance } = useAxios();
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   const fetchUserData = async () => {
     const response = await axiosInstance.get<{ order: Order[] }>(
       `api/v1/order/getall`
     );
+
     return response.data.order;
   };
 
-  const { data: order, isLoading, error } = useQuery(["order"], fetchUserData);
+  const {
+    data: order,
+    isLoading,
+    error,
+  } = useQuery(["order"], fetchUserData, {
+    cacheTime: 1000 * 60 * 10,
+    staleTime: 1000 * 60 * 5,
+  });
+  // event
+  const debouncedSetSearchQuery = useCallback(
+    _.debounce((value: string) => setSearchQuery(value), 300),
+    []
+  );
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    debouncedSetSearchQuery(e.target.value);
+  };
 
-  return { order, isLoading, error };
+  const filteredOrders = useMemo(() => {
+    if (!order || searchQuery === "") return order;
+    return order.filter((order) =>
+      // order.user.phone.includes(searchQuery) ||
+      order.id_order.toString().includes(searchQuery)
+    );
+  }, [order, searchQuery]);
+
+  const totalAmount = useMemo(() => {
+    return (
+      filteredOrders?.reduce(
+        (total: any, order: OrderDetail) => total + order.total_price,
+        0
+      ) || 0
+    );
+  }, [filteredOrders]);
+
+  return {
+    order,
+    isLoading,
+    searchQuery,
+    error,
+    totalAmount,
+    filteredOrders,
+    handleInputChange,
+  };
 };

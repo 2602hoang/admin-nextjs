@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 import React from "react";
 
@@ -11,7 +10,7 @@ function Profile() {
   const { logout } = useAuth();
   return (
     <LayoutStateHandler isLoading={isLoading} error={error} data={user}>
-      <div className="flex px-5  pt-5 flex-col space-y-6 justify-center items-center ">
+      <div className="flex px-5  py-5 flex-col space-y-6 justify-center items-center ">
         <div
           className="max-w-1/2
       hover:scale-105

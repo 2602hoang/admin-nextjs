@@ -26,7 +26,10 @@ export const useFetchUserData = () => {
     data: user,
     isLoading,
     error,
-  } = useQuery(["user", userId], fetchUserData);
+  } = useQuery(["user", userId], fetchUserData, {
+    cacheTime: 1000 * 60 * 10,
+    staleTime: 1000 * 60 * 5,
+  });
 
   return { user, isLoading, error };
 };

@@ -1,9 +1,6 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable jsx-a11y/alt-text */
 "use client";
 import { IconFacebook, IconGoogle, IconHiden, Iconshow } from "@/icon/DataIcon";
 import { useAuth } from "@/contexts/AuthContext";
-
 import { Button } from "antd";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -43,7 +40,6 @@ function Login() {
       ) : (
         <div className="w-full h-screen  py-10 flex flex-col gap-y-8 justify-center items-center">
           <div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               title="Light_Teal"
               className="bg-brown w-[210px] h-14"
@@ -61,7 +57,7 @@ function Login() {
                 <h6 className="text-center leading-[1.6rem] text-[1.25rem] font-medium  text-gray-menu">
                   Don’t have an account?{" "}
                   <a
-                    onClick={() => router.push("/auth/Signup")}
+                    onClick={() => router.push("/signup")}
                     className="text-light-teal"
                   >
                     Sign up
@@ -89,7 +85,6 @@ function Login() {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                     />
-                    {/* Icon for toggling password visibility */}
                     <div
                       className="absolute inset-y-0 right-0 pr-3 flex items-center pt-5  cursor-pointer"
                       onClick={togglePasswordVisibility}

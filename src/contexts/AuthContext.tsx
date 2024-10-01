@@ -1,6 +1,5 @@
 "use client";
-
-import { useloginUser } from "@/app/(Page)/auth/Login/useloginUser";
+import { useloginUser } from "@/app/(Page)/(auth)/login/useloginUser";
 import { useRouter } from "next/navigation";
 import React, {
   createContext,
@@ -36,7 +35,7 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     setUserId(id);
 
     if (!token) {
-      router.push("/auth/Login");
+      router.push("/login");
     }
   }, [router]);
   const login = async (phone: string, password: string): Promise<void> => {
@@ -66,7 +65,7 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     setUserId(null);
     localStorage.removeItem("userRole");
     setUserRole(null);
-    router.push("/auth/Login");
+    router.push("/login");
   };
 
   return (

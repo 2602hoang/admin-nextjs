@@ -1,5 +1,7 @@
 :root {
   --color-text-placeholder: "#D2D2D2";
+  --color-wihite: #fff;
+  --color-hover-icon: #ff0000;
 }
 .ant-input::placeholder {
   // padding-top: 30px;
@@ -9,4 +11,10 @@
   font-family: inherit;
   font-weight: 300;
   color: var(--color-text-placeholder);
+}
+.ant-input-affix-wrapper .ant-input-clear-icon {
+  color: var(--color-wihite);
+}
+.ant-input-affix-wrapper .ant-input-clear-icon:hover {
+  color: var(--color-hover-icon);
 }

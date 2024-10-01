@@ -20,7 +20,7 @@ export const AxiosProvider: React.FC<AxiosProviderProps> = ({ children }) => {
   const axiosInstance = useMemo(() => {
     const instance = axios.create({
       baseURL: URL,
-      timeout: 3000,
+      timeout: 4000,
     });
 
     instance.interceptors.request.use(
