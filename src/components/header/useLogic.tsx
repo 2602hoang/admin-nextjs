@@ -75,9 +75,11 @@ export const useLogicHeader = () => {
     },
     {
       label: (
-        <p onClick={logout} className="gap-2  flex items-center">
+        <p className="gap-2  flex items-center">
           <IconOut />{" "}
-          <span className="text-red-500 hover:font-black">Logout</span>
+          <span onClick={logout} className="text-red-500 hover:font-black">
+            Logout
+          </span>
         </p>
       ),
       key: "/login",

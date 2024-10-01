@@ -38,7 +38,7 @@ function Login() {
       {userToken ? (
         <></>
       ) : (
-        <div className="py-5 w-full flex flex-col gap-y-5 md:gap-y-8 justify-center items-center">
+        <div className="py-2 md:py-5 w-full flex flex-col gap-y-5 md:gap-y-8 justify-center items-center">
           <div>
             <img
               title="Light_Teal"

@@ -35,7 +35,7 @@ function Leaderboard() {
               setSearchId(value ? parseInt(value) : "");
             } else {
               // alert("Please enter a valid number");
-              notification.warning({
+              notification.error({
                 message: "Please enter a valid number",
                 showProgress: true,
                 duration: 1.5,
@@ -77,7 +77,7 @@ function Leaderboard() {
         ) : data ? (
           <div
             key={data.id}
-            className="bg-dark-slate-gray col-span-2 start-col-1 md:col-start-2  items-center shadow-lg rounded-lg p-4 flex "
+            className="bg-dark-slate-gray col-span-2 start-col-1 md:col-start-1 xl:col-start-2  items-center shadow-lg rounded-lg p-4 flex "
           >
             <div className="min-w-32">
               <img

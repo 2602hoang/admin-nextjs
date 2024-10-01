@@ -171,9 +171,11 @@ export const useLogicNavbar = ({ setCollapsed }: NavbarProps) => {
       {
         key: "/login",
         icon: (
-          <span onClick={() => logout()}>
-            <IconLogin />
-          </span>
+          <a onClick={logout}>
+            <span>
+              <IconLogin />
+            </span>
+          </a>
         ),
         label: "Login",
       },
