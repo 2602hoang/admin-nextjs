@@ -23,9 +23,9 @@ function Leaderboard() {
   );
   return (
     <LayoutStateHandler isLoading={isLoading} error={error} data={data}>
-      <div className="py-4 flex justify-center sticky top-[80px] md:top-[116px] bg-brown">
+      <div className="py-4 flex justify-center md:sticky fixed w-full md:top-[116px] z-40 top-16 bg-brown">
         <Input
-          className="w-4/5 md:w-2/5 h-10 gap-x-[3px] rounded-lg pl-1 border-none bg-dark-slate-gray text-white focus:border-light-gray focus-within:bg-light-gray hover:bg-light-gray"
+          className="md:w-2/5 w-3/5 h-10 gap-x-[3px] rounded-lg pl-1 border-none bg-dark-slate-gray text-white focus:border-light-gray focus-within:bg-light-gray hover:bg-light-gray"
           placeholder="Search by ID"
           ref={inputRef}
           value={searchId}
@@ -46,12 +46,12 @@ function Leaderboard() {
         />
         <button
           onClick={handleClear}
-          className="ml-4 px-4 py-2 bg-red-500 text-white rounded-lg"
+          className="ml-4 px-2 md:px-4 py-2 bg-red-500 text-white rounded-lg"
         >
           Clear
         </button>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full md:gap-10 p-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full gap-y-5 md:gap-10 mt-2 p-4">
         {Array.isArray(data) && data.length > 0 ? (
           data.map((item: Photos) => (
             <div

@@ -31,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <div
-      className={`h-20 px-3 bg-brown md:h-[116px] flex items-center z-50 justify-between`}
+      className={`h-20 px-3 bg-brown md:h-[116px] flex items-center z-30  w-full md:relative fixed justify-between`}
     >
       <div className="flex items-center justify-start gap-2 w-full">
         <div className="">

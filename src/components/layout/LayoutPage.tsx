@@ -54,7 +54,7 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
             className={` w-full flex flex-col  bg-brown md:relative min-h-screen  overflow-y-auto  `}
           >
             {/* Header */}
-            <div className={`h-[116px] sticky top-0 z-30 `}>
+            <div className={`h-[116px]  md:sticky top-0 z-30 `}>
               <Header collapsed={collapsed} toggleCollapsed={toggleCollapsed} />
             </div>
             {/* Main Content */}
