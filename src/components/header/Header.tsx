@@ -83,7 +83,7 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         }
         className="bg-brown"
-        // visible={isModalVisible}
+        visible={isModalVisible}
         onCancel={handleModalClose}
         footer={<div className="text-white bg-brown"></div>}
       >
