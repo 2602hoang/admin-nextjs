@@ -23,7 +23,7 @@ function Leaderboard() {
   );
   return (
     <LayoutStateHandler isLoading={isLoading} error={error} data={data}>
-      <div className="py-4 flex justify-center sticky top-[116px] bg-brown">
+      <div className="py-4 flex justify-center sticky top-[80px] md:top-[116px] bg-brown">
         <Input
           className="w-4/5 md:w-2/5 h-10 gap-x-[3px] rounded-lg pl-1 border-none bg-dark-slate-gray text-white focus:border-light-gray focus-within:bg-light-gray hover:bg-light-gray"
           placeholder="Search by ID"
@@ -51,7 +51,7 @@ function Leaderboard() {
           Clear
         </button>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full gap-10 p-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full md:gap-10 p-4">
         {Array.isArray(data) && data.length > 0 ? (
           data.map((item: Photos) => (
             <div
@@ -77,16 +77,16 @@ function Leaderboard() {
         ) : data ? (
           <div
             key={data.id}
-            className="bg-dark-slate-gray col-span-2 col-start-2  items-center shadow-lg rounded-lg p-4 flex "
+            className="bg-dark-slate-gray col-span-2 start-col-1 md:col-start-2  items-center shadow-lg rounded-lg p-4 flex "
           >
-            <div className="">
+            <div className="min-w-32">
               <img
                 src={data.thumbnailUrl}
                 alt={data.title}
                 className="rounded-3xl w-full h-auto"
               />
             </div>
-            <div className="flex flex-col pl-10 justify-center">
+            <div className="flex flex-col pl-2 md:pl-10 justify-center">
               <div className="py-6">
                 <h1 className="text-lg font-semibold">{data.title}</h1>
               </div>

@@ -23,7 +23,7 @@ export default function RootLayout({
           <AxiosProvider>
             <CustomQueryClientProvider>
               <LayoutPage>
-                <div className="text-white px-[21px]  ">{children}</div>
+                <div className="text-white px-3 md:px-[21px]  ">{children}</div>
               </LayoutPage>
             </CustomQueryClientProvider>
           </AxiosProvider>

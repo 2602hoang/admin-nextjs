@@ -48,7 +48,7 @@ const LayoutStateHandler: React.FC<LayoutStateHandlerProps> = ({
     );
   }
 
-  return <div>{children}</div>;
+  return <div className=" w-full">{children}</div>;
 };
 
 export default LayoutStateHandler;

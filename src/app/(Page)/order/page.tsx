@@ -119,7 +119,7 @@ function Order() {
                       >
                         Total
                       </td>
-                      <td className="border text-end pr-52 py-2 border-indigo-400">
+                      <td className="border text-end pr-5 md:pr-52 py-2 border-indigo-400">
                         {formatCurrency(totalAmount)}
                       </td>
                     </tr>

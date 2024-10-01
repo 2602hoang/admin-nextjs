@@ -51,7 +51,7 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
           </div>
 
           <div
-            className={` w-full flex flex-col  bg-brown md:relative max-h-screen  overflow-y-auto  `}
+            className={` w-full flex flex-col  bg-brown md:relative min-h-screen  overflow-y-auto  `}
           >
             {/* Header */}
             <div className={`h-[116px] sticky top-0 z-30 `}>
