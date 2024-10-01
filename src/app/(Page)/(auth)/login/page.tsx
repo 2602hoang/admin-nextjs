@@ -38,22 +38,22 @@ function Login() {
       {userToken ? (
         <></>
       ) : (
-        <div className="w-full h-screen  py-10 flex flex-col gap-y-8 justify-center items-center">
+        <div className="w-full h-screen  py-7 flex flex-col gap-y-5 md:gap-y-8 justify-center items-center">
           <div>
             <img
               title="Light_Teal"
-              className="bg-brown w-[210px] h-14"
+              className="bg-brown w-[210px] h-12 md:h-14"
               src="https://themewagon.github.io/nickelfox/Logo-with-text.png"
             />
           </div>
           <div className="bg-dark-slate-gray w-10/12 md:w-2/6 py-4 rounded-2xl shadow-xl overflow-hidden">
-            <div className="gap-y-4 p-7 flex flex-col">
+            <div className="gap-y-4 md:p-7 p-4 flex flex-col">
               <div>
-                <h3 className="text-center text-[2rem]  font-semibold leading-[1.167rem] text-white">
+                <h3 className="text-center text-3xl  font-semibold  text-white">
                   Log In
                 </h3>
               </div>
-              <div className="mt-4">
+              <div className="mt-2">
                 <h6 className="text-center leading-[1.6rem] text-[1.25rem] font-medium  text-gray-menu">
                   Don’t have an account?{" "}
                   <a
@@ -64,7 +64,7 @@ function Login() {
                   </a>
                 </h6>
               </div>
-              <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+              <form onSubmit={handleSubmit} className=" mt-4 md:mt-8 space-y-4">
                 <div className="rounded-md shadow-sm">
                   <div className="flex flex-col gap-y-2">
                     <label className="">Phone </label>

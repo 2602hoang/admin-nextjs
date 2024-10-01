@@ -39,7 +39,7 @@ const Navbar: React.FC<NavbarProps> = ({
       <div
         className={`${
           collapsed ? " " : "w-0 md:w-[110px]"
-        } h-[98px] sticky  top-0  z-50  left-0 bg-brown `}
+        } h-[98px] sticky  top-0  z-40  left-0 bg-brown `}
       >
         <div
           className={`flex h-[98px] w-full  justify-center bg-brown items-center ${
