@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import LayoutStateHandler from "@/components/layout/LayoutState";
-import { useFetchUserData } from "@/app/(dashboard)/profile/useLogic";
 import { useAuth } from "@/contexts/AuthContext";
+import { useFetchUserData } from "./useLogic";
 
 function Profile() {
   const { user, isLoading, error } = useFetchUserData();

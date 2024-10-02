@@ -3,8 +3,8 @@ import React from "react";
 import { Input, Tag, Tooltip } from "antd";
 import { formatCurrency, formattedTimestamp } from "@/utils";
 import LayoutStateHandler from "@/components/layout/LayoutState";
-import { useFetchOrderData } from "@/app/(dashboard)/order/useLogic";
 import { IconSearch } from "@/icon/DataIcon";
+import { useFetchOrderData } from "./useLogic";
 
 export interface OrderDetail {
   id_order: number;
