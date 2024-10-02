@@ -3,7 +3,7 @@ import React from "react";
 import { Input, Tag, Tooltip } from "antd";
 import { formatCurrency, formattedTimestamp } from "@/utils";
 import LayoutStateHandler from "@/components/layout/LayoutState";
-import { useFetchOrderData } from "@/app/(Page)/(Dashboard)/Order/useLogic";
+import { useFetchOrderData } from "@/app/(page)/(dashboard)/Order/useLogic";
 import { IconSearch } from "@/icon/DataIcon";
 
 export interface OrderDetail {
