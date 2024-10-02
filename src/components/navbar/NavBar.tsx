@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from "react";
 import { Menu, MenuProps } from "antd";
 import { NavbarProps, useLogicNavbar } from "./useLogic";

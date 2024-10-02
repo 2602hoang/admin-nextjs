@@ -2,9 +2,9 @@
 import { IconFacebook, IconGoogle, IconHiden, Iconshow } from "@/icon/DataIcon";
 import { Button } from "antd";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
-import { actionLogin } from "./uselogicLogin";
+import React from "react";
 import { LoadingPage } from "@/components/loading/LoadingPage";
+import { actionLogin } from "./uselogicLogin";
 
 function Login() {
   const router = useRouter();

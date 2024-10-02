@@ -1,9 +1,9 @@
 import { useAxios } from "@/providers/AxiosProvider";
 import { useQuery } from "react-query";
-import { User } from "../Profile/useLogic";
-import { OrderDetail } from "./page";
 import { useCallback, useMemo, useState } from "react";
 import _ from "lodash";
+import { OrderDetail } from "./page";
+import { User } from "../Profile/useLogic";
 interface Order {
   id_order: number;
   id_pay: number;

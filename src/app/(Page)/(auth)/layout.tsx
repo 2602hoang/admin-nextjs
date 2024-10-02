@@ -1,8 +1,7 @@
 "use client";
 import { LoadingPage } from "@/components/loading/LoadingPage";
 import { useAuth } from "@/contexts/AuthContext";
-import { user } from "@nextui-org/theme";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function AuthLayout({

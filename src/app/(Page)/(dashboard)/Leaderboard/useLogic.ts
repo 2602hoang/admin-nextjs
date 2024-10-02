@@ -1,8 +1,6 @@
 import { InputRef } from "antd";
 import { useRef, useState } from "react";
 import { useQuery } from "react-query";
-
-// Fetch paginated photos
 const fetchPhotoData = async (page: number) => {
   const res = await fetch(
     `https://jsonplaceholder.typicode.com/photos?_page=${page}&_limit=52`

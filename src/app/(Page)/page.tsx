@@ -1,7 +1,6 @@
 "use client";
 import Content from "../useLogicHome/ContentHome";
 import LayoutPage from "./(Dashboard)/layout";
-
 export default function Home() {
   return (
     <LayoutPage>
