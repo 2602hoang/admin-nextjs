@@ -1,6 +1,6 @@
 "use client";
 
-import { uselogicLogin } from "@/app/(auth)/login/uselogicLogin";
+import { uselogicLogin } from "../app/(auth)/login/uselogicLogin";
 import { useRouter } from "next/navigation";
 import React, {
   createContext,
