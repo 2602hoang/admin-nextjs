@@ -18,7 +18,6 @@ export default function AuthLayout({
       return router.back();
     }
   }, [userToken, router]);
-  console.log("userToken", userToken);
 
   return (
     <>
