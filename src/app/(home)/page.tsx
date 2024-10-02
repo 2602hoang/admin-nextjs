@@ -1,6 +1,6 @@
 "use client";
-import Content from "../useLogicHome/ContentHome";
-import LayoutPage from "./(dashboard)/layout";
+import Content from "./useLogicHome/ContentHome";
+import LayoutPage from "../(dashboard)/layout";
 export default function Home() {
   return (
     <LayoutPage>
