@@ -23,7 +23,7 @@ export const useLogicHeader = () => {
           </span>
         </p>
       ),
-      key: "/profile",
+      key: "/Profile",
     },
     {
       label: (
@@ -35,7 +35,7 @@ export const useLogicHeader = () => {
           </span>
         </p>
       ),
-      key: "/setting",
+      key: "/Setting",
     },
     {
       label: (

@@ -19,11 +19,10 @@ function Login() {
     handleSubmit,
     togglePasswordVisibility,
   } = actionLogin();
-  const token = userToken;
 
   return (
     <>
-      {!token   ? (
+      {userToken ? (
         <LoadingPage />
       ) : (
         <div className="py-2 md:py-5 w-full flex flex-col gap-y-3 md:gap-y-8 justify-center items-center">

@@ -15,15 +15,21 @@ export default function AuthLayout({
 
   useEffect(() => {
     if (userToken) {
-      router.back();
+      return router.back();
     }
   }, [userToken, router]);
-  if (userToken === null) {
-    return (
-      <div className="text-white bg-brown flex justify-center z-50 h-screen fixed w-full overflow-hidden">
-        {userToken ? null : children}
-      </div>
-    );
-  }
-  return <LoadingPage />;
+  console.log("userToken", userToken);
+
+  return (
+    <>
+      {!userToken ? (
+        <div className="text-white bg-brown flex justify-center z-50 h-screen fixed w-full overflow-hidden">
+          <LoadingPage />
+          {children}
+        </div>
+      ) : (
+        <LoadingPage />
+      )}
+    </>
+  );
 }

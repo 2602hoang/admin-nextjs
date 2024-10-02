@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export const LoadingPage = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!loading) {
+    return null;
+  }
+
   return (
-    <div className="flex flex-col gap-3 w-full h-screen fixed justify-center orverflow-hidden bg-brown items-center text-center">
+    <div className="flex flex-col gap-3 w-full h-screen fixed z-50 justify-center orverflow-hidden bg-brown items-center text-center">
       <div className="flex flex-row gap-2">
         <div
           style={{
