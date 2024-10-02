@@ -9,9 +9,7 @@ export const Loading = () => (
     <h1 className="text-3xl text-clip bg-gradient-to-r from-violet-500 to-red-500 bg-clip-text text-transparent">
       Loading...
     </h1>
-    <p className="text-zinc-600 dark:text-zinc-400">
-      Your adventure is about to begin
-    </p>
+    <p className="text-white ">Your adventure is about to begin</p>
   </div>
 );
 

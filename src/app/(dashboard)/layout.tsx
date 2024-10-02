@@ -51,14 +51,20 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
           </div>
 
           <div
-            className={` w-full flex flex-col  bg-brown md:relative min-h-screen overflow-hidden md:overflow-auto`}
+            className={` w-full bg-brown md:relative min-h-screen md:overflow-auto`}
           >
             {/* Header */}
             <div className={`h-[116px]  md:sticky top-0 z-30 `}>
               <Header collapsed={collapsed} toggleCollapsed={toggleCollapsed} />
             </div>
             {/* Main Content */}
-            <div className="text-white px-3 md:px-[21px] ">{children}</div>
+            <div
+              className={`text-white px-3 md:px-[21px] ${
+                collapsed ? "fixed md:relative" : ""
+              }`}
+            >
+              {children}
+            </div>
             <FloatButton.BackTop className="h-16 w-16" />
           </div>
         </div>

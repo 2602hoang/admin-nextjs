@@ -29,8 +29,8 @@ const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <div
-      className={` h-screen md:overflow-hidden bg-brown fixed md:relative border-r-[1px]
-         border-r-darker-gray border-solid  overflow-y-auto md:hover:overflow-y-auto
+      className={` h-screen overflow-hidden bg-brown fixed md:relative border-r-[1px]
+         border-r-darker-gray border-solid  hover:overflow-y-auto
       ${collapsed ? "w-[239px] " : "w-0 md:w-[110px]"}
       ${flag === "open" ? "open-menu  " : "close-menu hidden md:block"}`}
     >
