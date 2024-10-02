@@ -3,7 +3,7 @@ import React from "react";
 import { Input, Tag, Tooltip } from "antd";
 import { formatCurrency, formattedTimestamp } from "@/utils";
 import LayoutStateHandler from "@/components/layout/LayoutState";
-import { useFetchOrderData } from "@/app/(Page)/(dashboard)/Order/useLogic";
+import { useFetchOrderData } from "@/app/(Page)/(Dashboard)/Order/useLogic";
 import { IconSearch } from "@/icon/DataIcon";
 
 export interface OrderDetail {
@@ -24,9 +24,7 @@ function Order() {
     filteredOrders,
     totalAmount,
   } = useFetchOrderData();
-  // {
-  //   console.table(filteredOrders);
-  // }
+
   return (
     <LayoutStateHandler isLoading={isLoading} error={error} data={order}>
       <div className="w-full h-auto mb-5">

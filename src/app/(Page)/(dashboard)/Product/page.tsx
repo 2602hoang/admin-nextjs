@@ -2,7 +2,7 @@
 import React from "react";
 
 import LayoutStateHandler from "@/components/layout/LayoutState";
-import { useDataProduct } from "@/app/(Page)/(dashboard)/Product/useLogic";
+import { useDataProduct } from "@/app/(Page)/(Dashboard)/Product/useLogic";
 export interface Product {
   id: string;
   title: string;
