@@ -23,7 +23,7 @@ export const useLogicHeader = () => {
           </span>
         </p>
       ),
-      key: "/Profile",
+      key: "/profile",
     },
     {
       label: (
@@ -35,7 +35,7 @@ export const useLogicHeader = () => {
           </span>
         </p>
       ),
-      key: "/Setting",
+      key: "/setting",
     },
     {
       label: (
@@ -82,7 +82,7 @@ export const useLogicHeader = () => {
           </span>
         </p>
       ),
-      key: "/Login",
+      key: "/login",
     },
   ];
   const [dropdownVisible, setDropdownVisible] = useState(false);

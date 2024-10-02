@@ -5,7 +5,6 @@ import { IconSearch } from "@/icon/DataIcon";
 import LayoutStateHandler from "@/components/layout/LayoutState";
 import { useFetchPhotoData, useLeaderboard } from "./useLogic";
 
-
 // Define the interface for the photo data
 interface Photos {
   albumId: number;
