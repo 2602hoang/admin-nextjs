@@ -2,7 +2,6 @@
 import React from "react";
 import LayoutStateHandler from "@/components/layout/LayoutState";
 import { useDataProduct } from "./useLogic";
-import { ActionsProduct } from "./componentProduct/ActionsProduct";
 import { CardProduct } from "./componentProduct/CardProduct";
 
 export interface Product {

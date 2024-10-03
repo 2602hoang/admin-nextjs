@@ -25,12 +25,12 @@ function Profile() {
       h-auto bg-neutral-800 rounded-3xl text-neutral-300 p-4 flex flex-col items-start justify-center space-y-6 
       gap-3 hover:bg-gray-900 hover:shadow-2xl hover:shadow-sky-400 transition-shadow"
         >
-          <div className=" bg-sky-300 rounded-2xl">
+          <div className="resize  bg-sky-300 rounded-2xl">
             {user?.avatar && (
               <img
                 src={user.avatar}
                 alt={user.username}
-                className="size-96 rounded-2xl"
+                className="size-96 resize rounded-2xl"
               />
             )}
           </div>
@@ -45,16 +45,15 @@ function Profile() {
             Change Password
           </button>
         </div>
-        
-          <ModalProfile
-            open={isModalOpen}
-            handleOk={() => {}}
-            handleCancel={handleCloseModal}
-            handlePasswordSubmit={handlePasswordSubmit}
-            password={password}
-            setPassword={setPassword}
-          />
 
+        <ModalProfile
+          open={isModalOpen}
+          handleOk={() => {}}
+          handleCancel={handleCloseModal}
+          handlePasswordSubmit={handlePasswordSubmit}
+          password={password}
+          setPassword={setPassword}
+        />
       </div>
     </LayoutStateHandler>
   );

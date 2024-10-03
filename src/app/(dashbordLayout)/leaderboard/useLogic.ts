@@ -64,7 +64,7 @@ export const useLeaderboard = () => {
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const addMorePhotos = () => {
     setIsLoadingMore(true);
-    setLimit((prevLimit) => prevLimit + 48);
+    setLimit((prevLimit) => prevLimit + 52);
     setTimeout(() => {
       setIsLoadingMore(false);
     }, 3000);

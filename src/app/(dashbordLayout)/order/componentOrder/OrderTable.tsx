@@ -1,8 +1,7 @@
-// OrderTable.tsx
+
 import React from "react";
 import { Button, Space, Tag, Tooltip } from "antd";
 import { formatCurrency, formattedTimestamp } from "@/utils";
-import { Order } from "../page";
 import clsx from "clsx";
 import { CustomOrder } from "./TransformModule";
 

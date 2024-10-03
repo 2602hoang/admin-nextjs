@@ -1,15 +1,11 @@
 "use client";
 import React from "react";
-import { Button, Input, Space, Tag, Tooltip } from "antd";
-import { formatCurrency, formattedTimestamp } from "@/utils";
+import { Input } from "antd";
 import LayoutStateHandler from "@/components/layout/LayoutState";
 import { IconSearch } from "@/icon/DataIcon";
 import { useFetchOrderData } from "./useLogic";
-import clsx from "clsx";
 import { User } from "../profile/useLogic";
 import { ModalDetail } from "./componentOrder/ModalDetail";
-import { u } from "framer-motion/client";
-import { Loading } from "@/components/state/StateCallApi";
 import OrderTable from "./componentOrder/OrderTable";
 
 export interface Product {

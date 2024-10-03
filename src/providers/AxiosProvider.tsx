@@ -50,10 +50,6 @@ export const AxiosProvider: React.FC<AxiosProviderProps> = ({ children }) => {
             404: "404 || Not Found: The requested resource could not be found",
             500: "500 || Internal Server Error: Something went wrong on the server",
           };
-          // if (status === 401) {
-          //   localStorage.removeItem("token");
-          //   setToken(null);
-          // }
           throw new HttpError(
             status,
             messages[status] || `An error occurred: ${error.message}`
