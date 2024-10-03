@@ -68,7 +68,7 @@ function TableRank() {
       render: (sales: number, record: { key: string | number }) => (
         <div className="mr-6">
           <Tag
-            className={`w-[80px] h-8  flex justify-center items-center rounded-md  border p-3 `}
+            className="w-[80px] h-8  flex justify-center items-center rounded-md  border p-3 "
             style={{
               backgroundColor: `${getTagColorByKey(record.key)}3D`,
               color: getTagColorByKey(record.key),

@@ -1,15 +1,15 @@
 import React from "react";
-import TableRank from "./component/TableRank";
-import { Earnings } from "./component/Earnings";
-import SlideTrending from "./component/SlideTrending";
-import { TableUser } from "./component/TableUser";
-import TodaySale from "./component/TodaySale";
+import TableRank from "./componentHome/TableRank";
+import { Earnings } from "./componentHome/Earnings";
+import SlideTrending from "./componentHome/SlideTrending";
+import { TableUser } from "./componentHome/TableUser";
+import TodaySale from "./componentHome/TodaySale";
 import {
   ChartsColumnLevel,
   ChartsLine,
   Charttwoline,
-} from "./component/AllCharts";
-import Charts from "./component/ComponentCharts";
+} from "./componentHome/AllCharts";
+import Charts from "./componentHome/ComponentCharts";
 function Content() {
   return (
     <div className="grid grid-cols-12 gap-[14px] h-auto overflow-hidden">

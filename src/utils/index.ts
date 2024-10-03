@@ -1,20 +1,16 @@
-// import { useRouter } from "next/navigation";
-
-export const URL = "https://server-api-mauve.vercel.app/";
-// ;
-// "http://127.0.0.1:8080/"
-// export const useAppRouter = () => {
-//   const router = useRouter();
-//   return router;
-// };
-export const formatCurrency = (price: any) => {
-  return new Intl.NumberFormat("vi-VN", {
+export const URL = process.env.NEXT_PUBLIC_SERVER_API;
+export const formatCurrency = (
+  price: number,
+  locale: string = "vi-VN",
+  currency: string = "VND"
+) => {
+  return new Intl.NumberFormat(locale, {
     style: "currency",
-    currency: "VND",
+    currency: currency,
   }).format(price);
 };
 
-export const formattedTimestamp = (timestamp: any) => {
+export const formattedTimestamp = (timestamp: string) => {
   const date = new Date(timestamp);
   const formattedDate = date.toLocaleString("en-US", {
     dateStyle: "short",

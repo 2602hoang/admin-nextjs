@@ -6,7 +6,7 @@ import {
 } from "@/components/state/StateCallApi";
 
 interface LayoutStateHandlerProps {
-  isLoading: any;
+  isLoading: boolean;
   error: any;
   data: any;
   children: React.ReactNode;

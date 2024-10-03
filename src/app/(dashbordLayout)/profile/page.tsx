@@ -1,12 +1,21 @@
 "use client";
 import React from "react";
 import LayoutStateHandler from "@/components/layout/LayoutState";
-import { useAuth } from "@/contexts/AuthContext";
 import { useFetchUserData } from "./useLogic";
+import { ModalProfile } from "./componentProfile/ModalProfile";
 
 function Profile() {
-  const { user, isLoading, error } = useFetchUserData();
-  const { logout } = useAuth();
+  const {
+    user,
+    isLoading,
+    error,
+    isModalOpen,
+    password,
+    handleCloseModal,
+    handleOpenModal,
+    setPassword,
+    handlePasswordSubmit,
+  } = useFetchUserData();
   return (
     <LayoutStateHandler isLoading={isLoading} error={error} data={user}>
       <div className="flex px-5 py-0 md:py-5 flex-col space-y-6 justify-center items-center ">
@@ -30,12 +39,22 @@ function Profile() {
             <p className="">Phone: {user?.phone}</p>
           </div>
           <button
-            onClick={logout}
-            className="bg-sky-700 font-extrabold p-2 px-6 rounded-xl hover:bg-sky-500 transition-colors"
+            onClick={handleOpenModal}
+            className="bg-sky-700 font-extrabold p-2  px-6 rounded-xl hover:bg-red-400 transition-colors"
           >
-            See more
+            Change Password
           </button>
         </div>
+        
+          <ModalProfile
+            open={isModalOpen}
+            handleOk={() => {}}
+            handleCancel={handleCloseModal}
+            handlePasswordSubmit={handlePasswordSubmit}
+            password={password}
+            setPassword={setPassword}
+          />
+
       </div>
     </LayoutStateHandler>
   );

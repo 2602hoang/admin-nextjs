@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Avatar, Progress, Tooltip } from "antd";
 import { AntDesignOutlined, UserOutlined } from "@ant-design/icons";
 import { tableRank } from "./Data";
+import clsx from "clsx";
 
 const SlideTrending: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -65,22 +66,25 @@ const SlideTrending: React.FC = () => {
       className="relative rounded-xl overflow-hidden p-3"
     >
       <div className="flex justify-between items-center mx-4">
-        <h4 className=" text-[24px] font-semibold leading-[29.64px]">
+        <h4 className="text-[24px] font-semibold leading-[29.64px]">
           Trending Now
         </h4>
         <div className="flex space-x-4 items-center mt-4">
           <button
-            className={`${
+            className={clsx(
+              "p-2 rounded-full z-20",
               currentIndex === 0
                 ? "text-gray-400 cursor-not-allowed"
                 : "text-white"
-            } p-2 rounded-full z-20`}
+            )}
             onClick={handlePrev}
+            disabled={currentIndex === 0}
           >
             &#10094;
           </button>
           <button
-            className={`${
+            className={clsx(
+              "p-2 rounded-full z-20",
               (
                 isSmallScreen
                   ? currentIndex + 1 >= tableRank.length
@@ -88,15 +92,20 @@ const SlideTrending: React.FC = () => {
               )
                 ? "text-gray-400 cursor-not-allowed"
                 : "text-white"
-            } p-2 rounded-full z-20`}
+            )}
             onClick={handleNext}
+            disabled={
+              isSmallScreen
+                ? currentIndex + 1 >= tableRank.length
+                : currentIndex * 2 + 1 >= tableRank.length
+            }
           >
             &#10095;
           </button>
         </div>
       </div>
       <div
-        className={`flex w-full mt-5 transition-transform duration-50`}
+        className="flex w-full mt-5 transition-transform duration-50"
         style={{
           transform: `translateX(-${
             currentIndex * (100 / (isSmallScreen ? 1 : 2))
@@ -120,14 +129,14 @@ const SlideTrending: React.FC = () => {
               className="max-h-[200px] rounded-t-lg"
             />
             <div className="w-[90%] p-2 bg-brown">
-              <p className="my-2 px-2  font-medium leading-[24px] text-white">
+              <p className="my-2 px-2 font-medium leading-[24px] text-white">
                 {testimonial.name}
               </p>
               <div className="flex justify-between items-center px-2">
-                <p className="text-[12px] font-medium leading-[17px]  text-gray-menu">
+                <p className="text-[12px] font-medium leading-[17px] text-gray-menu">
                   Popularity
                 </p>
-                <p className="text-[12px] font-medium leading-[17px]  text-gray-menu">
+                <p className="text-[12px] font-medium leading-[17px] text-gray-menu">
                   {testimonial.number}%
                 </p>
               </div>

@@ -3,7 +3,7 @@ import React, { createContext, useContext, ReactNode, useMemo } from "react";
 import axios, { AxiosInstance } from "axios";
 import HttpError from "../errors/HttpError";
 import { useAuth } from "../contexts/AuthContext";
-import { URL } from "@/utils/index";
+import { URL } from "@/utils";
 
 interface AxiosContextType {
   axiosInstance: AxiosInstance;

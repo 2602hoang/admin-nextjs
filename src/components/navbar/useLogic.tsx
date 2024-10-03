@@ -50,6 +50,7 @@ export const useLogicNavbar = ({ setCollapsed }: NavbarProps) => {
         I: () => router.push("/profile"),
         O: () => router.push("/order"),
         P: () => router.push("/product"),
+        L: () => router.push("/leaderboard"),
         ArrowRight: () => setCollapsed(true),
         ArrowLeft: () => setCollapsed(false),
       };
@@ -102,7 +103,7 @@ export const useLogicNavbar = ({ setCollapsed }: NavbarProps) => {
             <IconLeaderboard />
           </span>
         ),
-        label: "Leaderboard",
+        label: "Photo",
       },
       {
         key: "/order",
