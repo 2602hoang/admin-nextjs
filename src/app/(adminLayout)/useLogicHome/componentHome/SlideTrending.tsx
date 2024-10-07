@@ -8,9 +8,7 @@ const SlideTrending: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [startX, setStartX] = useState<number>(0);
   const [isDragging, setIsDragging] = useState<boolean>(false);
-  const [isSmallScreen, setIsSmallScreen] = useState<boolean>(
-    window.innerWidth < 768
-  );
+  const [isSmallScreen, setIsSmallScreen] = useState<boolean>();
 
   useEffect(() => {
     const handleResize = () => {
