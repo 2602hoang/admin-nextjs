@@ -10,11 +10,15 @@ function Profile() {
     isLoading,
     error,
     isModalOpen,
-    password,
     handleCloseModal,
     handleOpenModal,
     setPassword,
-    handlePasswordSubmit,
+    setUsername,
+    setPhone,
+    password,
+    username,
+    phone,
+    handleUpdateUser,
   } = useFetchUserData();
   return (
     <LayoutStateHandler isLoading={isLoading} error={error} data={user}>
@@ -42,17 +46,22 @@ function Profile() {
             onClick={handleOpenModal}
             className="bg-sky-700 font-extrabold p-2  px-6 rounded-xl hover:bg-red-400 transition-colors"
           >
-            Change Password
+            Change Infomation
           </button>
         </div>
 
         <ModalProfile
           open={isModalOpen}
-          handleOk={() => {}}
+          user={user}
           handleCancel={handleCloseModal}
-          handlePasswordSubmit={handlePasswordSubmit}
+          handleUpdateUser={handleUpdateUser}
           password={password}
           setPassword={setPassword}
+          username={username}
+          setUsername={setUsername}
+          phone={phone}
+
+          setPhone={setPhone}
         />
       </div>
     </LayoutStateHandler>

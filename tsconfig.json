@@ -22,6 +22,6 @@
       "@/*": ["*"] 
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/(dashbordLayout)/useLogicHome/componentHome/Data.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/(adminLayout)/useLogicHome/componentHome/Data.ts"],
   "exclude": ["node_modules"]
 }

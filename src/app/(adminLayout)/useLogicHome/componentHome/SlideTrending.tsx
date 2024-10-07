@@ -1,9 +1,9 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import { Avatar, Progress, Tooltip } from "antd";
 import { AntDesignOutlined, UserOutlined } from "@ant-design/icons";
 import { tableRank } from "./Data";
 import clsx from "clsx";
-
 const SlideTrending: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [startX, setStartX] = useState<number>(0);

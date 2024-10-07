@@ -13,7 +13,6 @@ export const LoadingPage = () => {
   if (!loading) {
     return null;
   }
-
   return (
     <div className="flex flex-col gap-3 w-full h-screen fixed z-50 justify-center orverflow-hidden bg-brown items-center text-center">
       <div className="flex flex-row gap-2">

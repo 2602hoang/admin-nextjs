@@ -7,7 +7,9 @@
   --color_Light_Teal: rgb(169, 223, 216);
   --color_gray_text: rgb(135, 136, 140);
 }
-
+.ant-table-wrapper .ant-table-cell-scrollbar:not([rowspan]) {
+  box-shadow: none;
+}
 .ant-table-wrapper {
   .ant-table {
     background-color: var(--color_table_bg);

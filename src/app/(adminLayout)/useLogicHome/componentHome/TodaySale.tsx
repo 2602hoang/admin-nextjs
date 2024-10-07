@@ -15,7 +15,7 @@ function TodaySale() {
         <h4 className=" mb-1  text-[24px] font-semibold leading-[29.64px]">
           Today’s Sales
         </h4>
-        <p className="text-[1rem]  font-normal leading-[1.57rem]  text-light-gray-text">
+        <p className="text-sm  font-normal   text-light-gray-text">
           Sales Summary
         </p>
       </div>

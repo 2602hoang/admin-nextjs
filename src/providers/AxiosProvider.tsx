@@ -1,12 +1,12 @@
 "use client";
-import React, { createContext, useContext, ReactNode, useMemo } from "react";
+import React, { createContext, useContext, ReactNode } from "react";
 import axios, { AxiosInstance } from "axios";
 import HttpError from "../errors/HttpError";
 import { useAuth } from "../contexts/AuthContext";
-import { URL } from "@/utils";
+import { SERVER_URLS} from "@/utils";
 
 interface AxiosContextType {
-  axiosInstance: AxiosInstance;
+  axiosInstance: (serverIndex: number) => AxiosInstance;
 }
 
 const AxiosContext = createContext<AxiosContextType | undefined>(undefined);
@@ -17,22 +17,22 @@ interface AxiosProviderProps {
 
 export const AxiosProvider: React.FC<AxiosProviderProps> = ({ children }) => {
   const { userToken } = useAuth();
-  const axiosInstance = useMemo(() => {
+  const serverList = SERVER_URLS;
+  const createAxiosInstance = (serverIndex: number) => {
     const instance = axios.create({
-      baseURL: URL,
+      baseURL: serverList[serverIndex],
       timeout: 4000,
     });
 
     instance.interceptors.request.use(
       (config) => {
-        if (userToken) {
+        if (SERVER_URLS[0] && userToken) {
           config.headers["Authorization"] = `Bearer ${userToken}`;
         }
         return config;
       },
       (error) => Promise.reject(error)
     );
-
     instance.interceptors.response.use(
       (response) => {
         if (!response.data) {
@@ -66,10 +66,10 @@ export const AxiosProvider: React.FC<AxiosProviderProps> = ({ children }) => {
     );
 
     return instance;
-  }, [userToken]);
+  };
 
   return (
-    <AxiosContext.Provider value={{ axiosInstance }}>
+    <AxiosContext.Provider value={{ axiosInstance: createAxiosInstance }}>
       {children}
     </AxiosContext.Provider>
   );

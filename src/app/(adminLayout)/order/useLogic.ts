@@ -10,30 +10,26 @@ import {
 
 export const useFetchOrderData = () => {
   const { axiosInstance } = useAxios();
+
   const [open, setOpen] = useState<boolean>(false);
   const [selectedOrderId, setSelectedOrderId] = useState<number | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const handleOk = () => {
-    setOpen(false);
-    setSelectedOrderId(null);
-  };
-
   const handleCancel = () => {
     setOpen(false);
     setSelectedOrderId(null);
   };
 
+
+
   const fetchOrderDetails = async (id_order: number) => {
-    const response = await axiosInstance.get<{
+    const response = await axiosInstance(0).get<{
       order: Order[];
       selectedOrderDetails: Order[];
     }>(`api/v1/order/getonebyOrderId/${id_order}`);
-    console.log(response.data.order[0]);
-
     return response.data.order[0];
   };
 
-  const { data: selectedOrderDetails,  } = useQuery(
+  const { data: selectedOrderDetails } = useQuery(
     ["orderDetails", selectedOrderId],
     () => fetchOrderDetails(selectedOrderId as number),
     {
@@ -47,7 +43,7 @@ export const useFetchOrderData = () => {
     setOpen(true);
   };
   const fetchUserData = async () => {
-    const response = await axiosInstance.get<{ order: Order[] }>(
+    const response = await axiosInstance(0).get<{ order: Order[] }>(
       `api/v1/order/getall`
     );
     return response.data.order.map(transformOrderData);
@@ -98,7 +94,6 @@ export const useFetchOrderData = () => {
     selectedOrderId,
     selectedOrderDetails,
     showModal,
-    handleOk,
     handleCancel,
     open,
     setOpen,

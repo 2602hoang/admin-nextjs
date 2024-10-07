@@ -5,7 +5,7 @@ import { Product } from "./page";
 export const useDataProduct = () => {
   const { axiosInstance } = useAxios();
   const fetchDataProduct = async () => {
-    const res = await axiosInstance.get<{ products: Product[] }>(
+    const res = await axiosInstance(0).get<{ products: Product[] }>(
       `api/v1/email/api/get`
     );
     return res.data;

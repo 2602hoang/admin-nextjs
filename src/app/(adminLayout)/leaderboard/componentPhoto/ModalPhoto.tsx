@@ -28,18 +28,22 @@ const ModalPhoto: React.FC<ModalPhotoProps> = ({
       width={400}
       onCancel={handleCancel}
       footer={
-        <Button
-          key="ok"
-          type="primary"
-          className="bg-red"
-          onClick={handleCancel}
-        >
-          OK
-        </Button>
+        <>
+          <Button
+            key="ok"
+            type="default"
+            className="bg-red"
+            onClick={handleCancel}
+          >
+            OK
+          </Button>
+        </>
       }
     >
       {photo ? (
-        <CardPhoto open={open} openModal={openModal} {...photo} />
+        <>
+          <CardPhoto open={open} openModal={openModal} {...photo} />
+        </>
       ) : (
         <Loading />
       )}

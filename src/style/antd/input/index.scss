@@ -1,7 +1,9 @@
 :root {
-  --color-text-placeholder: "#D2D2D2";
+  --color-text-placeholder: #d2d2d2;
   --color-wihite: #fff;
   --color-hover-icon: #ff0000;
+  --color-bg-input: #374151;
+  --color-hover-button: #0d9488;
 }
 .ant-input::placeholder {
   // padding-top: 30px;
@@ -12,9 +14,29 @@
   font-weight: 300;
   color: var(--color-text-placeholder);
 }
-.ant-input-affix-wrapper .ant-input-clear-icon {
-  color: var(--color-wihite);
+.ant-input-affix-wrapper {
+  .ant-input-clear-icon {
+    color: var(--color-wihite);
+  }
+  .ant-input-clear-icon:hover {
+    color: var(--color-hover-icon);
+  }
+  .anticon.ant-input-password-icon {
+    color: var(--color-wihites);
+  }
 }
-.ant-input-affix-wrapper .ant-input-clear-icon:hover {
-  color: var(--color-hover-icon);
+.ant-input-outlined.ant-input-status-error:not(.ant-input-disabled) {
+  background-color: var(--color-bg-input);
+}
+.ant-input-outlined.ant-input-status-error:not(.ant-input-disabled):hover {
+  background-color: var(--color-bg-input);
+}
+.ant-input-outlined.ant-input-status-error:not(
+    .ant-input-disabled
+  ):focus-within {
+  background-color: var(--color-bg-input);
+}
+.ant-btn-variant-solid:hover {
+  background-color: var(--color-hover-button) !important;
+  border-color: var(--color-hover-button) !important;
 }

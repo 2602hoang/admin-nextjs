@@ -1,6 +1,6 @@
 "use client";
 import "@/style/index.scss";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { FloatButton } from "antd";
 import { LoadingPage } from "@/components/loading/LoadingPage";
 import Navbar from "@/components/navbar/NavBar";
@@ -13,26 +13,15 @@ interface LayoutPageProps {
 
 const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
-  const [loading, setLoading] = useState(true);
-
   const toggleCollapsed = () => {
     setCollapsed((prev) => !prev);
   };
 
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 700);
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) {
-    return <LoadingPage />;
-  }
-
   return (
     <html lang="en">
       <body>
-        <div className="w-full font-inter flex md:h-screen relative bg-brown ">
-          {/* Navbar */}
+        <LoadingPage />
+        <div className="w-full font-inter flex md:h-screen fixeds md:relative bg-brown ">
           <div
             className={clsx(
               "relative ",
@@ -46,24 +35,16 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
             />
             {collapsed && (
               <div
-                className="h-screen inset-0 bg-brown bg-opacity-20 ml-[240px] fixed z-50 md:hidden"
+                className="h-screen bg-brown opacity-80 fixed  right-0 top-0 z-50 md:hidden w-custom"
                 onClick={toggleCollapsed}
               />
             )}
           </div>
           <div className="w-full bg-brown md:relative min-h-screen md:overflow-auto">
-            {/* Header */}
             <div className="h-[116px] md:sticky top-0 z-30">
               <Header collapsed={collapsed} toggleCollapsed={toggleCollapsed} />
             </div>
-
-            {/* Main Content */}
-            <div
-              className={clsx(
-                "text-white px-3 md:px-[21px]",
-                collapsed ? "fixed md:relative" : ""
-              )}
-            >
+            <div className={clsx("text-white px-3 md:px-[21px] relative")}>
               {children}
               <FloatButton.BackTop className="h-16 w-16" />
             </div>

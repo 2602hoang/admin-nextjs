@@ -15,21 +15,20 @@ interface AuthContextType {
   userToken: string | null;
   userRole: number | null;
   userId: string | null;
-  error: string;
 }
-
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [userToken, setUserToken] = useState<string | null>(null);
   const [userRole, setUserRole] = useState<number | null>(null);
   const [userId, setUserId] = useState<string | null>(null);
-  const [error, setError] = useState<string>("");
   const router = useRouter();
   useEffect(() => {
-    const token = localStorage.getItem("userToken");
-    const role = localStorage.getItem("userRole");
-    const id = localStorage.getItem("userId");
+    const [token, role, id] = [
+      localStorage.getItem("userToken"),
+      localStorage.getItem("userRole"),
+      localStorage.getItem("userId"),
+    ];
     setUserToken(token);
     setUserRole(role ? parseInt(role) : null);
     setUserId(id);
@@ -40,9 +39,11 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const login = async (phone: string, password: string): Promise<void> => {
     const result = await uselogicLogin(phone, password);
     if (result.success) {
-      const token = localStorage.getItem("userToken");
-      const role = localStorage.getItem("userRole");
-      const id = localStorage.getItem("userId");
+      const [token, role, id] = [
+        localStorage.getItem("userToken"),
+        localStorage.getItem("userRole"),
+        localStorage.getItem("userId"),
+      ];
       if (token) {
         setUserToken(token);
       }
@@ -50,19 +51,15 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
         setUserRole(parseInt(role));
       }
       setUserId(id);
-      window.location.reload();
-      // router.refresh();
-      // router.reload();
     } else {
-      setError(result.error || "Login failed");
+      console.log("Error", Error);
     }
   };
   const logout = () => {
-    localStorage.removeItem("userToken");
+    const itemsToRemove = ["userToken", "userId", "userRole"];
+    itemsToRemove.forEach((item) => localStorage.removeItem(item));
     setUserToken(null);
-    localStorage.removeItem("userId");
     setUserId(null);
-    localStorage.removeItem("userRole");
     setUserRole(null);
     router.push("/login");
   };
@@ -75,7 +72,6 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
         userToken,
         userRole,
         userId,
-        error,
       }}
     >
       {children}

@@ -47,7 +47,7 @@ function Order() {
     selectedOrderId,
     showModal,
     selectedOrderDetails,
-    handleOk,
+    handleCancel,
     filteredOrders,
     searchQuery,
     handleInputChange,
@@ -83,7 +83,7 @@ function Order() {
         <ModalDetail
           open={open}
           selectedOrderId={selectedOrderId}
-          handleOk={handleOk}
+          handleCancel={handleCancel}
           selectedOrderDetails={selectedOrderDetails}
         />
       </div>

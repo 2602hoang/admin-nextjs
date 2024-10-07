@@ -1,11 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { Button, Tooltip } from "antd";
 import LayoutStateHandler from "@/components/layout/LayoutState";
-import { useFetchPhotoData, useLeaderboard } from "./useLogic";
+import { useLeaderboard } from "./useLogic";
 import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
 import CardPhoto from "./componentPhoto/CardPhoto";
 import ModalPhoto from "./componentPhoto/ModalPhoto";
+import clsx from "clsx";
 
 export interface Photos {
   albumId: number;
@@ -17,6 +18,10 @@ export interface Photos {
 
 const Leaderboard: React.FC = () => {
   const {
+    data,
+    isLoadingPhotos,
+    error,
+    fetchPhotoById,
     limit,
     open,
     handleCancel,
@@ -28,8 +33,6 @@ const Leaderboard: React.FC = () => {
     setSelectedPhoto,
   } = useLeaderboard();
 
-  const { data, isLoading, error, fetchPhotoById } = useFetchPhotoData(limit);
-
   const openModal = async (id: number) => {
     const photo = await fetchPhotoById(id);
     setSelectedPhoto(photo);
@@ -37,11 +40,12 @@ const Leaderboard: React.FC = () => {
   };
 
   return (
-    <LayoutStateHandler isLoading={isLoading} error={error} data={data}>
+    <LayoutStateHandler isLoading={isLoadingPhotos} error={error} data={data}>
       <div
-        className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full gap-y-5 md:gap-10 mt-2 p-4 ${
-          isLoadingMore ? "cursor-wait" : ""
-        }`}
+        className={clsx(
+          "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full gap-y-5 md:gap-10 mt-2 p-4",
+          { "cursor-wait": isLoadingMore }
+        )}
       >
         {data?.map((item: Photos) => (
           <CardPhoto

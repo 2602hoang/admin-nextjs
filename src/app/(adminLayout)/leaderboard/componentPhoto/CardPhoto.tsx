@@ -1,6 +1,6 @@
 import React from "react";
 import { Photos } from "../page";
-import { Button } from "antd";
+import { Button, Input } from "antd";
 
 // Define props interface
 interface CardPhotoProps extends Photos {
