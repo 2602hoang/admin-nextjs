@@ -20,14 +20,14 @@ export const ModalDetail: React.FC<ModalDetailProps> = ({
 }) => {
   const columns = [
     {
-      title: "STT",
+      title: <h3 className="text-teal-300">#</h3>,
       align: "center" as "center",
       render: (_: unknown, __: unknown, index: number) => index + 1,
     },
     {
-      title: "Product",
+      title: <h3 className="text-teal-300">Product</h3>,
       render: (record: OrderDetail) => (
-        <div className="flex items-center">
+        <div className="flex items-center ml-2">
           <img
             src={record.product.images}
             alt={record.product.name}
@@ -39,18 +39,18 @@ export const ModalDetail: React.FC<ModalDetailProps> = ({
       align: "left" as "left",
     },
     {
-      title: "Price",
+      title: <h3 className="text-teal-300">Price</h3>,
       render: (record: OrderDetail) =>
         formatCurrency(record.total_amount / record.qty, "ja-JP", "JPY"),
       align: "center" as "center",
     },
     {
-      title: "Quantity",
+      title: <h3 className="text-teal-300">Quantity</h3>,
       dataIndex: "qty",
       align: "center" as "center",
     },
     {
-      title: "Total",
+      title: <h3 className="text-teal-300">Total</h3>,
       render: (record: OrderDetail) =>
         formatCurrency(record.total_amount, "ja-JP", "JPY"),
       align: "center" as "center",
@@ -121,7 +121,7 @@ export const ModalDetail: React.FC<ModalDetailProps> = ({
               </p>
               <p>
                 <strong className="font-black">Note user:</strong>{" "}
-                {selectedOrderDetails.notes || "Không có ghi chú"}
+                {selectedOrderDetails.notes || "No note"}
               </p>
               <p>
                 <strong className="font-black">Total price:</strong>{" "}
@@ -141,15 +141,15 @@ export const ModalDetail: React.FC<ModalDetailProps> = ({
                 {selectedOrderDetails.note_pays || "Not"}
               </p>
             </div>
-            <div className="mt-4">
+            <div className="mt-4 rounded-xl border border-white border-solid ">
               <Table
                 dataSource={dataSource}
                 columns={columns}
                 pagination={false}
-                bordered
-                className="mt-4"
+                // bordered
+                className=""
                 footer={() => (
-                  <div className="flex flex-col items-end">
+                  <div className="flex flex-col items-end ">
                     <div className="mr-8">
                       <p className="">
                         Qty:

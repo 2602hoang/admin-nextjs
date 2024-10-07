@@ -4,31 +4,30 @@ import { Avatar, Progress, Tooltip } from "antd";
 import { AntDesignOutlined, UserOutlined } from "@ant-design/icons";
 import { tableRank } from "./Data";
 import clsx from "clsx";
+
 const SlideTrending: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false);
   const [startX, setStartX] = useState<number>(0);
   const [isDragging, setIsDragging] = useState<boolean>(false);
-  const [isSmallScreen, setIsSmallScreen] = useState<boolean>();
-
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth < 768);
     };
+
+    handleResize();
+
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
   const handleNext = () => {
-    const flag = isSmallScreen ? 0 : 1;
-    const newIndex = currentIndex + 1;
-    if (newIndex < tableRank.length - flag) {
+    const newIndex = currentIndex + (isSmallScreen ? 1 : 2);
+    if (newIndex < tableRank.length) {
       setCurrentIndex(newIndex);
     }
   };
-
   const handlePrev = () => {
-    const flag = isSmallScreen ? 0 : 1;
-    const newIndex = currentIndex - flag;
+    const newIndex = currentIndex - (isSmallScreen ? 1 : 2);
     if (newIndex >= 0) {
       setCurrentIndex(newIndex);
     }
@@ -61,6 +60,7 @@ const SlideTrending: React.FC = () => {
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseUp}
       className="relative rounded-xl overflow-hidden p-3"
     >
       <div className="flex justify-between items-center mx-4">
@@ -83,11 +83,9 @@ const SlideTrending: React.FC = () => {
           <button
             className={clsx(
               "p-2 rounded-full z-20",
-              (
-                isSmallScreen
-                  ? currentIndex + 1 >= tableRank.length
-                  : currentIndex * 2 + 1 >= tableRank.length
-              )
+              isSmallScreen
+                ? currentIndex + 1 >= tableRank.length
+                : currentIndex + 2 >= tableRank.length
                 ? "text-gray-400 cursor-not-allowed"
                 : "text-white"
             )}
@@ -95,7 +93,7 @@ const SlideTrending: React.FC = () => {
             disabled={
               isSmallScreen
                 ? currentIndex + 1 >= tableRank.length
-                : currentIndex * 2 + 1 >= tableRank.length
+                : currentIndex + 2 >= tableRank.length
             }
           >
             &#10095;
@@ -103,7 +101,7 @@ const SlideTrending: React.FC = () => {
         </div>
       </div>
       <div
-        className="flex w-full mt-5 transition-transform duration-50"
+        className="flex w-full mt-5 transition-transform duration-200"
         style={{
           transform: `translateX(-${
             currentIndex * (100 / (isSmallScreen ? 1 : 2))
@@ -120,7 +118,6 @@ const SlideTrending: React.FC = () => {
                 backgroundImage: `url(${testimonial.img})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
                 width: "90%",
                 height: "200px",
               }}
@@ -143,6 +140,7 @@ const SlideTrending: React.FC = () => {
                 percent={testimonial.number}
                 status="active"
                 showInfo={false}
+                strokeColor="white"
                 size={["100%", 4]}
               />
             </div>

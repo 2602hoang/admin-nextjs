@@ -20,7 +20,7 @@ export default function AuthLayout({
 
   return (
     <>
-      {!userToken && (
+      {userToken === null && (
         <div className="text-white bg-brown flex justify-center z-50 h-screen fixed w-full overflow-hidden">
           <LoadingPage />
           {children}

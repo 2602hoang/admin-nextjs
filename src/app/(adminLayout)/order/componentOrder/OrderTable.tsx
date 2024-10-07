@@ -96,17 +96,17 @@ const OrderTable: React.FC<OrderTableProps> = ({
         pagination={false}
         scroll={{ y: 400, x: 1000 }}
         className="bg-dark-slate-gray rounded-t-xl"
+        footer={() => (
+          <div className=" rounded-b-xl bg-dark-slate-gray text-teal-600 2xl:pr-44 pr-20">
+            <div className="text-end text-sm font-bold border-2 border-indigo-400  py-3">
+              <span className="py-2">Total{""}:</span>
+              <span className="py-2">
+                {""} {formatCurrency(totalAmount)}
+              </span>
+            </div>
+          </div>
+        )}
       />
-      <div className=" rounded-b-xl bg-dark-slate-gray text-teal-600">
-        <div className="text-end text-sm font-bold border-2 border-indigo-400 pr-28">
-          <span className="text-end border-r-2 border-indigo-400 py-2">
-            Total{""}:
-          </span>
-          <span className="border text-end pr-5 md:pr-52 py-2 border-indigo-400">
-            {""} {formatCurrency(totalAmount)}
-          </span>
-        </div>
-      </div>
     </div>
   );
 };
