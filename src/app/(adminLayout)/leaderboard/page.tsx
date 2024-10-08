@@ -21,7 +21,6 @@ const Leaderboard: React.FC = () => {
     data,
     isLoadingPhotos,
     error,
-    fetchPhotoById,
     limit,
     open,
     handleCancel,
@@ -29,15 +28,8 @@ const Leaderboard: React.FC = () => {
     addMorePhotos,
     moveMorePhotos,
     isLoadingMore,
-    setOpen,
-    setSelectedPhoto,
+    openModal,
   } = useLeaderboard();
-
-  const openModal = async (id: number) => {
-    const photo = await fetchPhotoById(id);
-    setSelectedPhoto(photo);
-    setOpen(true);
-  };
 
   return (
     <LayoutStateHandler isLoading={isLoadingPhotos} error={error} data={data}>

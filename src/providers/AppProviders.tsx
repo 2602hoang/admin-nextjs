@@ -1,3 +1,4 @@
+"use client";
 import { ReactNode } from "react";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { AxiosProvider } from "@/providers/AxiosProvider";
@@ -11,9 +12,7 @@ const AppProviders: React.FC<AppProvidersProps> = ({ children }) => {
   return (
     <AuthProvider>
       <AxiosProvider>
-        <CustomQueryClientProvider>
-          {children}
-        </CustomQueryClientProvider>
+        <CustomQueryClientProvider>{children}</CustomQueryClientProvider>
       </AxiosProvider>
     </AuthProvider>
   );

@@ -44,7 +44,7 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
             <div className="h-[116px] md:sticky top-0 z-30">
               <Header collapsed={collapsed} toggleCollapsed={toggleCollapsed} />
             </div>
-            <div className={clsx("text-white px-3 md:px-[21px] relative")}>
+            <div className="text-white px-3 md:px-[21px] relative">
               {children}
               <FloatButton.BackTop className="h-16 w-16" />
             </div>

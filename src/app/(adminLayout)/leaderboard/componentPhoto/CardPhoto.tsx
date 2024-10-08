@@ -2,12 +2,10 @@ import React from "react";
 import { Photos } from "../page";
 import { Button, Input } from "antd";
 
-// Define props interface
 interface CardPhotoProps extends Photos {
   openModal: (id: number) => void;
   open: boolean;
 }
-
 const CardPhoto: React.FC<CardPhotoProps> = ({
   openModal,
   open,

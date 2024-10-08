@@ -115,21 +115,20 @@ function Login() {
                 />
               </Form.Item>
 
-              <div className="flex items-center justify-between mt-4">
-                <Form.Item>
-                  <div className="flex items-center">
-                    <Input
-                      className="h-4 w-4 text-indigo-500 focus:ring-indigo-400 border-gray-600 rounded"
-                      type="checkbox"
-                      name="remember-me"
-                      id="remember-me"
-                    />
-                    <p className="ml-2 block text-sm text-gray-400">
-                      Keep me signed in
-                    </p>
-                  </div>
-                </Form.Item>
-              </div>
+              <Form.Item>
+                <div className="flex items-center">
+                  <Input
+                    className="h-4 w-4 text-indigo-500 focus:ring-indigo-400 border-gray-600 rounded"
+                    type="checkbox"
+                    name="remember-me"
+                    id="remember-me"
+                  />
+                  <p className="ml-2 block text-sm text-gray-400">
+                    Keep me signed in
+                  </p>
+                </div>
+              </Form.Item>
+
               <Form.Item>
                 <Button
                   type="primary"
@@ -139,6 +138,7 @@ function Login() {
                   Log In
                 </Button>
               </Form.Item>
+
               <hr className="flex-shrink-0 border-b border-solid border-darker-gray mt-4" />
             </Form>
           </div>

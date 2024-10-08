@@ -10,7 +10,6 @@ import {
 
 export const useFetchOrderData = () => {
   const { axiosInstance } = useAxios();
-
   const [open, setOpen] = useState<boolean>(false);
   const [selectedOrderId, setSelectedOrderId] = useState<number | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -18,8 +17,6 @@ export const useFetchOrderData = () => {
     setOpen(false);
     setSelectedOrderId(null);
   };
-
-
 
   const fetchOrderDetails = async (id_order: number) => {
     const response = await axiosInstance(0).get<{

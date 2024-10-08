@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { Button, Form, Input, InputRef, Modal } from "antd";
 import { User } from "../useLogic";
 
@@ -33,22 +33,12 @@ export const ModalProfile: React.FC<ModalProfileProps> = ({
 }) => {
   const inputRef = useRef<InputRef | null>(null);
   const [form] = Form.useForm();
-  const [isDirty, setIsDirty] = useState(false);
 
   useEffect(() => {
-    setIsDirty(false);
+    form.resetFields();
   }, [open]);
 
   const handleChange = (field: string, value: string) => {
-    if (
-      value !==
-      (field === "username" ? username : field === "phone" ? phone : password)
-    ) {
-      setIsDirty(true);
-    } else {
-      setIsDirty(false);
-    }
-
     if (field === "username") setUsername(value);
     if (field === "phone") setPhone(value);
     if (field === "password") setPassword(value);
@@ -65,7 +55,6 @@ export const ModalProfile: React.FC<ModalProfileProps> = ({
       password: values.password || password,
     });
     form.resetFields();
-    setIsDirty(false);
   };
 
   const areFieldsEmpty = () => {
@@ -139,7 +128,6 @@ export const ModalProfile: React.FC<ModalProfileProps> = ({
               type="primary"
               htmlType="submit"
               className="bg-sky-700 hover:bg-sky-500 transition-colors rounded-2xl"
-              disabled={!isDirty}
             >
               Submit
             </Button>

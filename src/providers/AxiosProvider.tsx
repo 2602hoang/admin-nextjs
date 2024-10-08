@@ -3,7 +3,7 @@ import React, { createContext, useContext, ReactNode } from "react";
 import axios, { AxiosInstance } from "axios";
 import HttpError from "../errors/HttpError";
 import { useAuth } from "../contexts/AuthContext";
-import { SERVER_URLS} from "@/utils";
+import { SERVER_URLS } from "@/utils";
 
 interface AxiosContextType {
   axiosInstance: (serverIndex: number) => AxiosInstance;
@@ -49,6 +49,7 @@ export const AxiosProvider: React.FC<AxiosProviderProps> = ({ children }) => {
             403: "403 || Forbidden: The request is not allowed",
             404: "404 || Not Found: The requested resource could not be found",
             500: "500 || Internal Server Error: Something went wrong on the server",
+            409: "409 || Conflict: The request could not be completed due to a conflict",
           };
           throw new HttpError(
             status,

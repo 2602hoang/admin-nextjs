@@ -9,7 +9,11 @@ export const useLeaderboard = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [selectedPhoto, setSelectedPhoto] = useState<Photos | null>(null);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
-
+  const openModal = async (id: number) => {
+    const photo = await fetchPhotoById(id);
+    setSelectedPhoto(photo);
+    setOpen(true);
+  };
   const fetchPhotoData = async () => {
     const res = await axiosInstance(1).get<Photos[]>(`/photos?_limit=${limit}`);
     return res.data;
@@ -62,5 +66,6 @@ export const useLeaderboard = () => {
     isLoadingPhotos,
     error,
     fetchPhotoById,
+    openModal,
   };
 };

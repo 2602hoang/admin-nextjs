@@ -80,18 +80,13 @@ export const ModalDetail: React.FC<ModalDetailProps> = ({
         open={open}
         width={1200}
         footer={
-          <Button
-            key="ok"
-            type="primary"
-            className="bg-red"
-            onClick={handleCancel}
-          >
+          <Button className="bg-white text-black" onClick={handleCancel}>
             OK
           </Button>
         }
       >
         {selectedOrderDetails ? (
-          <div className="overflow-y-auto overflow-x-auto max-h-[70vh] overflow-hidden px-4 text-white border-2">
+          <div className="h-[80vh] overflow-hidden px-4 text-white border-2">
             <div className="md:sticky relative top-0 w-full z-40 bg-brown pb-5">
               <p
                 className={clsx("", {
@@ -141,19 +136,20 @@ export const ModalDetail: React.FC<ModalDetailProps> = ({
                 {selectedOrderDetails.note_pays || "Not"}
               </p>
             </div>
-            <div className="mt-4 rounded-xl border border-white border-solid ">
+            <div className="rounded-xl border border-white border-solid ">
               <Table
                 dataSource={dataSource}
                 columns={columns}
                 pagination={false}
                 // bordered
                 className=""
+                scroll={{ y: 300, x: 600 }}
                 footer={() => (
                   <div className="flex flex-col items-end ">
                     <div className="mr-8">
                       <p className="">
                         Qty:
-                        <span className="ml-3">{totalQuantity}</span>
+                        <span className="ml-[10px]">{totalQuantity}</span>
                       </p>
                     </div>
                     <div>

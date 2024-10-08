@@ -27,7 +27,7 @@ export const uselogicLogin = async (
         message: "Notification",
         description: "Login successful",
         showProgress: true,
-        duration: 1.5,
+        duration: 1,
       });
       return { success: true, error: "" };
     }
@@ -50,12 +50,12 @@ export const uselogicLogin = async (
         });
         return { success: false, error: "Invalid password" };
       default:
-         notification.error({
-           message: "Notification",
-           description: "Error, Invalid phone or password",
-           showProgress: true,
-           duration: 1.5,
-         });
+        notification.error({
+          message: "Notification",
+          description: "Error, Invalid phone or password",
+          showProgress: true,
+          duration: 1.5,
+        });
         return { success: false, error: "Login failed" };
     }
   } catch (error) {

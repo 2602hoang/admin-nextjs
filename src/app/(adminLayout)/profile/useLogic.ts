@@ -41,7 +41,6 @@ export const useFetchUserData = () => {
     );
     return response.data;
   };
-
   const {
     data: user,
     isLoading,
@@ -62,7 +61,7 @@ export const useFetchUserData = () => {
       });
     },
     onError: (error: Error) => {
-      // handleCloseModal();
+      handleCloseModal();
       notification.error({
         message: "Error",
         description: error.message,

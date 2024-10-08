@@ -8,7 +8,7 @@ export const formatCurrency = (
   locale: string = "vi-VN",
   currency: string = "VND"
 ) => {
-  if (price <= 0) {
+  if (price < 0) {
     return "Error : Price must be greater than 0";
   }
   if (isNaN(price)) {
