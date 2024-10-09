@@ -7,12 +7,16 @@ import {
   CustomOrder,
   transformOrderData,
 } from "./componentOrder/TransformModule";
+import { useAuth } from "@/contexts/AuthContext";
+import { notification } from "antd";
 
 export const useFetchOrderData = () => {
   const { axiosInstance } = useAxios();
   const [open, setOpen] = useState<boolean>(false);
   const [selectedOrderId, setSelectedOrderId] = useState<number | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const { userToken } = useAuth();
+
   const handleCancel = () => {
     setOpen(false);
     setSelectedOrderId(null);
@@ -51,6 +55,7 @@ export const useFetchOrderData = () => {
     isLoading,
     error,
   } = useQuery(["order"], fetchUserData, {
+    enabled: !!userToken,
     cacheTime: 1000 * 60 * 10,
     staleTime: 1000 * 60 * 5,
   });
@@ -60,7 +65,16 @@ export const useFetchOrderData = () => {
     []
   );
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    debouncedSetSearchQuery(e.target.value);
+    const value = e.target.value;
+    if (value === "" || /^[0-9]*$/.test(value)) {
+      debouncedSetSearchQuery(value);
+    } else {
+      notification.warning({
+        message: "Please enter a valid number",
+        duration: 2,
+        showProgress: true,
+      });
+    }
   };
 
   const filteredOrders = useMemo(() => {
@@ -78,9 +92,13 @@ export const useFetchOrderData = () => {
       ) || 0
     );
   }, [filteredOrders]);
-
+  const spin =
+    searchQuery.length > 0 &&
+    filteredOrders?.length != 1 &&
+    filteredOrders?.length != 0;
   return {
     order,
+    spin,
     filteredOrders,
     handleInputChange,
     searchQuery,

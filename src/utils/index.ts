@@ -33,3 +33,4 @@ export const formattedTimestamp = (timestamp: string) => {
 
   return formattedDate;
 };
+

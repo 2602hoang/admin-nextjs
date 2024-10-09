@@ -21,7 +21,7 @@ export const AxiosProvider: React.FC<AxiosProviderProps> = ({ children }) => {
   const createAxiosInstance = (serverIndex: number) => {
     const instance = axios.create({
       baseURL: serverList[serverIndex],
-      timeout: 4000,
+      timeout: 6000,
     });
 
     instance.interceptors.request.use(
@@ -44,6 +44,7 @@ export const AxiosProvider: React.FC<AxiosProviderProps> = ({ children }) => {
         if (error.response) {
           const status = error.response.status;
           const messages: { [key: number]: string } = {
+            304: "304 || Not Modified: The request was not modified",
             400: "400 || Bad Request: The request was invalid or cannot be served",
             401: "401 || Unauthorized: Authentication failed",
             403: "403 || Forbidden: The request is not allowed",

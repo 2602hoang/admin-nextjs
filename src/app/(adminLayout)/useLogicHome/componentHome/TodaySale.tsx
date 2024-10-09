@@ -1,6 +1,5 @@
 import React from "react";
 import { todaySale } from "./Data";
-import Image from "next/image";
 
 function TodaySale() {
   const colorClasses = [
@@ -23,7 +22,7 @@ function TodaySale() {
         {todaySale.map((item, index) => (
           <div key={item.key} className="p-5   bg-brown  rounded-xl ">
             <div className="">
-              <Image
+              <img
                 src={`${item.icon}`}
                 width={26}
                 height={26}

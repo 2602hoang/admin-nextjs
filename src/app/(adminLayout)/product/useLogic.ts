@@ -17,6 +17,7 @@ export const useDataProduct = () => {
   } = useQuery(["products"], fetchDataProduct, {
     cacheTime: 1000 * 60 * 10,
     staleTime: 1000 * 60 * 5,
+    retry: 0,
   });
 
   return {

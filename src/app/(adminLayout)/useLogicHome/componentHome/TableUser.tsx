@@ -15,23 +15,24 @@ import {
 import React, { useState } from "react";
 import { dataTableUser, DataTableUser } from "./Data";
 
-const getRandomColor = () => {
-  const letters = "0123456789ABCDEF";
-  let color = "#";
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
+const getColorFromName = (name: string) => {
+  const hash = Array.from(name).reduce(
+    (acc, char) => acc + char.charCodeAt(0),
+    0
+  );
+  const color = hash % 360;
+  return `hsl(${color}, 70%, 50%)`;
 };
+
 const columns: TableColumnsType<DataTableUser> = [
   {
     title: "Name",
     dataIndex: "name",
-    render: (text) => (
+    render: (text: string) => (
       <span className="gap-1 flex flex-row items-center">
         <Avatar
           className="size-7"
-          style={{ backgroundColor: getRandomColor() }}
+          style={{ backgroundColor: getColorFromName(text) }}
         >
           {text[0]}
         </Avatar>
@@ -54,12 +55,12 @@ const columns: TableColumnsType<DataTableUser> = [
   {
     title: "Total Spent",
     dataIndex: "total",
-    render: (text) => <span>${text}</span>,
+    render: (text: number) => <span>${text}</span>,
   },
   {
     title: "Action",
     key: "action",
-    render: (record) => (
+    render: (record: DataTableUser) => (
       <Space size="middle">
         <Button
           type="link"
@@ -74,7 +75,7 @@ const columns: TableColumnsType<DataTableUser> = [
   },
 ];
 
-export const TableUser = () => {
+export const TableUser: React.FC = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const pageSize = 4;
@@ -113,20 +114,20 @@ export const TableUser = () => {
 
   return (
     <div>
-      <div className=" rounded-md px-2 gap-2 justify-between md:px-12 items-center pt-5 flex">
-        <h4 className="text-[24px]  font-semibold leading-[29.64px]">
+      <div className="rounded-md px-2 gap-2 justify-between md:px-12 items-center pt-5 flex">
+        <h4 className="text-[24px] font-semibold leading-[29.64px]">
           Customers
         </h4>
 
         <div>
           <Input
-            className="h-12 flex bg-brown border-none text-white  border-slate-500 focus-within:bg-light-gray hover:bg-light-gray"
+            className="h-12 flex bg-brown border-none text-white border-slate-500 focus-within:bg-light-gray hover:bg-light-gray"
             placeholder="Search . . . "
             prefix={<SearchOutlined />}
           />
         </div>
       </div>
-      <div className="px-5 justify-center items-center flex  mt-6  ">
+      <div className="px-5 justify-center items-center flex mt-6">
         <Table
           className="w-[95%]"
           pagination={{

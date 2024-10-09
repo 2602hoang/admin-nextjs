@@ -1,6 +1,7 @@
 import React from "react";
 import { Photos } from "../page";
 import { Button, Input } from "antd";
+import { Loading } from "@/components/state/StateCallApi";
 
 interface CardPhotoProps extends Photos {
   openModal: (id: number) => void;

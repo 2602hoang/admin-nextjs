@@ -20,15 +20,18 @@ const OrderTable: React.FC<OrderTableProps> = ({
       title: <h3 className="text-teal-300">#</h3>,
       dataIndex: "index",
       render: (_: any, __: CustomOrder, index: number) => index + 1,
-      width: 50,
+      width: 100,
     },
     {
       title: <h3 className="text-teal-300">ID</h3>,
       dataIndex: "orderId",
+      align: "start" as "start",
+      width: 150,
     },
     {
       title: <h3 className="text-teal-300">Phone</h3>,
       dataIndex: ["user", "phone"],
+      align: "start" as "start",
     },
     {
       title: <h3 className="text-teal-300">Date</h3>,

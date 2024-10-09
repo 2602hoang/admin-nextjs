@@ -14,7 +14,7 @@ export interface User {
 }
 
 export const useFetchUserData = () => {
-  const { userId } = useAuth();
+  const { userId, userToken } = useAuth();
   const { axiosInstance } = useAxios();
   const queryClient = useQueryClient();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -41,11 +41,13 @@ export const useFetchUserData = () => {
     );
     return response.data;
   };
+
   const {
     data: user,
     isLoading,
     error,
   } = useQuery<User, Error>(["user", userId], fetchUserData, {
+    enabled: !!userId && !!userToken,
     cacheTime: 1000 * 60 * 10,
     staleTime: 1000 * 60 * 5,
   });
@@ -58,6 +60,7 @@ export const useFetchUserData = () => {
         message: "Success",
         description: "Information updated successfully",
         duration: 1.5,
+        showProgress: true,
       });
     },
     onError: (error: Error) => {
@@ -66,6 +69,7 @@ export const useFetchUserData = () => {
         message: "Error",
         description: error.message,
         duration: 1.5,
+        showProgress: true,
       });
     },
   });

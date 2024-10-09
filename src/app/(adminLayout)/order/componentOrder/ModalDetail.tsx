@@ -23,20 +23,21 @@ export const ModalDetail: React.FC<ModalDetailProps> = ({
       title: <h3 className="text-teal-300">#</h3>,
       align: "center" as "center",
       render: (_: unknown, __: unknown, index: number) => index + 1,
+      width: 50,
     },
     {
       title: <h3 className="text-teal-300">Product</h3>,
       render: (record: OrderDetail) => (
-        <div className="flex items-center ml-2">
+        <div className="flex md:flex-row flex-col items-center ml-2">
           <img
             src={record.product.images}
             alt={record.product.name}
-            className="size-16 object-cover"
+            className="size-14 object-cover"
           />
-          <span className="ml-2">{record.product.name}</span>
+          <span className="ml-2 text-[10px] ">{record.product.name}</span>
         </div>
       ),
-      align: "left" as "left",
+      align: "center" as "center",
     },
     {
       title: <h3 className="text-teal-300">Price</h3>,
@@ -86,7 +87,7 @@ export const ModalDetail: React.FC<ModalDetailProps> = ({
         }
       >
         {selectedOrderDetails ? (
-          <div className="h-[80vh] overflow-hidden px-4 text-white border-2">
+          <div className="h-auto overflow-hidden md:px-4 text-white border-2">
             <div className="md:sticky relative top-0 w-full z-40 bg-brown pb-5">
               <p
                 className={clsx("", {

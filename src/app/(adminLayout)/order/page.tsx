@@ -1,12 +1,13 @@
 "use client";
 import React from "react";
-import { Input } from "antd";
+import { Input, Spin } from "antd";
 import LayoutStateHandler from "@/components/layout/LayoutState";
 import { IconSearch } from "@/icon/DataIcon";
 import { useFetchOrderData } from "./useLogic";
 import { User } from "../profile/useLogic";
 import { ModalDetail } from "./componentOrder/ModalDetail";
 import OrderTable from "./componentOrder/OrderTable";
+import { LoadingOutlined } from "@ant-design/icons";
 
 export interface Product {
   id_product: number;
@@ -52,19 +53,26 @@ function Order() {
     searchQuery,
     handleInputChange,
     open,
+    spin,
   } = useFetchOrderData();
 
   return (
     <LayoutStateHandler isLoading={isLoading} error={error} data={order}>
       <div className="w-full h-auto mb-5">
-        <div className="bg-brown mb-5">
+        <div className="bg-brown mb-5 flex justify-end">
           <Input
             className="w-4/5 md:w-2/5 h-10 gap-x-[3px] rounded-lg pl-1 border-none bg-dark-slate-gray text-white focus:border-light-gray focus-within:bg-light-gray hover:bg-light-gray"
             placeholder="Search by ID"
             allowClear
             value={searchQuery}
             onChange={handleInputChange}
-            prefix={<IconSearch />}
+            prefix={
+              spin ? (
+                <Spin indicator={<LoadingOutlined spin />} size="small" />
+              ) : (
+                <IconSearch />
+              )
+            }
           />
         </div>
 

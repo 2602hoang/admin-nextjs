@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { Button, Form, Input, InputRef, Modal } from "antd";
 import { User } from "../useLogic";
 
@@ -31,12 +31,7 @@ export const ModalProfile: React.FC<ModalProfileProps> = ({
   username,
   phone,
 }) => {
-  const inputRef = useRef<InputRef | null>(null);
   const [form] = Form.useForm();
-
-  useEffect(() => {
-    form.resetFields();
-  }, [open]);
 
   const handleChange = (field: string, value: string) => {
     if (field === "username") setUsername(value);
@@ -54,6 +49,7 @@ export const ModalProfile: React.FC<ModalProfileProps> = ({
       phone: values.phone || phone,
       password: values.password || password,
     });
+
     form.resetFields();
   };
 
@@ -80,7 +76,6 @@ export const ModalProfile: React.FC<ModalProfileProps> = ({
           rules={[{ max: 40, message: "Please input at most 40 characters" }]}
         >
           <Input
-            ref={inputRef}
             allowClear
             placeholder={user?.username}
             className="w-full px-3 py-3 border border-gray-700 focus-within:bg-zinc-900 hover:bg-zinc-900 bg-gray-700 text-white rounded-md"

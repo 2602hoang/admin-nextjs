@@ -1,12 +1,16 @@
 "use client";
-import React from "react";
-import { Button, Tooltip } from "antd";
+import React, { useEffect, useState } from "react";
+import { Button, Input, notification, Spin, Tooltip } from "antd";
 import LayoutStateHandler from "@/components/layout/LayoutState";
 import { useLeaderboard } from "./useLogic";
-import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
+import {
+  ArrowDownOutlined,
+  ArrowUpOutlined,
+  LoadingOutlined,
+} from "@ant-design/icons";
 import CardPhoto from "./componentPhoto/CardPhoto";
 import ModalPhoto from "./componentPhoto/ModalPhoto";
-import clsx from "clsx";
+import { IconSearch } from "@/icon/DataIcon";
 
 export interface Photos {
   albumId: number;
@@ -23,30 +27,57 @@ const Leaderboard: React.FC = () => {
     error,
     limit,
     open,
+    spin,
     handleCancel,
     selectedPhoto,
     addMorePhotos,
     moveMorePhotos,
-    isLoadingMore,
     openModal,
+    setSearchId,
+    searchId,
   } = useLeaderboard();
 
   return (
     <LayoutStateHandler isLoading={isLoadingPhotos} error={error} data={data}>
-      <div
-        className={clsx(
-          "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full gap-y-5 md:gap-10 mt-2 p-4",
-          { "cursor-wait": isLoadingMore }
-        )}
-      >
-        {data?.map((item: Photos) => (
-          <CardPhoto
-            key={item.id}
-            openModal={openModal}
-            {...item}
-            open={open}
-          />
-        ))}
+      <div className="pb-5 sticky top-20 md:top-[116px] bg-brown justify-end flex z-40">
+        <Input
+          className="w-4/5 md:w-2/5 h-10 gap-x-[3px] rounded-lg pl-1 border-none bg-dark-slate-gray text-white focus:border-light-gray focus-within:bg-light-gray hover:bg-light-gray"
+          placeholder="Search by ID"
+          allowClear
+          value={searchId || ""}
+          onChange={(e) => {
+            const value = e.target.value;
+            if (/^\d*$/.test(value) || value === "") {
+              setSearchId(value);
+            } else {
+              notification.error({
+                message: "Invalid Input",
+                description:
+                  "Please enter a valid numeric ID without any letters or spaces.",
+                duration: 2,
+              });
+            }
+          }}
+          prefix={
+            spin ? (
+              <Spin indicator={<LoadingOutlined spin />} size="small" />
+            ) : (
+              <IconSearch />
+            )
+          }
+        />
+      </div>
+      <div className="relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full gap-y-5 md:gap-10 mt-2 p-4">
+          {data?.map((item: Photos) => (
+            <CardPhoto
+              key={item.id}
+              openModal={openModal}
+              {...item}
+              open={open}
+            />
+          ))}
+        </div>
       </div>
       {limit >= 52 && (
         <div className="flex justify-center my-4">
