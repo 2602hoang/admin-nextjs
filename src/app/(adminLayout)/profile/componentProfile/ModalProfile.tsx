@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Button, Form, Input, InputRef, Modal } from "antd";
 import { User } from "../useLogic";
@@ -17,6 +18,7 @@ interface ModalProfileProps {
   password: string;
   username: string;
   phone: string;
+  check: boolean;
 }
 
 export const ModalProfile: React.FC<ModalProfileProps> = ({
@@ -30,6 +32,7 @@ export const ModalProfile: React.FC<ModalProfileProps> = ({
   password,
   username,
   phone,
+  check,
 }) => {
   const [form] = Form.useForm();
 
@@ -49,8 +52,10 @@ export const ModalProfile: React.FC<ModalProfileProps> = ({
       phone: values.phone || phone,
       password: values.password || password,
     });
-
-    form.resetFields();
+    if (check) {
+      return form.resetFields();
+    }
+    return null;
   };
 
   const areFieldsEmpty = () => {
@@ -73,7 +78,26 @@ export const ModalProfile: React.FC<ModalProfileProps> = ({
         <Form.Item
           name="username"
           label={<p className="text-white">Username</p>}
-          rules={[{ max: 40, message: "Please input at most 40 characters" }]}
+          rules={[
+            { max: 40, message: "Please input at most 40 characters" },
+            {
+              validator: (_, value) => {
+                if (value && /\s/.test(value)) {
+                  return Promise.reject(
+                    new Error("Username cannot contain spaces!")
+                  );
+                }
+                if (value === user?.username) {
+                  return Promise.reject(
+                    new Error(
+                      "New username must be different from the current username!"
+                    )
+                  );
+                }
+                return Promise.resolve();
+              },
+            },
+          ]}
         >
           <Input
             allowClear

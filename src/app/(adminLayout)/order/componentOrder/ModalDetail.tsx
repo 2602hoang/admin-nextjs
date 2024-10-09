@@ -1,3 +1,4 @@
+"use client";
 import { Button, Modal, Table } from "antd";
 import React from "react";
 import clsx from "clsx";
@@ -73,9 +74,9 @@ export const ModalDetail: React.FC<ModalDetailProps> = ({
     <>
       <Modal
         title={
-          <div className="bg-brown text-teal-300 flex justify-start items-start space-x-4">
-            <h1 className="text-start">Order Details: {selectedOrderId}</h1>
-          </div>
+          <h1 className="text-start bg-brown text-teal-300 flex justify-start items-start space-x-4">
+            Order Details: {selectedOrderId}
+          </h1>
         }
         onCancel={handleCancel}
         open={open}

@@ -17,13 +17,11 @@ const CardPhoto: React.FC<CardPhotoProps> = ({
 }) => {
   return (
     <div className="bg-dark-slate-gray shadow-lg rounded-lg p-4 flex flex-col justify-between">
-      <div>
-        <img
-          src={thumbnailUrl}
-          alt={title}
-          className="rounded-3xl w-full h-auto"
-        />
-      </div>
+      <img
+        src={thumbnailUrl}
+        alt={title}
+        className="rounded-3xl w-full h-auto"
+      />
       <div className="py-6">
         <h3 className="text-lg text-white font-semibold overflow-hidden line-clamp-2">
           {title}
@@ -35,11 +33,7 @@ const CardPhoto: React.FC<CardPhotoProps> = ({
           <p>Photo ID: {id}</p>
         </div>
         <div>
-          {open === false ? (
-            <Button onClick={() => openModal(id)}>View</Button>
-          ) : (
-            <></>
-          )}
+          {!open && <Button onClick={() => openModal(id)}>View</Button>}
         </div>
       </div>
     </div>

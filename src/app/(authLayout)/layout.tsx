@@ -16,7 +16,7 @@ export default function AuthLayout({
     if (userToken) {
       return router.push("/");
     }
-  }, [router]);
+  }, [userToken]);
 
   return (
     <>

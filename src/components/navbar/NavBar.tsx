@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import { Menu, MenuProps } from "antd";
 import { NavbarProps, useLogicNavbar } from "./useLogic";

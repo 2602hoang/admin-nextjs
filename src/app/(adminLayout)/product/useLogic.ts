@@ -1,12 +1,14 @@
 import { useQuery } from "react-query";
 import { useAxios } from "@/providers/AxiosProvider";
 import { Product } from "./page";
+import { useAuth } from "@/contexts/AuthContext";
 
 export const useDataProduct = () => {
   const { axiosInstance } = useAxios();
+  const { userToken } = useAuth();
   const fetchDataProduct = async () => {
     const res = await axiosInstance(0).get<{ products: Product[] }>(
-      `api/v1/email/api/get`
+      `api/v1/product/getall/all`
     );
     return res.data;
   };
@@ -15,9 +17,7 @@ export const useDataProduct = () => {
     isLoading,
     error,
   } = useQuery(["products"], fetchDataProduct, {
-    cacheTime: 1000 * 60 * 10,
-    staleTime: 1000 * 60 * 5,
-    retry: 0,
+    enabled: !!userToken,
   });
 
   return {

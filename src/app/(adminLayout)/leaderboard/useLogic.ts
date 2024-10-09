@@ -11,6 +11,7 @@ export const useLeaderboard = () => {
   const [selectedPhoto, setSelectedPhoto] = useState<Photos | null>(null);
   const [searchId, setSearchId] = useState<string>("");
   const [debouncedSearchId, setDebouncedSearchId] = useState<string>("");
+
   const openModal = async (id: number) => {
     const photo = await fetchPhotoById(id);
     setSelectedPhoto(photo);
@@ -26,6 +27,7 @@ export const useLeaderboard = () => {
     const res = await axiosInstance(1).get<Photos>(`/photos/${id}`);
     return res.data;
   };
+
   const updatePhotos = async (delta: number) => {
     setLimit((prevLimit) => Math.max(prevLimit + delta, 1));
   };
@@ -38,7 +40,6 @@ export const useLeaderboard = () => {
       notification.success({
         message: "Success",
         description: `Photo ${id}`,
-        // duration: 2,
       });
       setSearchId("");
     } catch (error) {
@@ -101,11 +102,9 @@ export const useLeaderboard = () => {
       handleSearch();
     }
   }, [debouncedSearchId]);
+
   const spin =
-    searchId.length > 0 &&
-    searchId.length > 0 &&
-    parseInt(searchId) <= 5000 &&
-    !selectedPhoto;
+    searchId.length > 0 && parseInt(searchId) <= 5000 && !selectedPhoto;
 
   return {
     spin,

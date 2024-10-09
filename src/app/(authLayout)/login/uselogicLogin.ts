@@ -4,32 +4,37 @@ import { notification } from "antd";
 import axios from "axios";
 import { useState } from "react";
 
+let hasNotified = false;
 export const uselogicLogin = async (
   phone: string,
   password: string
-): Promise<{ success: boolean; error?: string }> => {
+): Promise<{ success: boolean }> => {
+  hasNotified = false;
   try {
     const response = await axios.post(`${SERVER_URLS[0]}api/v1/auth/login`, {
       phone,
       password,
     });
-
     const data = response.data;
 
     if (data.status === 1) {
-      return { success: false, error: "Tài khoản đã bị khóa" };
+      return { success: false };
     }
+
     if (data.mes === "Đăng nhập thành công") {
-      const { access_token: token, id_user: userId } = data;
+      const { access_token: token, id_user: userId, id_role: userRole } = data;
       localStorage.setItem("userToken", token);
       localStorage.setItem("userId", userId);
-      notification.success({
-        message: "Notification",
-        description: "Login successful",
-        showProgress: true,
-        duration: 1,
-      });
-      return { success: true, error: "" };
+      localStorage.setItem("userRole", userRole);
+      if (!hasNotified) {
+        notification.success({
+          message: "Notification",
+          description: "Login successful",
+          showProgress: true,
+          duration: 1,
+        });
+      }
+      return (hasNotified = true), { success: true };
     }
 
     switch (data.error) {
@@ -40,7 +45,7 @@ export const uselogicLogin = async (
           showProgress: true,
           duration: 1.5,
         });
-        return { success: false, error: "Invalid phone" };
+        return { success: false };
       case 2:
         notification.error({
           message: "Notification",
@@ -48,7 +53,7 @@ export const uselogicLogin = async (
           showProgress: true,
           duration: 1.5,
         });
-        return { success: false, error: "Invalid password" };
+        return { success: false };
       default:
         notification.error({
           message: "Notification",
@@ -56,7 +61,7 @@ export const uselogicLogin = async (
           showProgress: true,
           duration: 1.5,
         });
-        return { success: false, error: "Login failed" };
+        return { success: false };
     }
   } catch (error) {
     notification.error({
@@ -65,7 +70,7 @@ export const uselogicLogin = async (
       showProgress: true,
       duration: 1.5,
     });
-    return { success: false, error: "Login failed" };
+    return { success: false };
   }
 };
 export const actionLogin = () => {

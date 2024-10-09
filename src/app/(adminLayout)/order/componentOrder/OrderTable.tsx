@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Button, Space, Tag, Tooltip, Table } from "antd";
 import { formatCurrency, formattedTimestamp } from "@/utils";

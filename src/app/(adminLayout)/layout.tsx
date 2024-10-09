@@ -18,13 +18,13 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
   const toggleCollapsed = () => {
     setCollapsed((prev) => !prev);
   };
-  const { userToken } = useAuth();
-  const router = useRouter();
-  useEffect(() => {
-    if (!userToken) {
-      return router.push("/login");
-    }
-  }, [router]);
+  // const { userToken } = useAuth();
+  // const router = useRouter();
+  // useEffect(() => {
+  //   if (!userToken) {
+  //     router.refresh();
+  //   }
+  // }, [userToken]);
   return (
     <>
       <LoadingPage />

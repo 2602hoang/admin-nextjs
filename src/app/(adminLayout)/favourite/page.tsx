@@ -2,7 +2,7 @@ import { formatCurrency } from "@/utils";
 import React from "react";
 
 function Favourite() {
-  return <div>{formatCurrency(656565)}</div>;
+  return <div>thống kê sản phẩm</div>;
 }
 
 export default Favourite;

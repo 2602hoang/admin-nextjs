@@ -18,6 +18,7 @@ function Profile() {
     password,
     username,
     phone,
+    check,
     handleUpdateUser,
   } = useFetchUserData();
   return (
@@ -62,6 +63,7 @@ function Profile() {
           setUsername={setUsername}
           phone={phone}
           setPhone={setPhone}
+          check={check}
         />
       </div>
     </LayoutStateHandler>

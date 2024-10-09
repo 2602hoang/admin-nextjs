@@ -16,6 +16,7 @@ export const useFetchOrderData = () => {
   const [selectedOrderId, setSelectedOrderId] = useState<number | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const { userToken } = useAuth();
+  const [notificationShown, setNotificationShown] = useState(false);
 
   const handleCancel = () => {
     setOpen(false);
@@ -39,10 +40,12 @@ export const useFetchOrderData = () => {
       onError: (error) => console.error(error),
     }
   );
+
   const showModal = (id_order: number) => {
     setSelectedOrderId(id_order);
     setOpen(true);
   };
+
   const fetchUserData = async () => {
     const response = await axiosInstance(0).get<{ order: Order[] }>(
       `api/v1/order/getall`
@@ -56,24 +59,27 @@ export const useFetchOrderData = () => {
     error,
   } = useQuery(["order"], fetchUserData, {
     enabled: !!userToken,
-    cacheTime: 1000 * 60 * 10,
-    staleTime: 1000 * 60 * 5,
   });
 
   const debouncedSetSearchQuery = useCallback(
     _.debounce((value: string) => setSearchQuery(value), 300),
     []
   );
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
+    setNotificationShown(false);
     if (value === "" || /^[0-9]*$/.test(value)) {
       debouncedSetSearchQuery(value);
-    } else {
+      return;
+    }
+    if (!notificationShown) {
       notification.warning({
         message: "Please enter a valid number",
         duration: 2,
         showProgress: true,
       });
+      setNotificationShown(true);
     }
   };
 
@@ -92,10 +98,12 @@ export const useFetchOrderData = () => {
       ) || 0
     );
   }, [filteredOrders]);
+
   const spin =
     searchQuery.length > 0 &&
-    filteredOrders?.length != 1 &&
-    filteredOrders?.length != 0;
+    filteredOrders?.length !== 1 &&
+    filteredOrders?.length !== 0;
+
   return {
     order,
     spin,

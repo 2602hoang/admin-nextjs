@@ -21,6 +21,7 @@ export const useFetchUserData = () => {
   const [password, setPassword] = useState<string>("");
   const [username, setUsername] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
+  const [check, setCheck] = useState<boolean>(false);
 
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => {
@@ -48,13 +49,15 @@ export const useFetchUserData = () => {
     error,
   } = useQuery<User, Error>(["user", userId], fetchUserData, {
     enabled: !!userId && !!userToken,
-    cacheTime: 1000 * 60 * 10,
-    staleTime: 1000 * 60 * 5,
   });
 
   const mutation = useMutation(updateUserData, {
     onSuccess: () => {
       queryClient.invalidateQueries(["user", userId]);
+      setCheck(!check);
+      // setUsername("");
+      // setPhone("");
+      // setPassword("");
       handleCloseModal();
       notification.success({
         message: "Success",
@@ -64,7 +67,7 @@ export const useFetchUserData = () => {
       });
     },
     onError: (error: Error) => {
-      handleCloseModal();
+      // handleCloseModal();
       notification.error({
         message: "Error",
         description: error.message,
@@ -98,5 +101,6 @@ export const useFetchUserData = () => {
     username,
     phone,
     handleUpdateUser,
+    check,
   };
 };

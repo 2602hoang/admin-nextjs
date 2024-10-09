@@ -69,7 +69,7 @@ const Leaderboard: React.FC = () => {
       </div>
       <div className="relative">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full gap-y-5 md:gap-10 mt-2 p-4">
-          {data?.map((item: Photos) => (
+          {data?.map((item) => (
             <CardPhoto
               key={item.id}
               openModal={openModal}
