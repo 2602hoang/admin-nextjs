@@ -5,9 +5,6 @@ import { Avatar, Badge, Button } from "antd";
 import useLogicComments from "./uselogic";
 import { IsAdmin } from "@/middleware/IsAdmin";
 import ModalMesage from "./componentMesage/ModalMesage";
-import { RenderCmt } from "./componentMesage/RederCmt";
-import FormComment from "./componentMesage/FormComment";
-import { user } from "@nextui-org/theme";
 import IsUser from "./componentMesage/IsUser";
 
 export interface Messages {

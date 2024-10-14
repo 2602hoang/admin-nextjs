@@ -1,6 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { Button, Input, notification, Spin, Tooltip } from "antd";
+import React from "react";
+import { Button, Input, Spin, Tooltip } from "antd";
 import LayoutStateHandler from "@/components/layout/LayoutState";
 import { useLeaderboard } from "./useLogic";
 import {

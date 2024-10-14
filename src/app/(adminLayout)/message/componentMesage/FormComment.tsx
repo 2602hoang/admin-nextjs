@@ -1,6 +1,5 @@
 import { Button, Form } from "antd";
 import TextArea from "antd/es/input/TextArea";
-import { s } from "framer-motion/client";
 import React from "react";
 
 interface Prop {

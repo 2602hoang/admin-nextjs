@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Button, Form, Input, InputRef, Modal, notification } from "antd";
+import { Button, Form, Input, Modal, notification } from "antd";
 import { User } from "../useLogic";
 import { validateUsername } from "@/utils";
 

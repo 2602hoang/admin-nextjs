@@ -1,4 +1,4 @@
-import { Button, Drawer, Form, Input, Popconfirm, Select } from "antd";
+import { Button, Drawer, Form, Input, Select } from "antd";
 import React, { useEffect, useState } from "react";
 import { Brand, Category, Product } from "../page";
 import { formatCurrency } from "@/utils";

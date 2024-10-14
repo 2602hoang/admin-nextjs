@@ -2,7 +2,6 @@ import { Button, Modal } from "antd";
 import React from "react";
 import { Photos } from "../page";
 import CardPhoto from "./CardPhoto";
-import { Loading } from "@/components/state/StateCallApi";
 import LayoutStateHandler from "@/components/layout/LayoutState";
 
 interface ModalPhotoProps {

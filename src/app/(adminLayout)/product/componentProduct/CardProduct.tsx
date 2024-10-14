@@ -1,21 +1,8 @@
 import clsx from "clsx";
 import { Product } from "../page";
-import { ActionsProduct } from "./ActionsProduct";
 import { Tag, Tooltip } from "antd";
 import { formatCurrency } from "@/utils";
 
-// id_product: number;
-// id_brand: number;
-// id_category: number;
-// name: string;
-// status: boolean;
-// description: string;
-// price: number;
-// images: boolean;
-// stock: number;
-// discount: number;
-// created_at: Date;
-// updated_at: Date;
 interface Props {
   product: Product;
   open: boolean;

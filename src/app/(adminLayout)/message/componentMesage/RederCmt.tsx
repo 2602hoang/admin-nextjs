@@ -1,7 +1,6 @@
-"use client";
 import { formattedTimestamp } from "@/utils";
 import { CommentOutlined, UserOutlined } from "@ant-design/icons";
-import { Avatar, Button } from "antd";
+import { Avatar } from "antd";
 import React from "react";
 import { Messages } from "../page";
 

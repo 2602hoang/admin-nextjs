@@ -1,7 +1,6 @@
 import { Button, Modal } from "antd";
-import React, { useState } from "react";
+import React from "react";
 import { Messages } from "../page";
-
 import FormComment from "./FormComment";
 import { RenderCmt } from "./RederCmt";
 
@@ -71,7 +70,6 @@ const ModalMesage: React.FC<ModalMesageProps> = ({
               />
               <Button
                 onClick={() => {
-                  console.log(item.key);
                   handleReplyClick(item.key);
                 }}
                 type="link"
