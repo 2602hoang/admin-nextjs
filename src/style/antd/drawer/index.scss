@@ -1,0 +1,10 @@
+:root {
+  --color-bg-drawer: #171821;
+  --color-white: #fff;
+}
+.ant-drawer .ant-drawer-content {
+  background-color: var(--color-bg-drawer);
+}
+.ant-drawer .ant-drawer-close {
+  color: var(--color-white);
+}

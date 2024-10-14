@@ -24,11 +24,13 @@ type MenuItem = Required<MenuProps>["items"][number] & {
   icon: React.ReactNode;
   label: string;
 };
+
 export interface NavbarProps {
   collapsed: boolean;
   setCollapsed: (collapsed: boolean) => void;
   toggleCollapsed: () => void;
 }
+
 export const useLogicNavbar = ({ setCollapsed }: NavbarProps) => {
   const [current, setCurrent] = useState<string>("");
   const router = useRouter();
@@ -51,6 +53,11 @@ export const useLogicNavbar = ({ setCollapsed }: NavbarProps) => {
         O: () => router.push("/order"),
         P: () => router.push("/product"),
         L: () => router.push("/leaderboard"),
+        H: () => router.push("/history"),
+        F: () => router.push("/favourite"),
+        S: () => router.push("/setting"),
+        R: () => router.push("/salereport"),
+        M: () => router.push("/message"),
         ArrowRight: () => setCollapsed(true),
         ArrowLeft: () => setCollapsed(false),
       };
@@ -103,7 +110,7 @@ export const useLogicNavbar = ({ setCollapsed }: NavbarProps) => {
             <IconLeaderboard />
           </span>
         ),
-        label: "Photo",
+        label: "Leaderboard",
       },
       {
         key: "/order",
@@ -130,7 +137,7 @@ export const useLogicNavbar = ({ setCollapsed }: NavbarProps) => {
             <IconSalereport />
           </span>
         ),
-        label: "Salereport",
+        label: "Sale Report",
       },
       {
         key: "/message",
@@ -171,11 +178,9 @@ export const useLogicNavbar = ({ setCollapsed }: NavbarProps) => {
       {
         key: "/login",
         icon: (
-          <a onClick={logout}>
-            <span>
-              <IconLogin />
-            </span>
-          </a>
+          <span onClick={logout}>
+            <IconLogin />
+          </span>
         ),
         label: "Login",
       },
@@ -199,7 +204,7 @@ export const KeyboardShortcutsNavBar = () => (
   <div className="space-y-5">
     <h3 className="text-red-400">Keyboard Shortcuts Sidebar</h3>
     <p>
-      Press <Kbd>Shift</Kbd> + <Kbd>Q</Kbd> to logout .
+      Press <Kbd>Shift</Kbd> + <Kbd>Q</Kbd> to logout.
     </p>
     <p>
       Press <Kbd>Shift</Kbd> + <Kbd>A</Kbd> to go to the home page.
@@ -212,6 +217,24 @@ export const KeyboardShortcutsNavBar = () => (
     </p>
     <p>
       Press <Kbd>Shift</Kbd> + <Kbd>P</Kbd> to go to the product page.
+    </p>
+    <p>
+      Press <Kbd>Shift</Kbd> + <Kbd>L</Kbd> to go to the leaderboard page.
+    </p>
+    <p>
+      Press <Kbd>Shift</Kbd> + <Kbd>H</Kbd> to go to the history page.
+    </p>
+    <p>
+      Press <Kbd>Shift</Kbd> + <Kbd>F</Kbd> to go to the favourite page.
+    </p>
+    <p>
+      Press <Kbd>Shift</Kbd> + <Kbd>S</Kbd> to go to the settings page.
+    </p>
+    <p>
+      Press <Kbd>Shift</Kbd> + <Kbd>R</Kbd> to go to the sale report page.
+    </p>
+    <p>
+      Press <Kbd>Shift</Kbd> + <Kbd>M</Kbd> to go to the messages page.
     </p>
     <p>
       Press <Kbd>Shift</Kbd> + <Kbd>ArrowRight</Kbd> to collapse the sidebar.

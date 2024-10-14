@@ -33,8 +33,10 @@ const Leaderboard: React.FC = () => {
     addMorePhotos,
     moveMorePhotos,
     openModal,
-    setSearchId,
+    handleSearchChange,
     searchId,
+    isLoadingPhoto,
+    errorPhoto,
   } = useLeaderboard();
 
   return (
@@ -45,19 +47,7 @@ const Leaderboard: React.FC = () => {
           placeholder="Search by ID"
           allowClear
           value={searchId || ""}
-          onChange={(e) => {
-            const value = e.target.value;
-            if (/^\d*$/.test(value) || value === "") {
-              setSearchId(value);
-            } else {
-              notification.error({
-                message: "Invalid Input",
-                description:
-                  "Please enter a valid numeric ID without any letters or spaces.",
-                duration: 2,
-              });
-            }
-          }}
+          onChange={handleSearchChange}
           prefix={
             spin ? (
               <Spin indicator={<LoadingOutlined spin />} size="small" />
@@ -68,7 +58,7 @@ const Leaderboard: React.FC = () => {
         />
       </div>
       <div className="relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full gap-y-5 md:gap-10 mt-2 p-4">
+        <div className="grid repository-box-grid-1-2-4 w-full gap-y-5 md:gap-10 mt-2 p-4">
           {data?.map((item) => (
             <CardPhoto
               key={item.id}
@@ -102,6 +92,8 @@ const Leaderboard: React.FC = () => {
         </div>
       )}
       <ModalPhoto
+        errorPhoto={errorPhoto}
+        isLoadingPhoto={isLoadingPhoto}
         handleCancel={handleCancel}
         open={open}
         photo={selectedPhoto}

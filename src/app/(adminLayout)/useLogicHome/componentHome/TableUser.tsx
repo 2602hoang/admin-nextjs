@@ -97,13 +97,14 @@ export const TableUser: React.FC = () => {
     const start = (currentPage - 1) * pageSize + 1;
     const end = Math.min(currentPage * pageSize, dataTableUser.length);
     return (
-      <div className="flex mt-3 justify-between items-center text-white">
+      <div className="flex mt-3  md:justify-between justify-center items-center text-white">
         <div>
           Show {start} - {end} of {dataTableUser.length} total items
         </div>
         <Pagination
           current={currentPage}
           pageSize={pageSize}
+          size="small"
           total={dataTableUser.length}
           onChange={(page) => setCurrentPage(page)}
           hideOnSinglePage

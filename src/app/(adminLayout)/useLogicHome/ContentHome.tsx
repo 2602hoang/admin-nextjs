@@ -9,7 +9,7 @@ import {
   ChartsLine,
   Charttwoline,
 } from "./componentHome/AllCharts";
-import Charts from "./componentHome/ComponentCharts";
+import Charts from "../../../components/charts/ComponentCharts";
 function Content() {
   return (
     <div className="grid grid-cols-12 gap-[14px] h-auto overflow-hidden">

@@ -11,7 +11,23 @@ export const useLeaderboard = () => {
   const [selectedPhoto, setSelectedPhoto] = useState<Photos | null>(null);
   const [searchId, setSearchId] = useState<string>("");
   const [debouncedSearchId, setDebouncedSearchId] = useState<string>("");
+  const [notificationShown, setNotificationShown] = useState(false);
 
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (/^\d*$/.test(value) || value === "") {
+      setSearchId(value);
+      setNotificationShown(false);
+    } else if (!notificationShown) {
+      notification.error({
+        message: "Invalid Input",
+        description:
+          "Please enter a valid numeric ID without any letters or spaces.",
+        duration: 7,
+      });
+      setNotificationShown(true);
+    }
+  };
   const openModal = async (id: number) => {
     const photo = await fetchPhotoById(id);
     setSelectedPhoto(photo);
@@ -27,7 +43,17 @@ export const useLeaderboard = () => {
     const res = await axiosInstance(1).get<Photos>(`/photos/${id}`);
     return res.data;
   };
-
+  const {
+    data: photo,
+    isLoading: isLoadingPhoto,
+    error: errorPhoto,
+  } = useQuery<Photos, Error>(
+    ["photo", selectedPhoto?.id],
+    () => fetchPhotoById(selectedPhoto?.id as number),
+    {
+      enabled: !!selectedPhoto,
+    }
+  );
   const updatePhotos = async (delta: number) => {
     setLimit((prevLimit) => Math.max(prevLimit + delta, 1));
   };
@@ -70,9 +96,6 @@ export const useLeaderboard = () => {
     error,
   } = useQuery<Photos[], Error>(["photos", limit], fetchPhotoData, {
     keepPreviousData: true,
-    retry: 0,
-    staleTime: 1000 * 60 * 5,
-    cacheTime: 1000 * 60 * 30,
     onError: (error: Error) => {
       notification.error({
         message: "Error Fetching Photos",
@@ -119,9 +142,13 @@ export const useLeaderboard = () => {
     data,
     isLoadingPhotos,
     error,
+    photo,
+    isLoadingPhoto,
+    errorPhoto,
     fetchPhotoById,
     openModal,
     setSearchId,
+    handleSearchChange,
     searchId,
   };
 };

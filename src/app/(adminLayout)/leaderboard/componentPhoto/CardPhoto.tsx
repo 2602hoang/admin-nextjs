@@ -1,7 +1,7 @@
 import React from "react";
 import { Photos } from "../page";
-import { Button, Input } from "antd";
-import { Loading } from "@/components/state/StateCallApi";
+import { Button } from "antd";
+
 
 interface CardPhotoProps extends Photos {
   openModal: (id: number) => void;
@@ -16,6 +16,7 @@ const CardPhoto: React.FC<CardPhotoProps> = ({
   albumId,
 }) => {
   return (
+    
     <div className="bg-dark-slate-gray shadow-lg rounded-lg p-4 flex flex-col justify-between">
       <img
         src={thumbnailUrl}

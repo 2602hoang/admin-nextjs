@@ -26,7 +26,7 @@ const config: Config = {
         inter: ["Inter", "sans-serif"],
       },
       width: {
-        "custom": "calc(100% - 239px)",
+        custom: "calc(100% - 239px)",
       },
     },
   },

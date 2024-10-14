@@ -13,3 +13,9 @@
     }
   }
 }
+.ant-select-dropdown {
+  // background: transparent !important;
+  background-color: var(--color_bg_dropdown);
+
+  color: var(--color_white);
+}

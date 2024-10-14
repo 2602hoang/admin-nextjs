@@ -1,4 +1,5 @@
 import { useAuth } from "@/contexts/AuthContext";
+import { useAxios } from "@/providers/AxiosProvider";
 import { SERVER_URLS } from "@/utils";
 import { notification } from "antd";
 import axios from "axios";

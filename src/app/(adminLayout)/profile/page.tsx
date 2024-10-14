@@ -3,8 +3,9 @@ import React from "react";
 import LayoutStateHandler from "@/components/layout/LayoutState";
 import { useFetchUserData } from "./useLogic";
 import { ModalProfile } from "./componentProfile/ModalProfile";
+import CardProfile from "./componentProfile/CardProfile";
 
-function Profile() {
+const Profile = () => {
   const {
     user,
     isLoading,
@@ -18,40 +19,17 @@ function Profile() {
     password,
     username,
     phone,
-    check,
     handleUpdateUser,
   } = useFetchUserData();
   return (
     <LayoutStateHandler isLoading={isLoading} error={error} data={user}>
-      <div className="flex px-5 py-0 md:py-5 flex-col space-y-6 justify-center items-center ">
+      <div className="flex p-5 justify-center items-center ">
         {user && (
-          <div
-            className="max-w-1/2
-      hover:scale-105
-      h-auto bg-neutral-800 rounded-3xl text-neutral-300 p-4 flex flex-col items-start justify-center space-y-6 
-      gap-3 hover:bg-gray-900 hover:shadow-2xl hover:shadow-sky-400 transition-shadow"
-          >
-            <div className="resize  bg-sky-300 rounded-2xl">
-              {user?.avatar && (
-                <img
-                  src={user.avatar}
-                  alt={user.username}
-                  className="size-96 resize rounded-2xl"
-                />
-              )}
-            </div>
-            <div className="space-y-4">
-              <p className="font-extrabold">Username: {user?.username}</p>
-              <p className="">Phone: {user?.phone}</p>
-            </div>
-            <button
-              onClick={handleOpenModal}
-              className="bg-sky-700 font-extrabold p-2  px-6 rounded-xl hover:bg-red-400 transition-colors"
-            >
-              Change Infomation
-            </button>
+          <div className="w-full md:w-[35%] flex justify-center">
+            <CardProfile handleOpenModal={handleOpenModal} user={user} />
           </div>
         )}
+
         <ModalProfile
           open={isModalOpen}
           user={user}
@@ -63,11 +41,10 @@ function Profile() {
           setUsername={setUsername}
           phone={phone}
           setPhone={setPhone}
-          check={check}
         />
       </div>
     </LayoutStateHandler>
   );
-}
+};
 
 export default Profile;

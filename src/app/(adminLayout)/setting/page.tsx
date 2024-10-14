@@ -1,7 +1,13 @@
+import { KeyboardShortcutsNavBar } from "@/components/navbar/useLogic";
 import React from "react";
 
-function Setting() {
-  return <div>cai dat theme / tiếng việt</div>;
-}
+const Setting = () => {
+  return (
+    <div>
+      {" "}
+      <KeyboardShortcutsNavBar />
+    </div>
+  );
+};
 
 export default Setting;

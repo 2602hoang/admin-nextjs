@@ -20,7 +20,7 @@ const LayoutStateHandler: React.FC<LayoutStateHandlerProps> = ({
 }) => {
   if (isLoading) {
     return (
-      <div className="z-50 w-full h-screen   bg-opacity-50 opacity-50 ">
+      <div className="z-40 w-full h-screen   bg-opacity-50 opacity-50 ">
         <Loading />
       </div>
     );
@@ -29,7 +29,7 @@ const LayoutStateHandler: React.FC<LayoutStateHandlerProps> = ({
   if (error) {
     const errorMessage = error.message;
     return (
-      <div className="z-50 w-full h-screen   bg-opacity-50 opacity-50 ">
+      <div className="z-40 w-full h-screen   bg-opacity-50 opacity-50 ">
         <ErrorComponent message={errorMessage} />
       </div>
     );
@@ -41,7 +41,7 @@ const LayoutStateHandler: React.FC<LayoutStateHandlerProps> = ({
 
   if (isEmptyArray || isEmptyObject) {
     return (
-      <div className="z-50 w-full h-screen   bg-opacity-50 opacity-50 ">
+      <div className="z-40 w-full h-screen   bg-opacity-50 opacity-50 ">
         <NoData />
       </div>
     );

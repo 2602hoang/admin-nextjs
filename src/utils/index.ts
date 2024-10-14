@@ -28,9 +28,21 @@ export const formattedTimestamp = (timestamp: string) => {
 
   const formattedDate = date.toLocaleString("en-US", {
     dateStyle: "short",
-    // timeStyle: "short",
+    timeStyle: "short",
   });
 
   return formattedDate;
 };
-
+export const validateUsername = (currentUsername: string) => {
+  return (_: any, value: string) => {
+    if (value && /\s/.test(value)) {
+      return Promise.reject(new Error("Username cannot contain spaces!"));
+    }
+    if (value === currentUsername) {
+      return Promise.reject(
+        new Error("New username must be different from the current username!")
+      );
+    }
+    return Promise.resolve();
+  };
+};

@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Bar,
@@ -9,6 +10,10 @@ import {
   AreaChart,
   // YAxis,
   Area,
+  CartesianGrid,
+  PieChart,
+  Pie,
+  Cell,
 } from "recharts";
 import { chartsCollum, chartsLine, charttwoline } from "./Data";
 
@@ -62,7 +67,6 @@ export const ChartsLine: React.FC = () => {
   );
 };
 
-// Biểu đồ hai đường
 export const Charttwoline: React.FC = () => {
   return (
     <ResponsiveContainer width="100%" height={350} className="mt-10">
@@ -99,5 +103,54 @@ export const Charttwoline: React.FC = () => {
         />
       </AreaChart>
     </ResponsiveContainer>
+  );
+};
+
+export const ChartsColumnReport: React.FC<{
+  dataCharts: {
+    name: string;
+    // successTotal: number;
+    // failedTotal: number;
+    // canceledTotal: number;
+  }[];
+}> = ({ dataCharts }) => {
+  return (
+    <BarChart width={600} height={400} data={dataCharts}>
+      <CartesianGrid strokeDasharray="3 4" />
+      {/* <XAxis dataKey="name" />
+      <YAxis /> */}
+      <Tooltip formatter={(value, name) => [`${value}`, name]} />
+      <Legend iconType="circle" />
+      <Bar dataKey="Success" fill="#82ca9d" />
+      <Bar dataKey="Failed" fill="#8884d8" />
+      <Bar dataKey="Canceled" fill="#ffc658" />
+    </BarChart>
+  );
+};
+export const ChartsPieReport: React.FC<{
+  dataChartsPie: { name: string; value: number }[];
+}> = ({ dataChartsPie }) => {
+  const COLORS = ["#82ca9d", "#8884d8", "#ffc658"];
+  return (
+    <PieChart width={600} height={400}>
+      <Pie
+        data={dataChartsPie}
+        cx={280}
+        cy={200}
+        // labelLine={false}
+        label={({ name, percent }) =>
+          `${name}: ${`\n`} ${(percent * 100).toFixed(2)}%`
+        }
+        outerRadius={100}
+        fill="#8884d8"
+        dataKey="value"
+      >
+        {dataChartsPie.map((entry, index) => (
+          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+        ))}
+      </Pie>
+      <Tooltip />
+      <Legend />
+    </PieChart>
   );
 };

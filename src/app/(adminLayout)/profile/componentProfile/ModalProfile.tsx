@@ -1,24 +1,27 @@
 "use client";
 import React from "react";
-import { Button, Form, Input, InputRef, Modal } from "antd";
+import { Button, Form, Input, InputRef, Modal, notification } from "antd";
 import { User } from "../useLogic";
+import { validateUsername } from "@/utils";
 
 interface ModalProfileProps {
   open: boolean;
   handleCancel: () => void;
   user: User | undefined;
-  handleUpdateUser: (userData: {
-    username: string;
-    phone: string;
-    password: string;
-  }) => void;
+  handleUpdateUser: (
+    id: number,
+    userData: {
+      username: string;
+      phone: string;
+      password: string;
+    }
+  ) => void;
   setPassword: (value: string) => void;
   setUsername: (value: string) => void;
   setPhone: (value: string) => void;
   password: string;
   username: string;
   phone: string;
-  check: boolean;
 }
 
 export const ModalProfile: React.FC<ModalProfileProps> = ({
@@ -32,7 +35,6 @@ export const ModalProfile: React.FC<ModalProfileProps> = ({
   password,
   username,
   phone,
-  check,
 }) => {
   const [form] = Form.useForm();
 
@@ -41,25 +43,36 @@ export const ModalProfile: React.FC<ModalProfileProps> = ({
     if (field === "phone") setPhone(value);
     if (field === "password") setPassword(value);
   };
-
-  const handleSubmit = (values: {
+  const handleSubmit = async (values: {
     username?: string;
     phone?: string;
     password?: string;
   }) => {
-    handleUpdateUser({
-      username: values.username || username,
-      phone: values.phone || phone,
-      password: values.password || password,
-    });
-    if (check) {
-      return form.resetFields();
+    if (!values.username && !values.phone && !values.password) {
+      notification.warning({
+        message: "Please fill in at least one field",
+        duration: 1,
+      });
+      handleCancel();
+      return;
     }
-    return null;
-  };
 
-  const areFieldsEmpty = () => {
-    return !username && !phone && !password;
+    if (user) {
+      try {
+        await handleUpdateUser(user.id_user, {
+          username: values.username || username,
+          phone: values.phone || phone,
+          password: values.password || password,
+        });
+        form.resetFields();
+        handleCancel();
+      } catch (error) {
+        notification.error({
+          message: "Failed to update user information",
+          duration: 1,
+        });
+      }
+    }
   };
 
   return (
@@ -78,28 +91,17 @@ export const ModalProfile: React.FC<ModalProfileProps> = ({
         <Form.Item
           name="username"
           label={<p className="text-white">Username</p>}
+          required={false}
           rules={[
-            { max: 40, message: "Please input at most 40 characters" },
             {
-              validator: (_, value) => {
-                if (value && /\s/.test(value)) {
-                  return Promise.reject(
-                    new Error("Username cannot contain spaces!")
-                  );
-                }
-                if (value === user?.username) {
-                  return Promise.reject(
-                    new Error(
-                      "New username must be different from the current username!"
-                    )
-                  );
-                }
-                return Promise.resolve();
-              },
+              max: 40,
+              message: "Please input at most 40 characters",
             },
+            { validator: validateUsername(user?.username || "") },
           ]}
         >
           <Input
+            //
             allowClear
             placeholder={user?.username}
             className="w-full px-3 py-3 border border-gray-700 focus-within:bg-zinc-900 hover:bg-zinc-900 bg-gray-700 text-white rounded-md"
@@ -140,17 +142,14 @@ export const ModalProfile: React.FC<ModalProfileProps> = ({
             onChange={(e) => handleChange("password", e.target.value)}
           />
         </Form.Item>
-
         <div className="flex justify-end">
-          {!areFieldsEmpty() && (
-            <Button
-              type="primary"
-              htmlType="submit"
-              className="bg-sky-700 hover:bg-sky-500 transition-colors rounded-2xl"
-            >
-              Submit
-            </Button>
-          )}
+          <Button
+            type="primary"
+            htmlType="submit"
+            className="bg-sky-700 hover:bg-sky-500 transition-colors rounded-2xl"
+          >
+            Submit
+          </Button>
         </div>
       </Form>
     </Modal>

@@ -68,18 +68,18 @@ export const useFetchOrderData = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setNotificationShown(false);
     if (value === "" || /^[0-9]*$/.test(value)) {
       debouncedSetSearchQuery(value);
+      setNotificationShown(false);
       return;
     }
     if (!notificationShown) {
       notification.warning({
         message: "Please enter a valid number",
-        duration: 2,
-        showProgress: true,
+        // duration: 4,
+        // showProgress: true,
       });
-      setNotificationShown(true);
+      return setNotificationShown(true);
     }
   };
 

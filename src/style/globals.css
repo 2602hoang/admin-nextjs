@@ -30,4 +30,10 @@
   .wrapper-box-style-mobile {
     @apply bg-dark-slate-gray rounded-xl col-span-12;
   }
+  .repository-box-grid-1-2-4 {
+    @apply grid-cols-1 xl:grid-cols-4 md:grid-cols-2;
+  }
+  .input-custom {
+    @apply w-full px-3 py-3 border border-gray-700 bg-gray-700 text-white rounded-md;
+  }
 }

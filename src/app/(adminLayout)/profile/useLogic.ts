@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 
 export interface User {
-  id_user: string;
+  id_user: number;
   username: string;
   phone: string;
   avatar: string;
@@ -22,69 +22,78 @@ export const useFetchUserData = () => {
   const [username, setUsername] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
   const [check, setCheck] = useState<boolean>(false);
-
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
 
-  const fetchUserData = async () => {
+
+
+  const updateUserData = async (
+    selectedUserId: number,
+    userData: Partial<User>
+  ) => {
+    const response = await axiosInstance(0).put(
+      `api/v1/user/update/${selectedUserId}`,
+      userData
+    );
+    return response.data;
+  };
+    const fetchUserData = async () => {
     const response = await axiosInstance(0).get<{ user: User }>(
       `api/v1/user/getone/${userId}`
     );
     return response.data.user;
   };
 
-  const updateUserData = async (userData: Partial<User>) => {
-    const response = await axiosInstance(0).put(
-      `api/v1/user/update/${userId}`,
-      userData
-    );
-    return response.data;
-  };
-
   const {
     data: user,
     isLoading,
     error,
+    refetch,
   } = useQuery<User, Error>(["user", userId], fetchUserData, {
     enabled: !!userId && !!userToken,
   });
 
-  const mutation = useMutation(updateUserData, {
-    onSuccess: () => {
-      queryClient.invalidateQueries(["user", userId]);
-      setCheck(!check);
-      // setUsername("");
-      // setPhone("");
-      // setPassword("");
-      handleCloseModal();
-      notification.success({
-        message: "Success",
-        description: "Information updated successfully",
-        duration: 1.5,
-        showProgress: true,
-      });
-    },
-    onError: (error: Error) => {
-      // handleCloseModal();
-      notification.error({
-        message: "Error",
-        description: error.message,
-        duration: 1.5,
-        showProgress: true,
-      });
-    },
-  });
+  const mutation = useMutation(
+    (userData: { selectedUserId: number; data: Partial<User> }) =>
+      updateUserData(userData.selectedUserId, userData.data),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries(["user", userId]);
+        setCheck(!check);
+        notification.success({
+          message: "Success",
+          description: "Information updated successfully",
+          duration: 1.5,
+          showProgress: true,
+        });
+        handleCloseModal();
+      },
+      onError: (error: Error) => {
+        notification.error({
+          message: "Error",
+          description: error.message,
+          duration: 1.5,
+          showProgress: true,
+        });
+      },
+    }
+  );
 
-  const handleUpdateUser = () => {
+  const handleUpdateUser = (selectedUserId: number) => {
+    if (selectedUserId === null) return;
+
     const updatedData: Partial<User> = {
       username: username || user?.username,
       phone: phone || user?.phone,
       ...(password ? { password } : {}),
     };
 
-    mutation.mutate(updatedData);
+    mutation.mutate({ selectedUserId: selectedUserId, data: updatedData });
+  };
+  const areFieldsEmpty = () => {
+    return !username && !phone && !password;
   };
 
   return {
@@ -102,5 +111,8 @@ export const useFetchUserData = () => {
     phone,
     handleUpdateUser,
     check,
+    setCheck,
+    refetch,
+    areFieldsEmpty,
   };
 };

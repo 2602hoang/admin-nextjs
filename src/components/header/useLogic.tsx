@@ -1,3 +1,4 @@
+import { useFetchUserData } from "@/app/(adminLayout)/profile/useLogic";
 import { useAuth } from "@/contexts/AuthContext";
 import {
   IconHelp,
@@ -12,6 +13,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 export const useLogicHeader = () => {
   const { logout } = useAuth();
+  const { user } = useFetchUserData();
   const items: MenuProps["items"] = [
     {
       label: (
@@ -105,6 +107,7 @@ export const useLogicHeader = () => {
 
   return {
     items,
+    user,
     dropdownVisible,
     toggleDropdown,
     handleMenuClick,

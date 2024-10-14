@@ -18,17 +18,11 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
   const toggleCollapsed = () => {
     setCollapsed((prev) => !prev);
   };
-  // const { userToken } = useAuth();
-  // const router = useRouter();
-  // useEffect(() => {
-  //   if (!userToken) {
-  //     router.refresh();
-  //   }
-  // }, [userToken]);
+
   return (
     <>
       <LoadingPage />
-      <div className="w-full font-inter flex md:h-screen fixeds md:relative bg-brown ">
+      <div className="w-full font-inter bg-brown  flex md:h-screen  relative ">
         <div
           className={clsx(
             "relative ",
@@ -42,13 +36,13 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
           />
           {collapsed && (
             <div
-              className="h-screen bg-brown opacity-80 fixed  right-0 top-0 z-50 md:hidden w-custom"
+              className="h-screen opacity-80 fixed  bg-brown  right-0 top-0 z-50 md:hidden w-custom"
               onClick={toggleCollapsed}
             />
           )}
         </div>
-        <div className="w-full bg-brown md:relative min-h-screen md:overflow-auto">
-          <div className="h-[116px] md:sticky top-0 z-30">
+        <div className="w-full  md:relative min-h-screen md:overflow-auto">
+          <div className="h-[116px] md:sticky bg-brown top-0 z-30">
             <Header collapsed={collapsed} toggleCollapsed={toggleCollapsed} />
           </div>
           <div className="text-white px-3 md:px-[21px] relative">

@@ -25,12 +25,13 @@ export const Header: React.FC<HeaderProps> = ({
     dropdownVisible,
     toggleDropdown,
     handleMenuClick,
+    user,
     isModalVisible,
     handleModalClose,
   } = useLogicHeader();
 
   return (
-    <div className="h-20 px-3 bg-brown md:h-[116px] flex items-center z-30  w-full md:relative fixed justify-between">
+    <div className="h-20 px-3 bg-brown  md:h-[116px] flex items-center z-30  w-full md:relative fixed justify-between">
       <div className="flex items-center justify-start gap-2 w-full">
         <div className="">
           <button
@@ -55,7 +56,7 @@ export const Header: React.FC<HeaderProps> = ({
           </Badge>
         </div>
         <div className="flex items-center gap-x-1 md:gap-x-4 pr-5">
-          <Avatar src="/avatauser.png" className="size-11 text-black" />
+          <Avatar src={user?.avatar} className="size-11 text-black" />
           <Dropdown
             menu={{ items, onClick: handleMenuClick }}
             trigger={["click"]}

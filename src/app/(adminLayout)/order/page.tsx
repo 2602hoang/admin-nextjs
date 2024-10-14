@@ -39,7 +39,7 @@ export interface Order {
   user: User;
 }
 
-function Order() {
+const Order = () => {
   const {
     order,
     isLoading,
@@ -97,6 +97,6 @@ function Order() {
       </div>
     </LayoutStateHandler>
   );
-}
+};
 
 export default Order;

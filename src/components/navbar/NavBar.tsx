@@ -4,7 +4,22 @@ import { Menu, MenuProps } from "antd";
 import { NavbarProps, useLogicNavbar } from "./useLogic";
 import { useRouter } from "next/navigation";
 import clsx from "clsx";
+const useWindowSize = () => {
+  const [size, setSize] = useState<{ width: number }>({
+    width: typeof window !== "undefined" ? window.innerWidth : 0,
+  });
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const handleResize = () => setSize({ width: window.innerWidth });
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return size;
+};
 const Navbar: React.FC<NavbarProps> = ({
   collapsed,
   setCollapsed,
@@ -17,12 +32,17 @@ const Navbar: React.FC<NavbarProps> = ({
   });
   const [flag, setFlag] = useState<string>("");
   const router = useRouter();
+  const { width } = useWindowSize();
 
   const onClick: MenuProps["onClick"] = (e) => {
     const selectedItem = items.find((item) => item.key === e.key);
     if (selectedItem) {
       setCurrent(selectedItem.key);
       router.push(selectedItem.key);
+      if (width < 768) {
+        toggleCollapsed();
+      }
+      return;
     }
   };
 
@@ -41,12 +61,12 @@ const Navbar: React.FC<NavbarProps> = ({
       <div
         className={clsx(
           collapsed ? "" : "w-0 md:w-[110px]",
-          "h-[98px] sticky top-0 z-40 left-0 bg-brown"
+          "h-[98px] sticky top-0 z-40 left-0 "
         )}
       >
         <div
           className={clsx(
-            "flex h-[98px] w-full justify-center bg-brown items-center",
+            "flex h-[98px] w-full justify-center  items-center",
             collapsed ? "px-[49px] pt-[6px]" : "px-9"
           )}
         >
