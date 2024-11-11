@@ -43,7 +43,7 @@ const useLogicComments = () => {
   };
 
   const { data, isLoading, error } = useQuery(["messages"], fetchData, {
-    // refetchInterval: 3000,
+    // refetchInterval: 5000,
     // enabled: !!userId,
   });
 

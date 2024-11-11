@@ -31,7 +31,13 @@ export const DrawerProduct: React.FC<Props> = ({
 
   useEffect(() => {
     const updateWidth = () => {
-      setDrawerWidth(window.innerWidth < 768 ? "100%" : "60%");
+      setDrawerWidth(
+        window.innerWidth < 768
+          ? "100%"
+          : window.innerWidth < 1280
+          ? "80%"
+          : "60%"
+      );
     };
 
     updateWidth();

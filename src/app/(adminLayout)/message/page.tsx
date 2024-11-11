@@ -46,7 +46,7 @@ const Message = () => {
       <h1 className="text-2xl font-bold text-center">Message</h1>
 
       <IsAdmin isNotAdmin={<IsUser />}>
-        <div className="justify-center items-center flex pt-10 gap-40">
+        <div className="justify-center items-center flex pt-10 md:flex-row flex-col gap-40">
           {Object.entries(groupedMessages).map(([key, count]) => {
             const [id, username, role] = key.split("-");
             if (Number(role) !== 123) {

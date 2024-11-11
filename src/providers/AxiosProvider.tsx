@@ -1,4 +1,3 @@
-"use client";
 import React, { createContext, useContext, ReactNode } from "react";
 import axios, { AxiosInstance } from "axios";
 import HttpError from "../errors/HttpError";

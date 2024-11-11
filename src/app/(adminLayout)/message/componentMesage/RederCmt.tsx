@@ -30,10 +30,10 @@ export const RenderCmt: React.FC<RenderCmtProps> = ({
           This [ 0{cmt.phone} ] left a comment{" "}
           <span>{formattedTimestamp(cmt.time)}</span> 👇👇{" "}
         </p>
-        <b className="text-start">
+        <b className="text-start mb-4">
           Comment
           <CommentOutlined className="ml-1" />:
-          <span className="ml-6">{cmt.comments}</span>
+          <span className="ml-3 ">{cmt.comments}</span>
         </b>
       </div>
       {hasReplies && (
@@ -41,7 +41,7 @@ export const RenderCmt: React.FC<RenderCmtProps> = ({
           {filteredComments?.map(
             (admin, index) =>
               admin.repkey === cmt.key && (
-                <p key={index}>
+                <p key={index} className="mb-3">
                   Reply by admin {admin.id}: {admin.comments}
                 </p>
               )

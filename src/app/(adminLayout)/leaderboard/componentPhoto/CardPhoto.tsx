@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Photos } from "../page";
-import { Button } from "antd";
-
+import { Button, Image } from "antd";
 
 interface CardPhotoProps extends Photos {
   openModal: (id: number) => void;
@@ -15,13 +14,20 @@ const CardPhoto: React.FC<CardPhotoProps> = ({
   thumbnailUrl,
   albumId,
 }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const handleImageLoad = () => {
+    setIsLoaded(true);
+  };
   return (
-    
     <div className="bg-dark-slate-gray shadow-lg rounded-lg p-4 flex flex-col justify-between">
-      <img
+      <Image
+        loading="lazy"
         src={thumbnailUrl}
         alt={title}
-        className="rounded-3xl w-full h-auto"
+        className={`rounded-3xl w-full h-auto transition-all duration-300 ${
+          isLoaded ? "opacity-100" : "opacity-0 blur-sm"
+        }`}
+        onLoad={handleImageLoad}
       />
       <div className="py-6">
         <h3 className="text-lg text-white font-semibold overflow-hidden line-clamp-2">
