@@ -31,10 +31,7 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     setUserToken(token ? token : null);
     setUserRole(role ? parseInt(role) : null);
     setUserId(id ? parseInt(id) : null);
-    if (!token && !role && !id) {
-      router.push("/login");
-    }
-  }, [router]);
+  }, []);
 
   const login = async (phone: string, password: string): Promise<void> => {
     const result = await uselogicLogin(phone, password);

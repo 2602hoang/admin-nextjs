@@ -3,6 +3,7 @@ import axios, { AxiosInstance } from "axios";
 import HttpError from "../errors/HttpError";
 import { useAuth } from "../contexts/AuthContext";
 import { SERVER_URLS } from "@/utils";
+import { useRouter } from "next/navigation";
 
 interface AxiosContextType {
   axiosInstance: (serverIndex: number) => AxiosInstance;
@@ -15,7 +16,8 @@ interface AxiosProviderProps {
 }
 
 export const AxiosProvider: React.FC<AxiosProviderProps> = ({ children }) => {
-  const { userToken } = useAuth();
+  const { userToken, logout } = useAuth();
+  const router = useRouter();
   const serverList = SERVER_URLS;
   const createAxiosInstance = (serverIndex: number) => {
     const instance = axios.create({
@@ -42,6 +44,16 @@ export const AxiosProvider: React.FC<AxiosProviderProps> = ({ children }) => {
       (error) => {
         if (error.response) {
           const status = error.response.status;
+
+          // Nếu mã lỗi là 401 (Unauthorized), token có thể đã hết hạn
+          if (status === 401) {
+            logout(); // Gọi logout để đăng xuất người dùng
+            router.push("/login"); // Chuyển hướng đến trang đăng nhập
+            throw new HttpError(
+              status,
+              "Unauthorized: Token expired or invalid"
+            );
+          }
           const messages: { [key: number]: string } = {
             304: "304 || Not Modified: The request was not modified",
             400: "400 || Bad Request: The request was invalid or cannot be served",
