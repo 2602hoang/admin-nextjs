@@ -1,6 +1,6 @@
 "use client";
 import "@/style/index.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FloatButton } from "antd";
 import { LoadingPage } from "@/components/loading/LoadingPage";
 import Navbar from "@/components/navbar/NavBar";
@@ -15,15 +15,16 @@ interface LayoutPageProps {
 
 const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
   const { userToken } = useAuth();
-  const router = useRouter();
   const [collapsed, setCollapsed] = useState(false);
+  const router = useRouter();
   const toggleCollapsed = () => {
     setCollapsed((prev) => !prev);
   };
-  if (userToken === null) {
-    router.push("/login");
-    return null;
-  }
+  useEffect(() => {
+    if (userToken === null) {
+      router.push("/login");
+    }
+  }, [userToken]);
   return (
     <>
       <LoadingPage />
