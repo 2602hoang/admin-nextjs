@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Admin Dashboard with Next.js & Node.js
 
-## Getting Started
+Đây là một dự án **Admin Dashboard** được xây dựng với **Next.js** cho Front-end, **Node.js** và **Express** cho Back-end, sử dụng **MySQL** cho cơ sở dữ liệu. Dự án này được triển khai hoàn chỉnh với Front-end trên **Vercel**, Back-end cũng trên **Vercel**, và cơ sở dữ liệu được triển khai trên **Aiven**. Dự án được phát triển trong quá trình thực tập, nơi tôi tự học và áp dụng kiến thức vào thực tế.
 
-First, run the development server:
+## Mô Tả Dự Án
+
+Dự án này là một ứng dụng quản trị dành cho người dùng quản lý dữ liệu và tương tác với hệ thống qua giao diện trực quan. Giao diện Front-end được xây dựng bằng **Next.js** với **TypeScript** và được định dạng bằng **Ant Design**, **Tailwind CSS**, và **Sass**. Máy chủ Back-end sử dụng **Node.js** và **Express** kết nối với cơ sở dữ liệu **MySQL**. Dự án tích hợp **React Query** để quản lý trạng thái và truy xuất dữ liệu hiệu quả.
+
+### Các Tính Năng Chính
+
+- **Phát triển Front-End**: 
+  - Xây dựng với **Next.js** và **TypeScript**.
+  - Sử dụng **Ant Design** và **Tailwind CSS** cho giao diện người dùng.
+  - Quản lý trạng thái và dữ liệu hiệu quả với **React Query** và **Axios**.
+  
+- **Phát triển Back-End**: 
+  - Máy chủ được phát triển với **Node.js** và **Express**.
+  - Sử dụng **MySQL** cho cơ sở dữ liệu.
+  
+- **Tích hợp API**: 
+  - Tích hợp với **API tùy chỉnh** và **API miễn phí từ Google Apps Script**.
+
+- **Hình ảnh hóa dữ liệu**:
+  - Sử dụng **Recharts** để tạo các biểu đồ và đồ thị trực quan.
+
+- **Triển khai**: 
+  - Front-end và Back-end được triển khai trên **Vercel**.
+  - Cơ sở dữ liệu được triển khai trên **Aiven**.
+- **Demo**:
+  - Front-end: https://admin-nextjs-hook-api.vercel.app/
+        Tài khoản : + admim : ( phone : 0917789964 , password : 123456)
+                    + user :  ( phone : 0917789965 , password : 123456)
+  - Back-end: https://server-v2-api.vercel.app/
+## Cài Đặt Dự Án
+
+### Cài Đặt Front-End
+
+1. Clone repo Front-end về máy:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+git clone https://github.com/2602hoang/admin-nextjs
