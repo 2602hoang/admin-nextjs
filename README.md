@@ -26,11 +26,6 @@ Dự án này là một ứng dụng quản trị dành cho người dùng quả
 - **Triển khai**: 
   - Front-end và Back-end được triển khai trên **Vercel**.
   - Cơ sở dữ liệu được triển khai trên **Aiven**.
-- **Demo**:
-  - Front-end: https://admin-nextjs-hook-api.vercel.app/
-        Tài khoản : + admim : ( phone : 0917789964 , password : 123456)
-                    + user :  ( phone : 0917789965 , password : 123456)
-  - Back-end: https://server-v2-api.vercel.app/
 ## Cài Đặt Dự Án
 
 ### Cài Đặt Front-End
@@ -39,3 +34,96 @@ Dự án này là một ứng dụng quản trị dành cho người dùng quả
 
 ```bash
 git clone https://github.com/2602hoang/admin-nextjs
+2. Cài đặt các phụ thuộc:
+
+```bash
+cd admin-nextjs
+npm install
+
+3. Chạy ứng dụng Front-end trong môi trường phát triển:
+
+```bash
+npm run dev
+
+### Cài Đặt Back-End
+
+1.Clone repo Back-end về máy:
+
+```bash
+git clone https://github.com/2602hoang/server
+
+2.Cài đặt các phụ thuộc:
+
+```bash
+cd server
+npm install
+
+3.Chạy ứng dụng Back-end:
+
+```bash
+npm start
+
+**Liên Kết Demo**
+Trang Admin: https://admin-nextjs-hook-api.vercel.app/login
+
+Đăng nhập quản trị:
+
+Điện thoại: 0917789964
+Mật khẩu: 123456
+Đăng nhập người dùng:
+
+Điện thoại: 0917789965
+Mật khẩu: 123456
+
+**Công Nghệ Sử Dụng**
+Front-End:
+HTML/CSS
+TypeScript
+Next.js
+Ant Design
+Tailwind CSS
+React Query
+Axios
+Sass
+Back-End:
+Node.js
+Express
+MySQL
+JavaScript
+Hình ảnh hóa dữ liệu:
+Recharts
+
+**Lỗi & Góp Ý**
+Nếu bạn gặp phải lỗi hoặc có góp ý cải tiến, vui lòng mở issue trên GitHub repository của chúng tôi:
+
+**Tác Giả**
+Tên của bạn - Nhà phát triển chính - @hoang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
