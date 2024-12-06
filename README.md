@@ -62,8 +62,8 @@ npm install
 
 ```bash
 npm start
-
-**Liên Kết Demo**
+```
+- **Liên Kết Demo**
 Trang Admin: https://admin-nextjs-hook-api.vercel.app/login
 
 Đăng nhập quản trị:
@@ -75,7 +75,7 @@ Mật khẩu: 123456
 Điện thoại: 0917789965
 Mật khẩu: 123456
 
-**Công Nghệ Sử Dụng**
+- **Công Nghệ Sử Dụng**
 Front-End:
 HTML/CSS
 TypeScript
@@ -93,10 +93,10 @@ JavaScript
 Hình ảnh hóa dữ liệu:
 Recharts
 
-**Lỗi & Góp Ý**
+- **Lỗi & Góp Ý**
 Nếu bạn gặp phải lỗi hoặc có góp ý cải tiến, vui lòng mở issue trên GitHub repository của chúng tôi:
 
-**Tác Giả**
+- **Tác Giả**
 Tên của bạn - Nhà phát triển chính - @hoang
 
 
